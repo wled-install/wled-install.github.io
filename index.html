@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>WLED installation</title>
+  <style>
+  a { color: #0000EE; cursor: pointer; text-decoration: underline;}
+  div {padding-bottom: 10px;}
+ .select-wrapper {
+    position: relative;
+    width: 500px;
+  }
+ .button-wrapper {
+   position: relative;
+   width: 500px;
+ }
+body {
+  background-color: #66CCFF;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+}
+
+#lang {width: 500px;}
+#software_version {width: 500px;}
+select, button {
+  -moz-appearance: none;
+  -webkit-appearance: none;
+  appearance: none;
+  background-color: #3399FF;
+  border: none;
+  border-radius: 3px;
+  box-shadow: 2px 2px 5px 1px rgba(0,0,0,.3);
+  color: #fff;
+  cursor: pointer;
+  font-family: 'Open Sans', sans-serif;
+  font-size: 16px;
+  height: 40px;
+  outline: none;
+  padding-left: 10px;
+}
+
+button {width: 500px;}
+
+select option {
+  color: #FFF;
+}
+.select-wrapper::before {
+  content: "\1F853";
+  font-size: 20px;
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  color: #fff;
+  pointer-events: none;
+}
+select::-ms-expand {
+  display: none;
+}
+select:focus::-ms-value {
+  background-color: transparent;
+}
+  </style>
+  <script
+    type="module"
+    src="https://unpkg.com/esp-web-tools@5.3.0/dist/web/install-button.js?module"
+  ></script>
+</head>
+<body>
+  <h2>WLED Software Installation</h2>
+  <div>Language/Sprache:
+  <div class="select-wrapper">
+  <select id="lang" onchange="LangChanged();">
+        <option value="0">Deutsch</option>
+        <option value="1">English</option>
+  </select></div></div>
+  <div id="FullContainer">
+      <ol>
+          <li><span id="L01">Schliessen Sie Ihr ESP8266 / ESP32 Board an USB an.</span></li>
+          <div></div>
+          <li><span id="L02">Wählen Sie den Board-Typ aus</span></li>
+          <div></div>
+          <li><span id="L03">Klicken Sie auf "Installieren" und wählen dann den korrekten COM-Port aus. </span><a onclick="NoComPortHelp()"><span id="L04">Kein Board wurde gefunden?</span></a></li>
+          <div id="comporthelp"></div>
+          <li><span id="L05">Klicken Sie auf "Install WLED"</span></li>
+      </ol><br>
+      <div class="container inst-button">
+          <div><span id="L11">Board Typ: </span>
+          <div class="select-wrapper">
+          <select id="software_version" onchange="selectSoftware()">
+            <optgroup label="Standard version 13.0 beta 6">
+              <option data-manifest_file="/fw/manifest_ESP8266_4MB.json"><span id="L06a">ESP8266 (4MB: D1 mini etc.)</span></option>
+              <option data-manifest_file="/fw/manifest_ESP8266_2MB.json"><span id="L06b">ESP8266/ESP8285 (2MB)</span></option>
+              <option data-manifest_file="/fw/manifest_ESP8266_1MB.json"><span id="L06c">ESP8266/ESP8285 (1MB)</span></option>
+              <option data-manifest_file="/fw/manifest_ESP32_4MB.json"><span id="L06d">ESP32 (4MB)</span></option>
+              <option data-manifest_file="/fw/manifest_ESP32_4MB_ETH.json"><span id="L06e">ESP32 (4MB, Ethernet)</span></option>
+            <optgroup label="Sound reactive version 13.0 beta 4">
+              <option data-manifest_file="/fw/manifest_SR_ESP32_4MB.json"><span id="L06f">ESP32 (4MB)</span></option>
+              <option data-manifest_file="/fw/manifest_SR_ESP32_4MB_ETH.json"><span id="L06g">ESP32 (4MB, Ethernet)</span></option>
+          </select>
+          </div>
+          </div><br>
+          <esp-web-install-button id="install_btn" manifest="/cangw/manifest.json" >
+            <button slot="activate"><span id="L09">Installieren<span></button>
+          </esp-web-install-button><br><br>
+      </div>
+      <div>
+        <span id="L15">Nützliche Informationen:</span>
+        <ul>
+          <li><span id="L12">WLED Wiki: <a href="https://kno.wled.ge">https://kno.wled.ge</a></span></li>
+          <li><span id="L14">DIY WLED boards: </span><a href="https://github.com/wladwnt/wled">Github</a></li>
+          <li><span id="L13">Professionelle WLED Boards: <a href="https://wled.shop">WLED Shop</a></span></li>
+        </ul>
+      </div>
+  </div>
+<script>
+function LangChanged() {
+    if(document.getElementById('lang').selectedIndex==0) {
+        if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Leider Ihr Browser wird aktuell nicht unterstützt!<br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.";
+        if(document.getElementById('L01')) document.getElementById('L01').innerHTML = "Schliessen Sie Ihr ESP8266 / ESP32 Board an USB an.";
+        if(document.getElementById('L02')) document.getElementById('L02').innerHTML = "Wählen Sie den Board-Typ aus";
+        if(document.getElementById('L03')) document.getElementById('L03').innerHTML = "Klicken Sie auf \"Installieren\" und wählen dann den korrekten COM-Port aus. ";
+        if(document.getElementById('L04')) document.getElementById('L04').innerHTML = "Kein Board wurde gefunden?";
+        if(document.getElementById('L05')) document.getElementById('L05').innerHTML = "Klicken Sie auf \"Install WLED\"";
+        if(document.getElementById('L09')) document.getElementById('L09').innerHTML = "Installieren";
+        if(document.getElementById('L11')) document.getElementById('L11').innerHTML = "Board Typ: ";
+        if(document.getElementById('L13')) document.getElementById('L13').innerHTML = "Professionelle WLED Boards: ";
+        if(document.getElementById('L15')) document.getElementById('L15').innerHTML = "Nützliche Informationen:";
+      
+    } else {
+        if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Unfortunately your browser is not yet supported!<br>Please try on Chrome (for Desktop) or Microsoft Edge.";
+        if(document.getElementById('L01')) document.getElementById('L01').innerHTML = "Connect your ESP8266 / ESP32 board via USB port";
+        if(document.getElementById('L02')) document.getElementById('L02').innerHTML = "Select type of your board";
+        if(document.getElementById('L03')) document.getElementById('L03').innerHTML = "Click on \"Install\" and select the correct COM port. ";
+        if(document.getElementById('L04')) document.getElementById('L04').innerHTML = "No board found?";
+        if(document.getElementById('L05')) document.getElementById('L05').innerHTML = "Click on \"Install WLED\"";
+        if(document.getElementById('L09')) document.getElementById('L09').innerHTML = "Install";
+        if(document.getElementById('L11')) document.getElementById('L11').innerHTML = "Board type: ";
+        if(document.getElementById('L13')) document.getElementById('L13').innerHTML = "Professional WLED boards: ";
+        if(document.getElementById('L15')) document.getElementById('L15').innerHTML = "Useful links:";
+      
+    }
+    document.getElementById('comporthelp').innerHTML ="";
+}
+
+function selectSoftware() {
+    var selected = document.getElementById('software_version');
+    var manifest_file = selected.options[selected.selectedIndex].dataset.manifest_file;
+    document.getElementById('install_btn').setAttribute('manifest',manifest_file);
+}
+
+function NoComPortHelp() {
+    document.getElementById('L04').innerHTML = "";
+    if(document.getElementById('lang').selectedIndex==0) {
+        document.getElementById('comporthelp').innerHTML = "<br>Ist Dein USB Kabel geeignet für Datentransfer ?<br><br>Vielelicht fehlt der USB Treiber für Dein Board. Die meisten Boards verwenden einen von diesen:<br>- <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" target=\"_blank\">CP210x (quadratischer Chip)</a><br>-  <a href=\"http://www.wch-ic.com/downloads/CH341SER_EXE.html\" target=\"_blank\">CH34x (Rechteck Chip)</a><br><br>";
+    } else {
+        document.getElementById('comporthelp').innerHTML = "<br>Check if your USB cable supports data transfer.<br><br>Eventually you have to install the drivers for your board.<br>Here are drivers commonly used in ESP32 boards:<br>- <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" target=\"_blank\">CP210x (small square chip)</a><br>- <a href=\"http://www.wch-ic.com/downloads/CH341SER_EXE.html\" target=\"_blank\">CH34x (rectangular chip)</a><br><br>";
+    }
+}
+
+window.onload = function () {
+    if (document.getElementById('install_btn').hasAttribute('install-unsupported')) {
+        if(document.getElementById('lang').selectedIndex==0) {
+            document.getElementById('FullContainer').innerHTML = "<span id=\"L10\">Leider Ihr Browser wird aktuell nicht unterstützt!<br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.</span><br>"; 
+        } else {
+            document.getElementById('FullContainer').innerHTML = "<span id=\"L10\">Unfortunately your browser is not yet supported!<br>Please try on Chrome (for Desktop) or Microsoft Edge.</span><br>";
+        }
+    } else {
+        selectSoftware();
+    }
+};
+</script>
+</body>
+</html>
