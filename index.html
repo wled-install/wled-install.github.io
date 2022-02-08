@@ -67,6 +67,7 @@ select:focus::-ms-value {
 </head>
 <body>
   <h2>WLED Software Installation</h2>
+  <h4 id="L17">(inoffizieller Installer mit einem erweiterten Funktionsumfang)</h4>
   <div>Language/Sprache:
   <div class="select-wrapper">
   <select id="lang" onchange="LangChanged();">
@@ -137,6 +138,7 @@ function LangChanged() {
         if(document.getElementById('L13')) document.getElementById('L13').innerHTML = 'Professionelle WLED Boards: <a href="https://wled.shop">WLED Shop</a>';
         if(document.getElementById('L15')) document.getElementById('L15').innerHTML = "Nützliche Informationen:";
         if(document.getElementById('L16')) document.getElementById('L16').innerHTML = 'WLED Leistung Rechner: <a href="https://wled-calculator.github.io">https://wled-calculator.github.io</a>';
+        if(document.getElementById('L17')) document.getElementById('L17').innerHTML = '(inoffizieller Installer mit einem erweiterten Funktionsumfang)';
       
     } else {
         if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Unfortunately your browser is not yet supported!<br>Please try on Chrome (for Desktop) or Microsoft Edge.";
@@ -150,7 +152,7 @@ function LangChanged() {
         if(document.getElementById('L13')) document.getElementById('L13').innerHTML = 'Professional WLED boards: <a href="https://wled.shop">WLED Shop</a>';
         if(document.getElementById('L15')) document.getElementById('L15').innerHTML = "Useful web pages:";
         if(document.getElementById('L16')) document.getElementById('L16').innerHTML = 'WLED power calculator: <a href="https://wled-calculator.github.io">https://wled-calculator.github.io</a>';
-      
+        if(document.getElementById('L17')) document.getElementById('L17').innerHTML = '(unofficial installer with an extended functionality)';
     }
     document.getElementById('comporthelp').innerHTML ="";
 }
