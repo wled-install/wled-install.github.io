@@ -124,6 +124,13 @@ select:focus::-ms-value {
           <li><span id="L16">WLED power calculator: <a href="https://wled-calculator.github.io">https://wled-calculator.github.io</a></span></li>
         </ul>
       </div>
+   <hr>
+   <a onclick="ShowImprint()"><span id="L18">Impressum</span></a>
+   <div id="imprint"></div>
+   <br>
+   <a onclick="ShowDataPrivacy()"><span id="L19">Datenschutzerklärung</span></a>
+   <div id="dataprivacy"></div>
+        
 <script>
 function LangChanged() {
     if(document.getElementById('lang').selectedIndex==0) {
@@ -139,6 +146,8 @@ function LangChanged() {
         if(document.getElementById('L15')) document.getElementById('L15').innerHTML = "Nützliche Informationen:";
         if(document.getElementById('L16')) document.getElementById('L16').innerHTML = 'WLED Leistung Rechner: <a href="https://wled-calculator.github.io">https://wled-calculator.github.io</a>';
         if(document.getElementById('L17')) document.getElementById('L17').innerHTML = '(inoffizieller Installer mit einem erweiterten Funktionsumfang)';
+        if(document.getElementById('L18')) document.getElementById('L18').innerHTML = 'Impressum';
+        if(document.getElementById('L19')) document.getElementById('L19').innerHTML = 'Datenschutzerklärung';
       
     } else {
         if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Unfortunately your browser is not yet supported!<br>Please try on Chrome (for Desktop) or Microsoft Edge.";
@@ -153,6 +162,8 @@ function LangChanged() {
         if(document.getElementById('L15')) document.getElementById('L15').innerHTML = "Useful web pages:";
         if(document.getElementById('L16')) document.getElementById('L16').innerHTML = 'WLED power calculator: <a href="https://wled-calculator.github.io">https://wled-calculator.github.io</a>';
         if(document.getElementById('L17')) document.getElementById('L17').innerHTML = '(unofficial installer with an extended functionality)';
+        if(document.getElementById('L18')) document.getElementById('L18').innerHTML = 'Imprint';
+        if(document.getElementById('L19')) document.getElementById('L19').innerHTML = 'Data privacy';
     }
     document.getElementById('comporthelp').innerHTML ="";
 }
@@ -161,6 +172,22 @@ function selectSoftware() {
     var selected = document.getElementById('software_version');
     var manifest_file = selected.options[selected.selectedIndex].dataset.manifest_file;
     document.getElementById('install_btn').setAttribute('manifest',manifest_file);
+}
+  
+function ShowImprint() {
+    if(document.getElementById('lang').selectedIndex==0) {
+        document.getElementById('imprint').innerHTML = "<br><h3>Impressum</h3>Angaben gemäß § 5 TMG<br>Wladislaw Waag<br>Wasserburger Landstr. 29, 81825 München, Deutschland<br>Kontakt: +49 (0) 176 47 11 5206, info@myhome-control.de<br>EU-Streitschlichtung: Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href='https://ec.europa.eu/consumers/odr/' target='_blank'>https://ec.europa.eu/consumers/odr/</a>.<br>Verbraucherstreitbeilegung/Universalschlichtungsstelle: Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.";
+    } else {
+        document.getElementById('imprint').innerHTML = "<br><h3>Imprint</h3>Information according to § 5 TMG<br>Wladislaw Waag<br>Wasserburger Landstr. 29, 81825 Munich, Germany<br>Contact: +49 176 47 11 5206, info@myhome-control.de<br>EU dispute settlement: The European Commission provides a platform for online dispute resolution (ODR): <a href='https://ec.europa.eu/consumers/odr/' target='_blank'>https://ec.europa.eu/consumers/odr/</a>.<br>Consumer dispute settlement / universal arbitration board: We are neither willing nor obliged to participate in dispute settlement proceedings before a consumer arbitration board.";
+    }
+}
+  
+function ShowDataPrivacy() {
+    if(document.getElementById('lang').selectedIndex==0) {
+        document.getElementById('dataprivacy').innerHTML = "<br><h3>Datenschutzerklärung</h3>Der betreiber dieser Webseite (https://wled-install.github.io) sammelt und verarbeitet keinerlei personenbezogenen Daten der Nutzer dierser Webseite. Diese Seite wird jedoch im Rahmen von 'Github Pages' gehostet und betrieben. Es ist möglich und wahrscheinlich, dass Github die personenbezogenen daten samemlt und verarbeitet, das betrifft dann auch die Besucher der Webseite wled-installer.github.io. Ich habe aber keinerlei Einfluss darauf. Bitte lesen Sie dazu die Datenschutzerklärung von Github: <a href='https://docs.github.com/en/github/site-policy/github-privacy-statement' target='_blank'>https://docs.github.com/en/github/site-policy/github-privacy-statement</a>";
+    } else {
+        document.getElementById('dataprivacy').innerHTML = "<br><h3>Data privacy</h3>The operator of this website (https://wled-install.github.io) does not collect and process any personal data of the users of this website. However, this page is hosted and operated as part of 'Github Pages'. It is possible and probable that Github collects and processes personal data, which then also affects visitors of the wled-installer.github.io web page. But I have no influence on it. Please read the Github privacy statement: <a href='https://docs.github.com/en/github/site-policy/github-privacy-statement' target='_blank'>https://docs.github.com/en/github/site-policy/github-privacy-statement</a>";
+    }
 }
 
 function NoComPortHelp() {
