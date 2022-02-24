@@ -1,0 +1,13 @@
+{
+  "name": "WLED (ESP8266, 2MB)",
+  "version": "13.0-b6",
+  "new_install_skip_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP8266",
+      "parts": [
+        { "path": "ESP8266_2MB_13b7.bin", "offset": 0 }
+      ]
+    }
+  ]
+}
