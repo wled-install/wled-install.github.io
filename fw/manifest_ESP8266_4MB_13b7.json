@@ -1,6 +1,6 @@
 {
   "name": "WLED (ESP8266, 4MB)",
-  "version": "13.0-b6",
+  "version": "13.0-b7",
   "new_install_skip_erase": false,
   "builds": [
     {
