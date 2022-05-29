@@ -82,7 +82,7 @@ select:focus::-ms-value {
           <div></div>
           <li><span id="L03">Klicken Sie auf "Installieren" und wählen dann den korrekten COM-Port aus. </span><a onclick="NoComPortHelp()"><span id="L04">Kein Board wurde gefunden?</span></a></li>
           <div id="comporthelp"></div>
-          <li><span id="L05">Klicken Sie auf "Install WLED"</span></li>
+          <li><span id="L05">Klicken Sie auf "Install WLED". Die Installation beginnt. Sollte nach einiger Zeit die Installation beim "Wrapping Up" stehen bleiben, können es es unterbrechen. Die SW ist dann trotzdem i.O. installiert.</span></li>
       </ol><br>
       <div class="container inst-button">
           <div><span id="L11">Board Typ: </span>
@@ -153,7 +153,7 @@ function LangChanged() {
         if(document.getElementById('L02')) document.getElementById('L02').innerHTML = "Wählen Sie den Board-Typ aus";
         if(document.getElementById('L03')) document.getElementById('L03').innerHTML = "Klicken Sie auf \"Installieren\" und wählen dann den korrekten COM-Port aus. ";
         if(document.getElementById('L04')) document.getElementById('L04').innerHTML = "Kein Board wurde gefunden?";
-        if(document.getElementById('L05')) document.getElementById('L05').innerHTML = "Klicken Sie auf \"Install WLED\"";
+        if(document.getElementById('L05')) document.getElementById('L05').innerHTML = "Klicken Sie auf \"Install WLED\". Die Installation beginnt. Sollte nach einiger Zeit die Installation beim \"Wrapping Up\" stehen bleiben, können sie es unterbrechen. Die SW ist dann trotzdem i.O. installiert";
         if(document.getElementById('L09')) document.getElementById('L09').innerHTML = "Installieren";
         if(document.getElementById('L11')) document.getElementById('L11').innerHTML = "Board Typ: ";
         if(document.getElementById('L13')) document.getElementById('L13').innerHTML = 'Professionelle WLED Boards: <a href="https://wled.shop">WLED Shop</a>';
@@ -169,7 +169,7 @@ function LangChanged() {
         if(document.getElementById('L02')) document.getElementById('L02').innerHTML = "Select type of your board";
         if(document.getElementById('L03')) document.getElementById('L03').innerHTML = "Click on \"Install\" and select the correct COM port. ";
         if(document.getElementById('L04')) document.getElementById('L04').innerHTML = "No board found?";
-        if(document.getElementById('L05')) document.getElementById('L05').innerHTML = "Click on \"Install WLED\"";
+        if(document.getElementById('L05')) document.getElementById('L05').innerHTML = "Click on \"Install WLED\". If after some time the installation stops at \"wrapping up\", you can interrupt it. The SW is then still installed correctly.";
         if(document.getElementById('L09')) document.getElementById('L09').innerHTML = "Install";
         if(document.getElementById('L11')) document.getElementById('L11').innerHTML = "Board type: ";
         if(document.getElementById('L13')) document.getElementById('L13').innerHTML = 'Professional WLED boards: <a href="https://wled.shop">WLED Shop</a>';
