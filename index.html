@@ -88,18 +88,24 @@ select:focus::-ms-value {
           <div><span id="L11">Board Typ: </span>
           <div class="select-wrapper">
           <select id="software_version" onchange="selectSoftware()">
-             <optgroup label="Standard version 13.1">
+             <optgroup label="Standard version 13.2">
+              <option data-manifest_file="/fw/manifest_ESP8266_4MB_13.2.json"><span id="L06a">ESP8266 (4MB Flash: D1 mini etc.)</span></option>
+              <option data-manifest_file="/fw/manifest_ESP8266_2MB_13.2.json"><span id="L06b">ESP8266/ESP8285 (2MB Flash)</span></option>
+              <option data-manifest_file="/fw/manifest_ESP8266_1MB_13.2.json"><span id="L06c">ESP8266/ESP8285 (1MB Flash)</span></option>
+              <option data-manifest_file="/fw/manifest_ESP32_4MB_13.2.json"><span id="L06d">ESP32 (4MB Flash, original + Bugfix: WDT disabled)</span></option>
+              <option data-manifest_file="/fw/manifest_ESP32_4MB_ETH_13.2.json"><span id="L06e">ESP32 (4MB Flash, Ethernet + Bugfix: WDT disabled)</span></option>
+            <optgroup label="Sound reactive version 13.2">
+              <option data-manifest_file="/fw/manifest_SR_ESP32_13.2_4MB.json"><span id="L06f">ESP32 (4MB Flash, original SR build: Alexa/Blynk/HueSync/Infrared disabled)</span></option>
+              <option data-manifest_file="/fw/manifest_SR_ESP32_13.2_4MB_ETH.json"><span id="L06f">ESP32 (4MB Flash, Ethernet, original SR build: Alexa/Blynk/HueSync/Infrared disabled)</span></option>
+              <option data-manifest_file="/fw/manifest_SR_ESP32_13.2_4MB_ABHI.json"><span id="L06f">ESP32 (4MB Flash, APA102 2MHz + Alexa/HueSync/Infrared enabled)</span></option>
+              <option data-manifest_file="/fw/manifest_SR_ESP32_13.2_4MB_ETH_ABHI.json"><span id="L06f">ESP32 (4MB Flash, Ethernet, APA102 2MHz + Alexa/HueSync/Infrared enabled)</span></option>
+            <optgroup label="Standard version 13.1">
               <option data-manifest_file="/fw/manifest_ESP8266_4MB_13.1.json"><span id="L06a">ESP8266 (4MB Flash: D1 mini etc.)</span></option>
               <option data-manifest_file="/fw/manifest_ESP8266_2MB_13.1.json"><span id="L06b">ESP8266/ESP8285 (2MB Flash)</span></option>
               <option data-manifest_file="/fw/manifest_ESP8266_1MB_13.1.json"><span id="L06c">ESP8266/ESP8285 (1MB Flash)</span></option>
               <option data-manifest_file="/fw/manifest_ESP32_4MB_13.1.json"><span id="L06d">ESP32 (4MB Flash, original)</span></option>
               <option data-manifest_file="/fw/manifest_ESP32_4MB_13.1_APA102FIX2MHZ.json"><span id="L06d">ESP32 (4MB Flash, APA102 fix: 2MHz)</span></option>
               <option data-manifest_file="/fw/manifest_ESP32_4MB_ETH_13.1.json"><span id="L06e">ESP32 (4MB Flash, Ethernet)</span></option>
-            <optgroup label="Sound reactive version 13.2">
-              <option data-manifest_file="/fw/manifest_SR_ESP32_13.2_4MB.json"><span id="L06f">ESP32 (4MB Flash, original SR build: Alexa/Blynk/HueSync/Infrared disabled)</span></option>
-              <option data-manifest_file="/fw/manifest_SR_ESP32_13.2_4MB_ETH.json"><span id="L06f">ESP32 (4MB Flash, Ethernet, original SR build: Alexa/Blynk/HueSync/Infrared disabled)</span></option>
-              <option data-manifest_file="/fw/manifest_SR_ESP32_13.2_4MB_ABHI.json"><span id="L06f">ESP32 (4MB Flash, APA102 2MHz + Alexa/HueSync/Infrared enabled)</span></option>
-              <option data-manifest_file="/fw/manifest_SR_ESP32_13.2_4MB_ETH_ABHI.json"><span id="L06f">ESP32 (4MB Flash, Ethernet, APA102 2MHz + Alexa/HueSync/Infrared enabled)</span></option>
             <optgroup label="Standard version 13.0 beta 6">
               <option data-manifest_file="/fw/manifest_ESP8266_4MB.json"><span id="L06a">ESP8266 (4MB Flash: D1 mini etc.)</span></option>
               <option data-manifest_file="/fw/manifest_ESP8266_2MB.json"><span id="L06b">ESP8266/ESP8285 (2MB Flash)</span></option>
