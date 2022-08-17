@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP32, 4MB, APA102 fix: 2MHz)",
+  "name": "WLED (ESP32, 4MB, APA102 fix: 2MHz, Bugfix: WDT disabled)",
   "version": "13.2",
   "new_install_skip_erase": false,
   "builds": [
@@ -9,7 +9,7 @@
         { "path": "bootloader_qio_80m.bin", "offset": 4096 },
         { "path": "partitions.bin", "offset": 32768 },
         { "path": "boot_app0.bin", "offset": 57344 },
-        { "path": "ESP32_4MB_13.2_APA102FIX2MHZ.bin", "offset": 65536 }
+        { "path": "WLED_0.13.2_ESP32_APA102FIX2MHZ.bin", "offset": 65536 }
       ]
     }
   ]
