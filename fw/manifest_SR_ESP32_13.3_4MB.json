@@ -1,6 +1,6 @@
 {
   "name": "WLED (ESP32, 4MB, original build)",
-  "version": "13.2",
+  "version": "13.3",
   "new_install_skip_erase": false,
   "builds": [
     {
@@ -9,7 +9,7 @@
         { "path": "bootloader_qio_80m.bin", "offset": 4096 },
         { "path": "partitions.bin", "offset": 32768 },
         { "path": "boot_app0.bin", "offset": 57344 },
-        { "path": "SR_ESP32_4MB_13.2.bin", "offset": 65536 }
+        { "path": "SR_ESP32_4MB_13.3.bin", "offset": 65536 }
       ]
     }
   ]
