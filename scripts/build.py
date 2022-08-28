@@ -49,6 +49,8 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfo=AddInfo+", APA102 2MHz + Alexa/Blink/Hue/Infrared enabled";
             if ("_APA102FIX2MHZ" in bin_file):
                 AddInfo=AddInfo+", APA102 2MHz";
+            if ("_v41" in bin_file):
+                AddInfo=AddInfo+", LEDPIN=16, DigMic = Generic I2S";
             dict["ADDINFO"]=AddInfo;
             dict["VERSION"]=dir_text;    
             dict["BINFILE"]=dir_path_forhtml+"/"+bin_file; 
