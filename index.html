@@ -137,6 +137,7 @@ select:focus::-ms-value {
         <div>
         <h3 id="L15">Nützliche Informationen:</h3>
         <ul>
+          <li><span id="L20">Link to .bin files used on: <a href="https://github.com/wled-install/wled-install.github.io/tree/gh-pages/fw">Github</a></span></li>
           <li><span id="L12">WLED Wiki: <a href="https://kno.wled.ge">https://kno.wled.ge</a></span></li>
           <li><span id="L14">DIY WLED boards: </span><a href="https://github.com/wladwnt/wled">Github</a></li>
           <li><span id="L13">Professionelle WLED Boards: <a href="https://wled.shop">WLED Shop</a></span></li>
@@ -167,6 +168,7 @@ function LangChanged() {
         if(document.getElementById('L17')) document.getElementById('L17').innerHTML = '(inoffizieller Installer mit einem erweiterten Funktionsumfang)';
         if(document.getElementById('L18')) document.getElementById('L18').innerHTML = 'Impressum';
         if(document.getElementById('L19')) document.getElementById('L19').innerHTML = 'Datenschutzerklärung';
+        if(document.getElementById('L20')) document.getElementById('L20').innerHTML = 'Link zu verwendeten .bin Dateien auf ';
       
     } else {
         if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Unfortunately your browser is not yet supported!<br>Please try on Chrome (for Desktop) or Microsoft Edge.";
@@ -183,6 +185,7 @@ function LangChanged() {
         if(document.getElementById('L17')) document.getElementById('L17').innerHTML = '(unofficial installer with an extended functionality)';
         if(document.getElementById('L18')) document.getElementById('L18').innerHTML = 'Imprint';
         if(document.getElementById('L19')) document.getElementById('L19').innerHTML = 'Data privacy';
+        if(document.getElementById('L20')) document.getElementById('L20').innerHTML = 'Link to .bin files used on ';
     }
     document.getElementById('comporthelp').innerHTML ="";
 }
