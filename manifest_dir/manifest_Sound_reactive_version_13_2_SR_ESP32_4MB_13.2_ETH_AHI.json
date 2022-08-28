@@ -1,0 +1,16 @@
+{
+  "name": "WLED (ESP32, 4MB Flash, Ethernet, APA102 2MHz + Alexa/Hue/Infrared enabled)",
+  "version": "Sound reactive version 13.2",
+  "new_install_skip_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        { "path": "/suppl_dir/bootloader_qio_80m.bin", "offset": 4096 },
+        { "path": "/suppl_dir/partitions.bin", "offset": 32768 },
+        { "path": "/suppl_dir/boot_app0.bin", "offset": 57344 },
+        { "path": "/bin_dir/2_Sound_reactive_version/13.2/SR_ESP32_4MB_13.2_ETH_AHI.bin", "offset": 65536 }
+      ]
+    }
+  ]
+}
