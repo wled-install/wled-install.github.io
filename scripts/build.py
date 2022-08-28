@@ -21,7 +21,7 @@ if not os.path.exists(output_manifest_dir):
     os.makedirs(output_manifest_dir)
 
 f_index= open(os.path.join(output_dir,"index_new.html"),"w+")
-dirs1=os.listdir(output_bin_dir).sort()
+dirs1=os.listdir(output_bin_dir)
 
 
 for dir1 in dirs1:
