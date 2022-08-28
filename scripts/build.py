@@ -1,3 +1,4 @@
+# (c) Wladislaw Waag, 2022
 import os, shutil, string
 
 output_dir="_build"
