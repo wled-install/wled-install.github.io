@@ -58,7 +58,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             template=string.Template(f_template.read())
             f_manifest.write(template.substitute(dict));
             f_manifest.close()
-            #html_list=html_list+(bin_file+" "+manifest_path_forhtml+ " "+ ESPtype+"("+AddInfo[2:]+")" + "\n")
+            #html_list=html_list+(bin_file+" "+manifest_path_forhtml+ " "+ ESPtype+" ("+AddInfo[2:]+")" + "\n")
             html_list=html_list+("<option data-manifest_file=\""+manifest_path_forhtml+ "\">"+ ESPtype+"("+AddInfo[2:]+")" + "</option>\n")
     return html_list
     
