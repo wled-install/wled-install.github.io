@@ -22,7 +22,7 @@ jobs:
     - name: Install python dependencies
       run: |
         python -m pip install -U pip
-        python -m pip install -r requirements.txt
+        python -m pip install -r ./scripts/requirements.txt
     # Build the site
     - name: Build the site
       run: |
