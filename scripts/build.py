@@ -20,11 +20,13 @@ def keyfunc(description):
     if "ESP32" in description:
         value=value+100000
     if "1MB" in description:
-        value=value+400
+        value=value+4000
     if "2MB" in description:
-        value=value+200
+        value=value+2000
     if "original" not in description:
         value=value+10000
+    if "Ethernet" in description:
+        value=value+100
     return value
         
 def proceed_dir(dir_path, dir_text, dir_path_forhtml):
