@@ -15,15 +15,10 @@ def isbinfile_esp32(filename):
     else:
         return False
         
-def keyfunc(filename):
-    if "ESP32" in filename:
-        return 1
-    else:
-        return 0
-
 def proceed_dir(dir_path, dir_text, dir_path_forhtml):
     html_list="<optgroup label=\""+dir_text+"\">"+"\n"
-    filelist=sorted(os.listdir(dir2_path), key=keyfunc)
+    html_list_array=[]
+    filelist=sorted(os.listdir(dir2_path))
     for bin_file in filelist:
         if bin_file[-4:]==".bin":
             # create manifest file
@@ -70,7 +65,10 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             f_manifest.write(template.substitute(dict));
             f_manifest.close()
             #html_list=html_list+(bin_file+" "+manifest_path_forhtml+ " "+ ESPtype+" ("+AddInfo[2:]+")" + "\n")
-            html_list=html_list+("<option data-manifest_file=\""+manifest_path_forhtml+ "\">"+ ESPtype+" ("+AddInfo[2:]+")" + "</option>\n")
+            html_list_array.append("<option data-manifest_file=\""+manifest_path_forhtml+ "\">"+ ESPtype+" ("+AddInfo[2:]+")" + "</option>")
+    html_list_array_sorted=sorted(html_list_array)
+    for item in html_list_array_sorted:
+        html_list=html_list+item+"\n"
     return html_list
     
 if not os.path.exists(output_dir):
