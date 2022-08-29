@@ -52,6 +52,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             else:
                 ESPtype="ESP8266"
                 template_filename="./scripts/manifest_esp8266_template.json"
+                AddInfo=", 4MB Flash: D1 mini etc.";
                 if ("_1MB" in bin_file) or ("_ESP01" in bin_file):
                     AddInfo=", 1MB Flash";
                 if ("_2MB" in bin_file) or ("_ESP02" in bin_file):
