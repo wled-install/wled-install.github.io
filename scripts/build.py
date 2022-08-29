@@ -14,10 +14,16 @@ def isbinfile_esp32(filename):
         return True
     else:
         return False
+        
+def keyfunc(filename):
+    if "ESP32" in filename:
+        return 1
+    else:
+        return 0
 
 def proceed_dir(dir_path, dir_text, dir_path_forhtml):
     html_list="<optgroup label=\""+dir_text+"\">"+"\n"
-    filelist=sorted(os.listdir(dir2_path))
+    filelist=sorted(os.listdir(dir2_path), key=keyfunc)
     for bin_file in filelist:
         if bin_file[-4:]==".bin":
             # create manifest file
@@ -100,4 +106,3 @@ dict["HTMLLIST"]=html_list
 f_index= open(os.path.join(output_dir,"index_new.html"),"w+")
 f_index.write(template.substitute(dict))
 f_index.close()
-
