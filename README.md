@@ -1,4 +1,5 @@
 # wled-install.github.io
 WLED Installation service
 
-published branch: gh-pages
+main branch: manifest and index.html generator
+gh-pages branch: published web page
