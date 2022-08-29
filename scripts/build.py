@@ -14,6 +14,18 @@ def isbinfile_esp32(filename):
         return True
     else:
         return False
+
+def keyfunc(description):
+    value=0
+    if "ESP32" in description:
+        value=value+100000
+    if "1MB" in description:
+        value=value+400
+    if "2MB" in description:
+        value=value+200
+    if "original" not in description:
+        value=value+10000
+    return value
         
 def proceed_dir(dir_path, dir_text, dir_path_forhtml):
     html_list="<optgroup label=\""+dir_text+"\">"+"\n"
@@ -66,7 +78,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             f_manifest.close()
             #html_list=html_list+(bin_file+" "+manifest_path_forhtml+ " "+ ESPtype+" ("+AddInfo[2:]+")" + "\n")
             html_list_array.append("<option data-manifest_file=\""+manifest_path_forhtml+ "\">"+ ESPtype+" ("+AddInfo[2:]+")" + "</option>")
-    html_list_array_sorted=sorted(html_list_array)
+    html_list_array_sorted=sorted(html_list_array, key=keyfunc)
     for item in html_list_array_sorted:
         html_list=html_list+item+"\n"
     return html_list
