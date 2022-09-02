@@ -62,7 +62,7 @@ select:focus::-ms-value {
   </style>
   <script
     type="module"
-    src="https://unpkg.com/esp-web-tools@7.3.1/dist/web/install-button.js?module"
+    src="https://unpkg.com/esp-web-tools@9.0.3/dist/web/install-button.js?module"
   ></script>
 </head>
 <body>
@@ -88,43 +88,29 @@ select:focus::-ms-value {
           <div><span id="L11">Board Typ: </span>
           <div class="select-wrapper">
           <select id="software_version" onchange="selectSoftware()">
-             <optgroup label="Standard version 13.3">
-              <option data-manifest_file="/fw/manifest_ESP8266_4MB_13.3.json"><span id="L06a">ESP8266 (4MB Flash: D1 mini etc.)</span></option>
-              <option data-manifest_file="/fw/manifest_ESP8266_2MB_13.3.json"><span id="L06b">ESP8266/ESP8285 (2MB Flash)</span></option>
-              <option data-manifest_file="/fw/manifest_ESP8266_1MB_13.3.json"><span id="L06c">ESP8266/ESP8285 (1MB Flash)</span></option>
-              <option data-manifest_file="/fw/manifest_ESP32_4MB_13.3.json"><span id="L06d">ESP32 (4MB Flash, original)</span></option>
-              <option data-manifest_file="/fw/manifest_ESP32_4MB_13.3_APA102FIX2MHZ.json"><span id="L06d">ESP32 (4MB Flash, APA102 fix: 2MHz)</span></option>
-              <option data-manifest_file="/fw/manifest_ESP32_4MB_ETH_13.3.json"><span id="L06e">ESP32 (4MB Flash, Ethernet)</span></option>
-            <optgroup label="Sound reactive version 13.2">
-              <option data-manifest_file="/fw/manifest_SR_ESP32_13.2_4MB.json"><span id="L06f">ESP32 (4MB Flash, original SR build: Alexa/Blynk/HueSync/Infrared disabled)</span></option>
-              <option data-manifest_file="/fw/manifest_SR_ESP32_13.2_4MB_ETH.json"><span id="L06f">ESP32 (4MB Flash, Ethernet, original SR build: Alexa/Blynk/HueSync/Infrared disabled)</span></option>
-              <option data-manifest_file="/fw/manifest_SR_ESP32_13.2_4MB_ABHI.json"><span id="L06f">ESP32 (4MB Flash, APA102 2MHz + Alexa/HueSync/Infrared enabled)</span></option>
-              <option data-manifest_file="/fw/manifest_SR_ESP32_13.2_4MB_ETH_ABHI.json"><span id="L06f">ESP32 (4MB Flash, Ethernet, APA102 2MHz + Alexa/HueSync/Infrared enabled)</span></option>
-              <option data-manifest_file="/fw/manifest_SR_ESP32_13.2_4MB_ABHI_v41.json"><span id="L06f">ESP32 (4MB Flash, APA102 2MHz + Alexa/HueSync/Infrared enabled + DigMic enabled + LedPin=16)</span></option>
-            <optgroup label="Standard version 13.1">
-              <option data-manifest_file="/fw/manifest_ESP8266_4MB_13.1.json"><span id="L06a">ESP8266 (4MB Flash: D1 mini etc.)</span></option>
-              <option data-manifest_file="/fw/manifest_ESP8266_2MB_13.1.json"><span id="L06b">ESP8266/ESP8285 (2MB Flash)</span></option>
-              <option data-manifest_file="/fw/manifest_ESP8266_1MB_13.1.json"><span id="L06c">ESP8266/ESP8285 (1MB Flash)</span></option>
-              <option data-manifest_file="/fw/manifest_ESP32_4MB_13.1.json"><span id="L06d">ESP32 (4MB Flash, original)</span></option>
-              <option data-manifest_file="/fw/manifest_ESP32_4MB_13.1_APA102FIX2MHZ.json"><span id="L06d">ESP32 (4MB Flash, APA102 fix: 2MHz)</span></option>
-              <option data-manifest_file="/fw/manifest_ESP32_4MB_ETH_13.1.json"><span id="L06e">ESP32 (4MB Flash, Ethernet)</span></option>
-            <optgroup label="Standard version 13.0 beta 6">
-              <option data-manifest_file="/fw/manifest_ESP8266_4MB.json"><span id="L06a">ESP8266 (4MB Flash: D1 mini etc.)</span></option>
-              <option data-manifest_file="/fw/manifest_ESP8266_2MB.json"><span id="L06b">ESP8266/ESP8285 (2MB Flash)</span></option>
-              <option data-manifest_file="/fw/manifest_ESP8266_1MB.json"><span id="L06c">ESP8266/ESP8285 (1MB Flash)</span></option>
-              <option data-manifest_file="/fw/manifest_ESP32_4MB.json"><span id="L06d">ESP32 (4MB Flash)</span></option>
-              <option data-manifest_file="/fw/manifest_ESP32_4MB_ETH.json"><span id="L06e">ESP32 (4MB Flash, Ethernet)</span></option>
-            <optgroup label="Sound reactive version 13.0 beta 3">
-              <option data-manifest_file="/fw/manifest_SR_ESP8266_4MB.json"><span id="L06a">ESP8266 (4MB Flash: D1 mini etc.)</span></option>
-              <option data-manifest_file="/fw/manifest_SR_ESP8266_2MB.json"><span id="L06b">ESP8266 (2MB Flash)</span></option>
-              <option data-manifest_file="/fw/manifest_SR_ESP8266_4MB_13b3_withAlexa.json"><span id="L06a">ESP8266 (4MB Flash, Alexa enabled)</span></option>
-              <option data-manifest_file="/fw/manifest_SR_ESP8266_2MB_13b3_withAlexa.json"><span id="L06a">ESP8266 (2MB Flash, Alexa enabled)</span></option>
-            <optgroup label="Sound reactive version 13.0 beta 6">
-              <option data-manifest_file="/fw/manifest_SR_ESP32_13b6_4MB.json"><span id="L06f">ESP32 (4MB Flash, official SR build: Alexa/Blynk/HueSync/Infrared disabled)</span></option>
-              <option data-manifest_file="/fw/manifest_SR_ESP32_13b6_4MB_ABHI.json"><span id="L06f">ESP32 (4MB Flash, APA102 Fix + Alexa/Blynk/HueSync/Infrared enabled)</span></option>
-            <optgroup label="Sound reactive version 13.2 EXPERIMENTAL (dev branch [17. juli 2022], with -D SOUND_DYNAMICS_LIMITER)">
-              <option data-manifest_file="/fw/manifest_SR_ESP32_13.1_4MB_DEV_SDLimiter.json"><span id="L06f">ESP32 (4MB Flash, original SR build: Alexa/Blynk/HueSync/Infrared disabled)</span></option>          
-          </select>
+		  <optgroup label="Standart version 13.3">
+<option data-manifest_file="/manifest_dir/manifest_Standart_version_13_3_WLED_0.13.3_ESP8266.json">ESP8266 (4MB Flash: D1 mini etc.)</option>
+<option data-manifest_file="/manifest_dir/manifest_Standart_version_13_3_WLED_0.13.3_ESP02.json">ESP8266 (2MB Flash)</option>
+<option data-manifest_file="/manifest_dir/manifest_Standart_version_13_3_WLED_0.13.3_ESP01.json">ESP8266 (1MB Flash)</option>
+<option data-manifest_file="/manifest_dir/manifest_Standart_version_13_3_WLED_0.13.3_ESP32.json">ESP32 (4MB Flash)</option>
+<option data-manifest_file="/manifest_dir/manifest_Standart_version_13_3_WLED_0.13.3_ESP32_APA102FIX2MHZ.json">ESP32 (4MB Flash, APA102 2MHz)</option>
+<option data-manifest_file="/manifest_dir/manifest_Standart_version_13_3_WLED_0.13.3_ESP32_Ethernet.json">ESP32 (4MB Flash, Ethernet)</option>
+<optgroup label="Standart version 13.0 beta 6">
+<option data-manifest_file="/manifest_dir/manifest_Standart_version_13_0_beta_6_ESP8266_4MB.json">ESP8266 (4MB Flash: D1 mini etc.)</option>
+<option data-manifest_file="/manifest_dir/manifest_Standart_version_13_0_beta_6_ESP8266_2MB.json">ESP8266 (2MB Flash)</option>
+<option data-manifest_file="/manifest_dir/manifest_Standart_version_13_0_beta_6_ESP8266_1MB.json">ESP8266 (1MB Flash)</option>
+<option data-manifest_file="/manifest_dir/manifest_Standart_version_13_0_beta_6_ESP32_4MB.json">ESP32 (4MB Flash)</option>
+<optgroup label="Sound reactive version 13.2">
+<option data-manifest_file="/manifest_dir/manifest_Sound_reactive_version_13_2_SR_ESP32_4MB_13.2_OB.json">ESP32 (4MB Flash, original Build, Alexa/Hue/Infrared disabled)</option>
+<option data-manifest_file="/manifest_dir/manifest_Sound_reactive_version_13_2_SR_ESP32_4MB_13.2_ETH_OB.json">ESP32 (4MB Flash, Ethernet, original Build, Alexa/Hue/Infrared disabled)</option>
+<option data-manifest_file="/manifest_dir/manifest_Sound_reactive_version_13_2_SR_ESP32_4MB_13.2_AHI.json">ESP32 (4MB Flash, APA102 2MHz + Alexa/Hue/Infrared enabled)</option>
+<option data-manifest_file="/manifest_dir/manifest_Sound_reactive_version_13_2_SR_ESP32_4MB_13.2_AHI_v41.json">ESP32 (4MB Flash, APA102 2MHz + Alexa/Hue/Infrared enabled, LEDPIN=16, DigMic = Generic I2S)</option>
+<option data-manifest_file="/manifest_dir/manifest_Sound_reactive_version_13_2_SR_ESP32_4MB_13.2_ETH_AHI.json">ESP32 (4MB Flash, Ethernet, APA102 2MHz + Alexa/Hue/Infrared enabled)</option>
+<optgroup label="Sound reactive version 13.0 beta 3">
+<option data-manifest_file="/manifest_dir/manifest_Sound_reactive_version_13_0_beta_3_SR_ESP8266_4MB_13b3_withAlexa.json">ESP8266 (4MB Flash: D1 mini etc., Alexa enabled)</option>
+<option data-manifest_file="/manifest_dir/manifest_Sound_reactive_version_13_0_beta_3_SR_ESP8266_2MB_13b3_withAlexa.json">ESP8266 (2MB Flash, Alexa enabled)</option>
+
+		  </select>
           </div>
           </div><br>
           <esp-web-install-button id="install_btn" manifest="/cangw/manifest.json" >
@@ -137,7 +123,7 @@ select:focus::-ms-value {
         <div>
         <h3 id="L15">Nützliche Informationen:</h3>
         <ul>
-          <li><span id="L20">Link zu verwendeten .bin Dateien: <a href="https://github.com/wled-install/wled-install.github.io/tree/gh-pages/fw">auf Github</a></span></li>
+          <li><span id="L20">Link zu verwendeten .bin Dateien: <a href="https://github.com/wled-install/wled-install.github.io/tree/main/bin_dir">auf Github</a></span></li>
           <li><span id="L12">WLED Wiki: <a href="https://kno.wled.ge">https://kno.wled.ge</a></span></li>
           <li><span id="L14">DIY WLED boards: </span><a href="https://github.com/wladwnt/wled">Github</a></li>
           <li><span id="L13">Professionelle WLED Boards: <a href="https://shop.myhome-control.de">MyHome-Control Shop</a></span></li>
@@ -168,7 +154,7 @@ function LangChanged() {
         if(document.getElementById('L17')) document.getElementById('L17').innerHTML = '(inoffizieller Installer mit einem erweiterten Funktionsumfang)';
         if(document.getElementById('L18')) document.getElementById('L18').innerHTML = 'Impressum';
         if(document.getElementById('L19')) document.getElementById('L19').innerHTML = 'Datenschutzerklärung';
-        if(document.getElementById('L20')) document.getElementById('L20').innerHTML = 'Link zu verwendeten .bin Dateien: <a href="https://github.com/wled-install/wled-install.github.io/tree/gh-pages/fw">auf Github</a>';
+        if(document.getElementById('L20')) document.getElementById('L20').innerHTML = 'Link zu verwendeten .bin Dateien: <a href="https://github.com/wled-install/wled-install.github.io/tree/main/bin_dir">auf Github</a>';
       
     } else {
         if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Unfortunately your browser is not yet supported!<br>Please try on Chrome (for Desktop) or Microsoft Edge.";
@@ -185,7 +171,7 @@ function LangChanged() {
         if(document.getElementById('L17')) document.getElementById('L17').innerHTML = '(unofficial installer with an extended functionality)';
         if(document.getElementById('L18')) document.getElementById('L18').innerHTML = 'Imprint';
         if(document.getElementById('L19')) document.getElementById('L19').innerHTML = 'Data privacy';
-        if(document.getElementById('L20')) document.getElementById('L20').innerHTML = 'Link to .bin files used: <a href="https://github.com/wled-install/wled-install.github.io/tree/gh-pages/fw">on Github</a>';
+        if(document.getElementById('L20')) document.getElementById('L20').innerHTML = 'Link to .bin files used: <a href="https://github.com/wled-install/wled-install.github.io/tree/main/bin_dir">on Github</a>';
     }
     document.getElementById('comporthelp').innerHTML ="";
 }
@@ -206,7 +192,7 @@ function ShowImprint() {
   
 function ShowDataPrivacy() {
     if(document.getElementById('lang').selectedIndex==0) {
-        document.getElementById('dataprivacy').innerHTML = "<br><h3>Datenschutzerklärung</h3>Der betreiber dieser Webseite (https://wled-install.github.io) sammelt und verarbeitet keinerlei personenbezogenen Daten der Nutzer dierser Webseite. Diese Seite wird jedoch im Rahmen von 'Github Pages' gehostet und betrieben. Es ist möglich und wahrscheinlich, dass Github die personenbezogenen Daten sammelt und verarbeitet. Das betrifft dann auch die Besucher der Webseite wled-installer.github.io. Ich habe aber keinerlei Einfluss darauf. Bitte lesen Sie dazu die Datenschutzerklärung von Github: <a href='https://docs.github.com/en/github/site-policy/github-privacy-statement' target='_blank'>https://docs.github.com/en/github/site-policy/github-privacy-statement</a><br><br>Unsere Webseite enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte können wir keine Gewähr und keine Haftung übernehmen. Für die Inhalte der verlinkten Seiten ist immer der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren dabei nicht erkennbar. Sollten uns Rechtsverletzungen bekannt werden, werden wir die entsprechende Verlinkung umgehend entfernen.";
+        document.getElementById('dataprivacy').innerHTML = "<br><h3>Datenschutzerklärung</h3>Der Betreiber dieser Webseite (https://wled-install.github.io) sammelt und verarbeitet keinerlei personenbezogenen Daten der Nutzer dierser Webseite. Diese Seite wird jedoch im Rahmen von 'Github Pages' gehostet und betrieben. Es ist möglich und wahrscheinlich, dass Github die personenbezogenen Daten sammelt und verarbeitet. Das betrifft dann auch die Besucher der Webseite wled-installer.github.io. Ich habe aber keinerlei Einfluss darauf. Bitte lesen Sie dazu die Datenschutzerklärung von Github: <a href='https://docs.github.com/en/github/site-policy/github-privacy-statement' target='_blank'>https://docs.github.com/en/github/site-policy/github-privacy-statement</a><br><br>Unsere Webseite enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte können wir keine Gewähr und keine Haftung übernehmen. Für die Inhalte der verlinkten Seiten ist immer der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren dabei nicht erkennbar. Sollten uns Rechtsverletzungen bekannt werden, werden wir die entsprechende Verlinkung umgehend entfernen.";
     } else {
         document.getElementById('dataprivacy').innerHTML = "<br><h3>Data privacy</h3>The operator of this website (https://wled-install.github.io) does not collect and process any personal data of the users of this website. However, this page is hosted and operated as part of 'Github Pages'. It is possible and probable that Github collects and processes personal data, which then also affects visitors of the wled-installer.github.io web page. But I have no influence on it. Please read the Github privacy statement: <a href='https://docs.github.com/en/github/site-policy/github-privacy-statement' target='_blank'>https://docs.github.com/en/github/site-policy/github-privacy-statement</a><br><br>Our website contains links to external websites over which we have no control. We cannot accept any liability for this third-party content. The respective provider or operator of the pages is always responsible for the content of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognizable at that time. If we become aware of any legal violations, we will remove the relevant link immediately.";
     }
