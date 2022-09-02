@@ -116,6 +116,6 @@ f_template=open("./scripts/index_template.html", "r")
 template=string.Template(f_template.read())
 dict={}
 dict["HTMLLIST"]=html_list
-f_index= open(os.path.join(output_dir,"index_new.html"),"w+")
+f_index= open(os.path.join(output_dir,"index.html"),"w+")
 f_index.write(template.substitute(dict))
 f_index.close()
