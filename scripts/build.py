@@ -60,6 +60,8 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 
             if ("_AE" in bin_file) or ("_withAlexa" in bin_file):
                 AddInfo=AddInfo+", Alexa enabled";
+            if ("_ARE" in bin_file) :
+                AddInfo=AddInfo+", with Audio reactive Usermod";
             if ("_AHI" in bin_file):
                 AddInfo=AddInfo+", APA102 2MHz + Alexa/Hue/Infrared enabled";
             if ("_ABHI" in bin_file):
