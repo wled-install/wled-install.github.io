@@ -74,7 +74,9 @@ select:focus::-ms-value {
         <option value="0">Deutsch</option>
         <option value="1">English</option>
   </select></div></div>
-  <div id="FullContainer">
+  <div id="FullContainer1">
+		<div id="L21">Diese Software ist open source und wird kostenfrei zur Verfügung gestellt. Es werden keine bestimmten Eigenschaften der Software zugesichert. Der Inhaber dieser Webseite haftet nur für Vorsatz und grobe Fahrlässigkeit. Gewährleistungspflichten treffen ihn nur, wenn er Mängel der Software arglistig verschwiegen hat. Bitte beachten Sie, dass als „beta“ gekennzeichnete Versionen der Software besonders wahrscheinlich noch Fehler beinhalten. Wenn ein anderes Recht als Deutsches angewendet wird, es gelten die Bestimmungen der englischen Version (bitte oben englische Sprache wählen). 
+		</div>
       <ol>
           <li><span id="L01">Schliessen Sie Ihr ESP8266 / ESP32 Board an USB an.</span></li>
           <div></div>
@@ -84,11 +86,12 @@ select:focus::-ms-value {
           <div id="comporthelp"></div>
           <li><span id="L05">Klicken Sie auf "Install WLED". Die Installation beginnt. Sollte nach einiger Zeit die Installation beim "Wrapping Up" stehen bleiben, können es es unterbrechen. Die SW ist dann trotzdem i.O. installiert.</span></li>
       </ol><br>
-      <div class="container inst-button">
-          <div><span id="L11">Board Typ: </span>
+
+          <span id="L11">Board Typ: </span>
+	</div>
           <div class="select-wrapper">
           <select id="software_version" onchange="selectSoftware()">
-		  <optgroup label="Standart version 14.0 beta 0">
+			<optgroup label="Standart version 14.0 beta 0">
 <option data-manifest_file="/manifest_dir/manifest_Standart_version_14_0_beta_0_WLED_0.14.0-b0_ESP8266.json">ESP8266 (4MB Flash: D1 mini etc.)</option>
 <option data-manifest_file="/manifest_dir/manifest_Standart_version_14_0_beta_0_WLED_0.14.0-b0_ESP32.json">ESP32 (4MB Flash)</option>
 <option data-manifest_file="/manifest_dir/manifest_Standart_version_14_0_beta_0_WLED_0.14.0-b0_ESP32_ARE.json">ESP32 (4MB Flash, with Audio reactive Usermod)</option>
@@ -118,13 +121,14 @@ select:focus::-ms-value {
 
 		  </select>
           </div>
-          </div><br>
+	<div id="FullContainer2">
+		<br>
+	  <div class="container inst-button">
           <esp-web-install-button id="install_btn" manifest="/cangw/manifest.json" >
             <button slot="activate"><span id="L09">Installieren<span></button>
           </esp-web-install-button><br><br>
       </div>
-      
-  </div>
+    </div>
   <hr>
         <div>
         <h3 id="L15">Nützliche Informationen:</h3>
@@ -134,6 +138,7 @@ select:focus::-ms-value {
           <li><span id="L14">DIY WLED boards: </span><a href="https://github.com/wladwnt/wled">Github</a></li>
           <li><span id="L13">Professionelle WLED Boards: <a href="https://shop.myhome-control.de">MyHome-Control Shop</a></span></li>
           <li><span id="L16">WLED power calculator: <a href="https://wled-calculator.github.io">https://wled-calculator.github.io</a></span></li>
+		  <li><span id="L22">Source of MoonMod version: github.com/moonmodules/wled/tree/mdev</span></li>
         </ul>
       </div>
    <hr><hr>
@@ -146,7 +151,7 @@ select:focus::-ms-value {
 <script>
 function LangChanged() {
     if(document.getElementById('lang').selectedIndex==0) {
-        if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Leider wird Ihr Browser aktuell nicht unterstützt!<br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.";
+        if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Leider wird Ihr Browser aktuell nicht unterstützt!<br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.<br><br>Verfügbare software Versionen:";
         if(document.getElementById('L01')) document.getElementById('L01').innerHTML = "Schliessen Sie Ihr ESP8266 / ESP32 Board an USB an.";
         if(document.getElementById('L02')) document.getElementById('L02').innerHTML = "Wählen Sie den Board-Typ aus";
         if(document.getElementById('L03')) document.getElementById('L03').innerHTML = "Klicken Sie auf \"Installieren\" und wählen dann den korrekten COM-Port aus. ";
@@ -161,9 +166,11 @@ function LangChanged() {
         if(document.getElementById('L18')) document.getElementById('L18').innerHTML = 'Impressum';
         if(document.getElementById('L19')) document.getElementById('L19').innerHTML = 'Datenschutzerklärung';
         if(document.getElementById('L20')) document.getElementById('L20').innerHTML = 'Link zu verwendeten .bin Dateien: <a href="https://github.com/wled-install/wled-install.github.io/tree/main/bin_dir">auf Github</a>';
+		if(document.getElementById('L21')) document.getElementById('L21').innerHTML = 'Diese Software ist open source und wird kostenfrei zur Verfügung gestellt. Es werden keine bestimmten Eigenschaften der Software zugesichert. Der Inhaber dieser Webseite haftet nur für Vorsatz und grobe Fahrlässigkeit. Gewährleistungspflichten treffen ihn nur, wenn er Mängel der Software arglistig verschwiegen hat. Bitte beachten Sie, dass als „beta“ gekennzeichnete Versionen der Software besonders wahrscheinlich noch Fehler beinhalten. Wenn ein anderes Recht als Deutsches angewendet wird, es gelten die Bestimmungen der englischen Version (bitte oben englische Sprache wählen).';
+		if(document.getElementById('L22')) document.getElementById('L22').innerHTML = 'Quelle von MoonMod Version: github.com/moonmodules/wled/tree/mdev';
       
     } else {
-        if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Unfortunately your browser is not yet supported!<br>Please try on Chrome (for Desktop) or Microsoft Edge.";
+        if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Unfortunately your browser is not yet supported!<br>Please try on Chrome (for Desktop) or Microsoft Edge.<br><br>Available software versions:";
         if(document.getElementById('L01')) document.getElementById('L01').innerHTML = "Connect your ESP8266 / ESP32 board via USB port";
         if(document.getElementById('L02')) document.getElementById('L02').innerHTML = "Select type of your board";
         if(document.getElementById('L03')) document.getElementById('L03').innerHTML = "Click on \"Install\" and select the correct COM port. ";
@@ -175,9 +182,11 @@ function LangChanged() {
         if(document.getElementById('L15')) document.getElementById('L15').innerHTML = "Useful web pages:";
         if(document.getElementById('L16')) document.getElementById('L16').innerHTML = 'WLED power calculator: <a href="https://wled-calculator.github.io">https://wled-calculator.github.io</a>';
         if(document.getElementById('L17')) document.getElementById('L17').innerHTML = '(unofficial installer with an extended functionality)';
-        if(document.getElementById('L18')) document.getElementById('L18').innerHTML = 'Imprint';
+        if(document.getElementById('L18')) document.getElementById('L18').innerHTML = 'Legal notice';
         if(document.getElementById('L19')) document.getElementById('L19').innerHTML = 'Data privacy';
         if(document.getElementById('L20')) document.getElementById('L20').innerHTML = 'Link to .bin files used: <a href="https://github.com/wled-install/wled-install.github.io/tree/main/bin_dir">on Github</a>';
+		if(document.getElementById('L21')) document.getElementById('L21').innerHTML = 'This is open source software and is provided for free. It is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the owner of this web page be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software. In case German should be applied, the German version of this disclimer must be applied (please switch to German language)';
+		if(document.getElementById('L22')) document.getElementById('L22').innerHTML = 'Source of MoonMod version: github.com/moonmodules/wled/tree/mdev';
     }
     document.getElementById('comporthelp').innerHTML ="";
 }
@@ -192,7 +201,7 @@ function ShowImprint() {
     if(document.getElementById('lang').selectedIndex==0) {
         document.getElementById('imprint').innerHTML = "<br><h3>Impressum</h3>Angaben gemäß § 5 TMG:<br>Verantwortlicher: Wladislaw Waag<br>Adresse: Wasserburger Landstr. 29, 81825 München, Deutschland<br>Kontakt: +49 (0) 176 47 11 5206, info@myhome-control.de<br><br>EU-Streitschlichtung: Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href='https://ec.europa.eu/consumers/odr/' target='_blank'>https://ec.europa.eu/consumers/odr/</a>.<br><br>Verbraucherstreitbeilegung/Universalschlichtungsstelle: Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.";
     } else {
-        document.getElementById('imprint').innerHTML = "<br><h3>Imprint</h3>Information according to § 5 TMG:<br>Responsible: Wladislaw Waag<br>Address: Wasserburger Landstr. 29, 81825 Munich, Germany<br>Contact: +49 176 47 11 5206, info@myhome-control.de<br><br>EU dispute settlement: The European Commission provides a platform for online dispute resolution (ODR): <a href='https://ec.europa.eu/consumers/odr/' target='_blank'>https://ec.europa.eu/consumers/odr/</a>.<br><br>Consumer dispute settlement / universal arbitration board: We are neither willing nor obliged to participate in dispute settlement proceedings before a consumer arbitration board.";
+        document.getElementById('imprint').innerHTML = "<br><h3>Legal notice</h3>Information according to § 5 TMG:<br>Responsible: Wladislaw Waag<br>Address: Wasserburger Landstr. 29, 81825 Munich, Germany<br>Contact: +49 176 47 11 5206, info@myhome-control.de<br><br>EU dispute settlement: The European Commission provides a platform for online dispute resolution (ODR): <a href='https://ec.europa.eu/consumers/odr/' target='_blank'>https://ec.europa.eu/consumers/odr/</a>.<br><br>Consumer dispute settlement / universal arbitration board: We are neither willing nor obliged to participate in dispute settlement proceedings before a consumer arbitration board.";
     }
 }
   
@@ -216,10 +225,11 @@ function NoComPortHelp() {
 window.onload = function () {
     if (document.getElementById('install_btn').hasAttribute('install-unsupported')) {
         if(document.getElementById('lang').selectedIndex==0) {
-            document.getElementById('FullContainer').innerHTML = "<span id=\"L10\">Leider wird Ihr Browser aktuell nicht unterstützt!<br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.</span><br>"; 
+            document.getElementById('FullContainer1').innerHTML = "<span id=\"L10\">Leider wird Ihr Browser aktuell nicht unterstützt!<br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.<br><br>Verfügbare software Versionen:</span><br>";
         } else {
-            document.getElementById('FullContainer').innerHTML = "<span id=\"L10\">Unfortunately your browser is not yet supported!<br>Please try on Chrome (for Desktop) or Microsoft Edge.</span><br>";
+            document.getElementById('FullContainer1').innerHTML = "<span id=\"L10\">Unfortunately your browser is not yet supported!<br>Please try on Chrome (for Desktop) or Microsoft Edge.<br><br>Available software versions:</span><br>";
         }
+		document.getElementById('FullContainer2').innerHTML = ""; 
     } else {
         selectSoftware();
     }
