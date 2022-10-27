@@ -74,6 +74,8 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfo=AddInfo+", original Build";
             if ("_OB" in bin_file) and ("SR_" in bin_file):
                 AddInfo=AddInfo+", Alexa/Hue/Infrared disabled";
+            if ("_MQTT" in bin_file):
+                AddInfo=AddInfo+", MQTT enabled";
             if ("_MDEVMAX" in bin_file):
                 AddInfo=AddInfo+", mods included: audio reactive, games, weather, custom effects, mpu6050 + other improvements";
             dict["ADDINFO"]=AddInfo;
