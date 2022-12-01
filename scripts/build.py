@@ -78,6 +78,8 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfo=AddInfo+", MQTT enabled";
             if ("_MDEVMAX" in bin_file):
                 AddInfo=AddInfo+", mods included: audio reactive, games, weather, custom effects, mpu6050 + other improvements";
+            if ("_DIGIN" in bin_file):
+                AddInfo=AddInfo+", digital line-in support";
             dict["ADDINFO"]=AddInfo;
             dict["VERSION"]=dir_text;    
             dict["BINFILE"]=dir_path_forhtml+"/"+bin_file; 
