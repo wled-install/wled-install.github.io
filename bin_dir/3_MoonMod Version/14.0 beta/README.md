@@ -1,1 +1,0 @@
-MoonMod by MoonModules & Co.
