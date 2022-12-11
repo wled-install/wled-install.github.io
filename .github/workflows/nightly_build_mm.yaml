@@ -39,9 +39,9 @@ jobs:
         pio run -e esp32_4MB_max
         mkdir output_gh_pages
         mkdir output_gh_pages/bin_dir
-        mkdir output_gh_pages/bind_dir/3_MoonMod_version
-        mkdir output_gh_pages/bind_dir/3_MoonMod_version/NightlyBuild
-        cp $(find ./build_output/release -name *max.bin) ./output_gh_pages/bind_dir/3_MoonMod_version/NightlyBuild/WLEDMM_NightlyBuild_esp32_max.bin
+        mkdir output_gh_pages/bin_dir/3_MoonMod_version
+        mkdir output_gh_pages/bin_dir/3_MoonMod_version/NightlyBuild
+        cp $(find ./build_output/release -name *max.bin) ./output_gh_pages/bin_dir/3_MoonMod_version/NightlyBuild/WLEDMM_NightlyBuild_esp32_max.bin
       env:
         PLATFORMIO_CI_SRC: /tmp/WLED-mdev
     - name: GitHub Pages action
