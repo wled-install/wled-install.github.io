@@ -35,6 +35,6 @@ jobs:
         unzip /tmp/mm.zip -d /tmp
 
     - name: Run PlatformIO
-      run: pio ci --project-conf /tmp/WLED-mdev
+      run: pio ci --project-conf /tmp/WLED-mdev/PlattformIO.ini
       env:
         PLATFORMIO_CI_SRC: /tmp/WLED-mdev
