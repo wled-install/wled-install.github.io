@@ -10,7 +10,7 @@ output_suppl_dir=os.path.join(output_dir,suppl_dir)
 output_manifest_dir=os.path.join(output_dir,manifest_dir)
 
 def isbinfile_esp32(filename):
-    if "ESP32" in filename:
+    if ("ESP32" in filename) or ("esp32" in filename):
         return True
     else:
         return False
@@ -76,7 +76,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfo=AddInfo+", Alexa/Hue/Infrared disabled";
             if ("_MQTT" in bin_file):
                 AddInfo=AddInfo+", MQTT enabled";
-            if ("_MDEVMAX" in bin_file):
+            if ("_MDEVMAX" in bin_file) or (("WLEDMM_" in bin_file) and ("_max" in bin_file)):
                 AddInfo=AddInfo+", mods included: audio reactive, games, weather, custom effects, mpu6050 + other improvements";
             if ("_DIGIN" in bin_file):
                 AddInfo=AddInfo+", digital line-in support";
