@@ -37,13 +37,17 @@ jobs:
       run: |
         cd /tmp/WLED-mdev
         pio run -e esp32_4MB_max
+      env:
+        PLATFORMIO_CI_SRC: /tmp/WLED-mdev
+    - name: Copy Files
+      run: |
+        cd /tmp/WLED-mdev
         mkdir output_gh_pages
         mkdir output_gh_pages/bin_dir
         mkdir output_gh_pages/bin_dir/3_MoonMod_version
         mkdir output_gh_pages/bin_dir/3_MoonMod_version/NightlyBuild
         cp $(find ./build_output/release -name *max.bin) ./output_gh_pages/bin_dir/3_MoonMod_version/NightlyBuild/WLEDMM_NightlyBuild_esp32_max.bin
-      env:
-        PLATFORMIO_CI_SRC: /tmp/WLED-mdev
+        ls -a output_gh_pages/bin_dir/3_MoonMod_version/NightlyBuild
     - name: GitHub Pages action
       uses: peaceiris/actions-gh-pages@v3
       with:
