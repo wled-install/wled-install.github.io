@@ -37,4 +37,4 @@ jobs:
     - name: Run PlatformIO
       run: pio ci
       env:
-        PLATFORMIO_CI_SRC: /tmp/mm
+        PLATFORMIO_CI_SRC: /tmp/WLED-mdev
