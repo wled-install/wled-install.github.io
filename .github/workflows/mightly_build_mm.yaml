@@ -35,6 +35,8 @@ jobs:
         unzip /tmp/mm.zip -d /tmp
 
     - name: Run PlatformIO
-      run: pio run -c /tmp/WLED-mdev/platformio.ini -e esp32_4MB_max
+      run: |
+        cd /tmp/WLED-mdev
+        pio run -e esp32_4MB_max
       env:
         PLATFORMIO_CI_SRC: /tmp/WLED-mdev
