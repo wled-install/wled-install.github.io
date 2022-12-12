@@ -86,7 +86,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfo=AddInfo+", MQTT enabled";
             if ("_MDEVMAX" in bin_file) or (("WLEDMM_" in bin_file) and ("_max" in bin_file)):
                 AddInfo=AddInfo+", mods included: audio reactive, games, weather, custom effects, mpu6050 + other improvements";
-            if ("("WLEDSR_" in bin_file) and ("_max" in bin_file)):
+            if (("WLEDSR_" in bin_file) and ("_max" in bin_file)):
                 AddInfo=AddInfo+", some additional mods included";
             if ("_DIGIN" in bin_file):
                 AddInfo=AddInfo+", digital line-in support";
