@@ -1,6 +1,6 @@
 {
   "name": "WLED (ESP32, 4MB Flash, mods included: audio reactive, games, weather, custom effects, mpu6050 + other improvements)",
-  "version": "MoonMod version Nightly build",
+  "version": "MoonMod version: Nightly build",
   "new_install_skip_erase": false,
   "builds": [
     {

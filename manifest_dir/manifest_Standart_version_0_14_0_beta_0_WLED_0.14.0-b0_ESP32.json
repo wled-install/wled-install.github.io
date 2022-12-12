@@ -1,6 +1,6 @@
 {
   "name": "WLED (ESP32, 4MB Flash)",
-  "version": "Standart version 0.14.0 beta 0",
+  "version": "Standart version: 0.14.0 beta 0",
   "new_install_skip_erase": false,
   "builds": [
     {
