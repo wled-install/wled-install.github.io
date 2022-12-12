@@ -30,7 +30,14 @@ def keyfunc(description):
     return value
         
 def proceed_dir(dir_path, dir_text, dir_path_forhtml):
-    html_list="<optgroup label=\""+dir_text+"\">"+"\n"
+    print(os.path.join(dir_path,"lastupdate.txt"))
+    if os.path.exists(os.path.join(dir_path,"lastupdate.txt")):
+        f_lastupdate=open(os.path.join(dir_path,"lastupdate.txt"),"r")
+        datetext=f_lastupdate.read()
+        f_lastupdate.close()
+        html_list="<optgroup label=\""+dir_text+" (build date: "+datetext+")\">"+"\n"
+    else:
+        html_list="<optgroup label=\""+dir_text+"\">"+"\n"
     html_list_array=[]
     filelist=sorted(os.listdir(dir2_path))
     for bin_file in filelist:
