@@ -44,14 +44,15 @@ jobs:
     - name: Copy Files
       run: |
         cd /tmp/WLED-mdev
-        cp $(find ./build_output/release -name *max.bin) $GITHUB_WORKSPACE/bin_dir/3_MoonMod_version/Nightly_build/WLEDMM_NightlyBuild_esp32_max.bin
+        git rm -r $GITHUB_WORKSPACE/bin_dir/3_MoonMod_version/Nightly_build/*.bin
+        cp $(find ./build_output/release -name *max.bin) $GITHUB_WORKSPACE/bin_dir/3_MoonMod_version/Nightly_build/
         date -I >$GITHUB_WORKSPACE/bin_dir/3_MoonMod_version/Nightly_build/lastupdate.txt
     - name: Commit Files
       run: |
         cd $GITHUB_WORKSPACE
         git config user.name "GitHub Actions Bot"
         git config user.email "<>"
-        git add $GITHUB_WORKSPACE/bin_dir/3_MoonMod_version/Nightly_build/WLEDMM_NightlyBuild_esp32_max.bin
+        git add $GITHUB_WORKSPACE/bin_dir/3_MoonMod_version/Nightly_build/*.bin
         git add $GITHUB_WORKSPACE/bin_dir/3_MoonMod_version/Nightly_build/lastupdate.txt
         git commit -m "Commit MoonMod Nightly Build"
         git push origin main
