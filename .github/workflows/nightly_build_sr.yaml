@@ -1,0 +1,58 @@
+name: Nightly SR Build
+
+on:
+    schedule:
+      - cron: '15 1 * * *'
+    workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Cache pip
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    - name: Cache PlatformIO
+      uses: actions/cache@v3
+      with:
+        path: ~/.platformio
+        key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: 3.9
+
+    - name: Install PlatformIO
+      run: |
+        python -m pip install --upgrade pip
+        pip install --upgrade platformio
+        wget https://github.com/atuline/WLED/archive/refs/heads/dev.zip -O /tmp/mm.zip
+        unzip /tmp/mm.zip -d /tmp
+    - name: Run PlatformIO
+      run: |
+        cd /tmp/WLED-dev
+        pio run -e esp32_4MB_max
+      env:
+        PLATFORMIO_CI_SRC: /tmp/WLED-dev
+    - name: Copy Files
+      run: |
+        cd $GITHUB_WORKSPACE
+        git rm -r $GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build/*.bin
+        cp $(find /tmp/WLED-dev/build_output/release -name *max.bin) $GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build/
+        date -I >$GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build/lastupdate.txt
+    - name: Commit Files
+      run: |
+        cd $GITHUB_WORKSPACE
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+        git add $GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build/*.bin
+        git add $GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build/lastupdate.txt
+        git commit -m "Commit SR Nightly Build"
+        git push origin main
