@@ -196,9 +196,9 @@ function ShowDataPrivacy() {
 function NoComPortHelp() {
     document.getElementById('L04').innerHTML = "";
     if(document.getElementById('lang').selectedIndex==0) {
-        document.getElementById('comporthelp').innerHTML = "Ist Dein USB Kabel geeignet für Datentransfer ?<br>Vielelicht fehlt der USB Treiber für Dein Board. Die meisten Boards verwenden einen von diesen:<br>- <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" target=\"_blank\">CP210x (quadratischer Chip)</a><br>-  <a href=\"http://www.wch-ic.com/downloads/CH341SER_EXE.html\" target=\"_blank\">CH34x (Rechteck Chip)</a><br>";
+        document.getElementById('comporthelp').innerHTML = "Ist Dein USB Kabel geeignet für Datentransfer ?<br>Vielelicht fehlt der USB Treiber für Dein Board. Die meisten Boards verwenden einen von diesen:<br>- <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" target=\"_blank\">CP210x (quadratischer Chip)</a><br>-  <a href=\"http://www.wch-ic.com/downloads/CH341SER_EXE.html\" target=\"_blank\">CH34x (Rechteck Chip) oder CH9102x (quadratischer Chip)</a><br>";
     } else {
-        document.getElementById('comporthelp').innerHTML = "Check if your USB cable supports data transfer.<br>Eventually you have to install the drivers for your board.<br>Here are drivers commonly used in ESP32 boards:<br>- <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" target=\"_blank\">CP210x (small square chip)</a><br>- <a href=\"http://www.wch-ic.com/downloads/CH341SER_EXE.html\" target=\"_blank\">CH34x (rectangular chip)</a><br>";
+        document.getElementById('comporthelp').innerHTML = "Check if your USB cable supports data transfer.<br>Eventually you have to install the drivers for your board.<br>Here are drivers commonly used in ESP32 boards:<br>- <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" target=\"_blank\">CP210x (small square chip)</a><br>- <a href=\"http://www.wch-ic.com/downloads/CH341SER_EXE.html\" target=\"_blank\">CH34x (rectangular chip) or CH9102x (small square chip)</a><br>";
     }
 }
 
