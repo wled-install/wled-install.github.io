@@ -45,7 +45,7 @@ jobs:
       run: |
         cd $GITHUB_WORKSPACE
         git rm -r $GITHUB_WORKSPACE/bin_dir/1_Standart_version/Nightly_build/*.bin || true
-        cp $(find /tmp/WLED-main/build_output/release -name *max.bin) $GITHUB_WORKSPACE/bin_dir/1_Standart_version/Nightly_build/
+        cp $(find /tmp/WLED-main/build_output/release -name *.bin) $GITHUB_WORKSPACE/bin_dir/1_Standart_version/Nightly_build/
         date -I >$GITHUB_WORKSPACE/bin_dir/1_Standart_version/Nightly_build/lastupdate.txt
     - name: Commit Files
       run: |
