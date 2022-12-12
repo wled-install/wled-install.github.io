@@ -46,14 +46,24 @@ $HTMLLIST
 			</select>
 				<label for="software_version"><span id="L11">Board Typ / SW Version:</span></label>
 		  </div>
-		  
+	<div id="FullContainer4" class="container">
+		<br> <span id="L26" style="color:red">Achtung! Die ausgewählte Software wurde automatisch von einem Open Source Projekt kompiliert und durch den Betreiber dieser Webseite nicht auf die Funktionalität oder Inhalt geprüft. Es ist auch theoretisch möglich, dass diese Software schadhafte Anteile beinhaltet. Bitte installieren oder herunterladen Sie diese Software nur dann, wenn Sie der Quelle der Software vertrauen und die Risiken Ihnen bewusst sind. Die Quellen sind für Standard Versionen: https://github.com/Aircoookie/WLED, für Sound Reactive Versionen: https://github.com/atuline/WLED, für MonMod Versionen: https://github.com/MoonModules/WLED.</span>
+	      <a class="btn btn-primary" onclick="OnAgreeButton();"><span id="L25">Einverstanden!</span></a>
+    </div>	  
 	<div id="FullContainer2">
 		<br>
 	  <div class="container inst-button">
           <esp-web-install-button id="install_btn" manifest="/cangw/manifest.json" >
             <button class="btn btn-primary" slot="activate"><span id="L09">Installieren<span></button>
-          </esp-web-install-button><br><br>
+          </esp-web-install-button>
       </div>
+    </div>
+	<div id="FullContainer3">
+		<br>
+		<div class="container download-button">
+	      <a href="" class="btn btn-primary" id="download_btn"><span id="L24">Nur die .bin Datei herunterladen</span></a>
+	    </div>
+		<br>
     </div>
   <hr>
         <div>
@@ -98,7 +108,7 @@ $HTMLLIST
 <script>
 function LangChanged() {
     if(document.getElementById('lang').selectedIndex==0) {
-        if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Leider wird Ihr Browser aktuell nicht unterstützt!<br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.<br><br>Verfügbare software Versionen:";
+        if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Leider wird Ihr Browser aktuell für die Installation via USB nicht unterstützt! Sie können nur die .bin Dateien herunterladen. <br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.<br><br>Verfügbare software Versionen:";
         if(document.getElementById('L01')) document.getElementById('L01').innerHTML = "Schliessen Sie Ihr ESP8266 / ESP32 Board an USB an.";
         if(document.getElementById('L02')) document.getElementById('L02').innerHTML = "Wählen Sie den Board-Typ / SW Version aus.";
         if(document.getElementById('L03')) document.getElementById('L03').innerHTML = "Klicken Sie auf \"Installieren\" und wählen dann den korrekten COM-Port aus. ";
@@ -116,9 +126,12 @@ function LangChanged() {
 		if(document.getElementById('L21')) document.getElementById('L21').innerHTML = 'Diese Software ist open source und wird kostenfrei zur Verfügung gestellt. Es werden keine bestimmten Eigenschaften der Software zugesichert. Der Inhaber dieser Webseite haftet nur für Vorsatz und grobe Fahrlässigkeit. Gewährleistungspflichten treffen ihn nur, wenn er Mängel der Software arglistig verschwiegen hat. Bitte beachten Sie, dass als „beta“ gekennzeichnete Versionen der Software besonders wahrscheinlich noch Fehler beinhalten. Wenn ein anderes Recht als Deutsches angewendet wird, es gelten die Bestimmungen der englischen Version (bitte oben englische Sprache wählen). <a href="https://wled-install.github.io/WLED_Software_Lizenzen.pdf">WLED Lizenzen</a>';
 		if(document.getElementById('L22')) document.getElementById('L22').innerHTML = 'Quelle von MoonMod Version: github.com/moonmodules/wled/tree/mdev';
 		if(document.getElementById('L23')) document.getElementById('L23').innerHTML = 'Vorgehensweise:';
+		if(document.getElementById('L24')) document.getElementById('L24').innerHTML = 'Nur die .bin Datei herunterladen';
+		if(document.getElementById('L25')) document.getElementById('L25').innerHTML = 'Einverstanden!';
+		if(document.getElementById('L26')) document.getElementById('L26').innerHTML = 'Achtung! Die ausgewählte Software wurde automatisch von einem Open Source Projekt kompiliert und durch den Betreiber dieser Webseite nicht auf die Funktionalität oder Inhalt geprüft. Es ist auch theoretisch möglich, dass diese Software schadhafte Anteile beinhaltet. Bitte installieren oder herunterladen Sie diese Software nur dann, wenn Sie der Quelle der Software vertrauen und die Risiken Ihnen bewusst sind. Die Quellen sind für Standard Versionen: https://github.com/Aircoookie/WLED, für Sound Reactive Versionen: https://github.com/atuline/WLED, für MoonMod Versionen: https://github.com/MoonModules/WLED.';
       
     } else {
-        if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Unfortunately your browser is not yet supported!<br>Please try on Chrome (for Desktop) or Microsoft Edge.<br><br>Available software versions:";
+        if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Unfortunately your browser is not yet supported for installation via USB! You can only download .bin files. <br>Please try on Chrome (for Desktop) or Microsoft Edge.<br><br>Available software versions:";
         if(document.getElementById('L01')) document.getElementById('L01').innerHTML = "Connect your ESP8266 / ESP32 board via USB port.";
         if(document.getElementById('L02')) document.getElementById('L02').innerHTML = "Select type of your board / software version required.";
         if(document.getElementById('L03')) document.getElementById('L03').innerHTML = "Click on \"Install\" and select the correct COM port. ";
@@ -136,6 +149,9 @@ function LangChanged() {
 		if(document.getElementById('L21')) document.getElementById('L21').innerHTML = 'This is open source software and is provided for free. It is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the owner of this web page be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software. In case German law should be applied, the German version of this disclaimer must be used (please select German language above). <a href="https://wled-install.github.io/WLED_Software_Lizenzen.pdf">WLED licenses</a>';
 		if(document.getElementById('L22')) document.getElementById('L22').innerHTML = 'Source of MoonMod version: github.com/moonmodules/wled/tree/mdev';
 		if(document.getElementById('L23')) document.getElementById('L23').innerHTML = 'Steps:';
+		if(document.getElementById('L24')) document.getElementById('L24').innerHTML = 'Only download .bin file';
+		if(document.getElementById('L25')) document.getElementById('L25').innerHTML = 'I agree!';
+		if(document.getElementById('L26')) document.getElementById('L26').innerHTML = 'Attention! The selected software was automatically compiled from an open source project and was not checked for functionality or content by the operator of this website. It is also theoretically possible that this software contains defective parts. Please only install or download this software if you trust the source of the software and you understand the risks. The sources are for Standard Versions: https://github.com/Aircoookie/WLED, for Sound Reactive Versions: https://github.com/atuline/WLED, for MoonMod Versions: https://github.com/MoonModules/WLED.';
     }
 	ShowImprint();
 	ShowDataPrivacy();
@@ -144,7 +160,21 @@ function LangChanged() {
 function selectSoftware() {
     var selected = document.getElementById('software_version');
     var manifest_file = selected.options[selected.selectedIndex].dataset.manifest_file;
-    document.getElementById('install_btn').setAttribute('manifest',manifest_file);
+	
+	if(document.getElementById('install_btn')) document.getElementById('install_btn').setAttribute('manifest',manifest_file);
+	
+	var download_file = selected.options[selected.selectedIndex].dataset.download_file;
+	document.getElementById('download_btn').setAttribute('href',download_file);
+	
+	if(download_file.includes("nightly") || download_file.includes("Nightly")) {
+	  document.getElementById('FullContainer4').style.display="block";
+	  document.getElementById('FullContainer3').style.display="none";
+	  document.getElementById('FullContainer2').style.display="none";
+	} else {
+	  document.getElementById('FullContainer4').style.display="none";
+	  document.getElementById('FullContainer3').style.display="block";
+	  document.getElementById('FullContainer2').style.display="block";
+	}
 }
   
 function ShowImprint() {
@@ -170,6 +200,12 @@ function NoComPortHelp() {
     } else {
         document.getElementById('comporthelp').innerHTML = "Check if your USB cable supports data transfer.<br>Eventually you have to install the drivers for your board.<br>Here are drivers commonly used in ESP32 boards:<br>- <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" target=\"_blank\">CP210x (small square chip)</a><br>- <a href=\"http://www.wch-ic.com/downloads/CH341SER_EXE.html\" target=\"_blank\">CH34x (rectangular chip)</a><br>";
     }
+}
+
+function OnAgreeButton() {
+	document.getElementById('FullContainer3').style.display="block";
+	document.getElementById('FullContainer2').style.display="block";
+	document.getElementById('FullContainer4').style.display="none";
 }
 
 window.onload = function () {

@@ -38,6 +38,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             # create manifest file
             manifest_filename="manifest_"+''.join(e for e in dir_text.replace(" ","_").replace(".","_") if (e.isalnum() or e=="_"))+"_"+bin_file[:-4]+".json"
             manifest_path_forhtml="/"+manifest_dir+"/"+manifest_filename
+            download_path_forhtml=dir_path_forhtml+"/"+bin_file
             manifest_path=os.path.join(output_manifest_dir,manifest_filename)
             f_manifest=open(manifest_path,"w+")
             template_filename=""
@@ -88,7 +89,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             f_manifest.write(template.substitute(dict));
             f_manifest.close()
             #html_list=html_list+(bin_file+" "+manifest_path_forhtml+ " "+ ESPtype+" ("+AddInfo[2:]+")" + "\n")
-            html_list_array.append("<option data-manifest_file=\""+manifest_path_forhtml+ "\">"+ ESPtype+" ("+AddInfo[2:]+")" + "</option>")
+            html_list_array.append("<option data-manifest_file=\""+manifest_path_forhtml+ "\" data-download_file=\"" +download_path_forhtml+ "\">"+ ESPtype+" ("+AddInfo[2:]+")" + "</option>")
     html_list_array_sorted=sorted(html_list_array, key=keyfunc)
     for item in html_list_array_sorted:
         html_list=html_list+item+"\n"
