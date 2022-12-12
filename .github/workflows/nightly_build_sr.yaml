@@ -47,7 +47,7 @@ jobs:
         ls -a /tmp/WLED-dev/build_output/
         ls -a /tmp/WLED-dev/
         cd $GITHUB_WORKSPACE
-        git rm -r $GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build/*.bin
+        git rm -r $GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build/*.bin || true
         cp $(find /tmp/WLED-dev/build_output/release -name *max.bin) $GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build/
         date -I >$GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build/lastupdate.txt
         ls -a $GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build
