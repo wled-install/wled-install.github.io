@@ -5,6 +5,7 @@ on:
     workflows: ["Nightly AC Build"]
     types:
       - completed
+  workflow_dispatch:
 
 jobs:
   build:
