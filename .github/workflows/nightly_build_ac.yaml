@@ -38,14 +38,15 @@ jobs:
     - name: Run PlatformIO
       run: |
         cd /tmp/WLED-main
-        pio run -e esp32dev
+        pio run -e esp32dev || pio run -e esp32dev
+        pio run -e nodemcuv2 || pio run -e nodemcuv2
       env:
         PLATFORMIO_CI_SRC: /tmp/WLED-main
     - name: Copy Files
       run: |
         cd $GITHUB_WORKSPACE
         git rm -r $GITHUB_WORKSPACE/bin_dir/1_Standart_version/Nightly_build/*.bin || true
-        cp $(find /tmp/WLED-main/build_output/release -name *.bin) $GITHUB_WORKSPACE/bin_dir/1_Standart_version/Nightly_build/
+        cp /tmp/WLED-main/build_output/release/*.bin $GITHUB_WORKSPACE/bin_dir/1_Standart_version/Nightly_build/
         date -I >$GITHUB_WORKSPACE/bin_dir/1_Standart_version/Nightly_build/lastupdate.txt
     - name: Commit Files
       run: |
