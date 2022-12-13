@@ -1,0 +1,13 @@
+{
+  "name": "WLED (ESP8266, 4MB Flash: D1 mini etc.)",
+  "version": "Standart version: Nightly build",
+  "new_install_skip_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP8266",
+      "parts": [
+        { "path": "/bin_dir/1_Standart_version/Nightly_build/WLED_0.14.0-b0_ESP8266.bin", "offset": 0 }
+      ]
+    }
+  ]
+}
