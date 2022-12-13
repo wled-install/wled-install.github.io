@@ -2,7 +2,7 @@ name: Nightly SR Build
 
 on:
     schedule:
-      - cron: '15 1 * * *'
+      - cron: '45 1 * * *'
     workflow_dispatch:
 
 jobs:
