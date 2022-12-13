@@ -1,9 +1,10 @@
 name: Nightly SR Build
 
 on:
-    schedule:
-      - cron: '45 1 * * *'
-    workflow_dispatch:
+  workflow_run:
+    workflows: ["Nightly AC Build"]
+    types:
+      - completed
 
 jobs:
   build:
