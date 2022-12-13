@@ -40,7 +40,7 @@ jobs:
     - name: Run PlatformIO
       run: |
         cd /tmp/WLED-dev
-        pio run -e esp32_4MB_max
+        pio run -e esp32_4MB_max || pio run -e esp32_4MB_max
       env:
         PLATFORMIO_CI_SRC: /tmp/WLED-dev
     - name: Copy Files
