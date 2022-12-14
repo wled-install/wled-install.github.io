@@ -25,10 +25,11 @@
   </select>
   <label for="lang">Language/Sprache:</label>
   </div>
+  <small><div id="L21">Diese Software ist open source und wird kostenfrei zur Verfügung gestellt. Es werden keine bestimmten Eigenschaften der Software zugesichert. Der Inhaber dieser Webseite haftet nur für Vorsatz und grobe Fahrlässigkeit. Gewährleistungspflichten treffen ihn nur, wenn er Mängel der Software arglistig verschwiegen hat. Bitte beachten Sie, dass als „beta“ gekennzeichnete Versionen der Software besonders wahrscheinlich noch Fehler beinhalten. Wenn ein anderes Recht als Deutsches angewendet wird, es gelten die Bestimmungen der englischen Version (bitte oben englische Sprache wählen). 
+</div></small>
+<br>
   <div id="FullContainer1">
-		<small><div id="L21">Diese Software ist open source und wird kostenfrei zur Verfügung gestellt. Es werden keine bestimmten Eigenschaften der Software zugesichert. Der Inhaber dieser Webseite haftet nur für Vorsatz und grobe Fahrlässigkeit. Gewährleistungspflichten treffen ihn nur, wenn er Mängel der Software arglistig verschwiegen hat. Bitte beachten Sie, dass als „beta“ gekennzeichnete Versionen der Software besonders wahrscheinlich noch Fehler beinhalten. Wenn ein anderes Recht als Deutsches angewendet wird, es gelten die Bestimmungen der englischen Version (bitte oben englische Sprache wählen). 
-		</div></small>
-		<br>
+		
 	<h5 id="L23">Vorgehensweise:</h5>
       <ol>
           <li><span id="L01">Schliessen Sie Ihr ESP8266 / ESP32 Board an USB an.</span></li>
@@ -248,9 +249,9 @@ function OnAgreeButton() {
 window.onload = function () {
     if (document.getElementById('install_btn').hasAttribute('install-unsupported')) {
         if(document.getElementById('lang').selectedIndex==0) {
-            document.getElementById('FullContainer1').innerHTML = "<span id=\"L10\">Leider wird Ihr Browser aktuell nicht unterstützt!<br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.<br><br>Verfügbare software Versionen:</span><br>";
+            document.getElementById('FullContainer1').innerHTML = "<span id=\"L10\"  style="color:red">Leider wird Ihr Browser aktuell nicht unterstützt!<br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.<br><br>Verfügbare software Versionen:</span><br>";
         } else {
-            document.getElementById('FullContainer1').innerHTML = "<span id=\"L10\">Unfortunately your browser is not yet supported!<br>Please try on Chrome (for Desktop) or Microsoft Edge.<br><br>Available software versions:</span><br>";
+            document.getElementById('FullContainer1').innerHTML = "<span id=\"L10\"  style="color:red">Unfortunately your browser is not yet supported!<br>Please try on Chrome (for Desktop) or Microsoft Edge.<br><br>Available software versions:</span><br>";
         }
 		document.getElementById('FullContainer2').innerHTML = "";
     }
