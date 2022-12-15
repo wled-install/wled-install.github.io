@@ -38,8 +38,16 @@ jobs:
     - name: Run PlatformIO
       run: |
         cd /tmp/WLED-main
+        echo " " >> platformio.ini
+        echo "[env:esp32dev_are]" >> platformio.ini
+        echo "extends = env:esp32dev" >> platformio.ini
+        echo "build_flags = ${env:esp32dev.build_flags} -D USERMOD_AUDIOREACTIVE -D WLED_RELEASE_NAME=ESP32_ARE" >> platformio.ini
+        echo "lib_deps =" >> platformio.ini
+        echo "  ${env:esp32dev.lib_deps}" >> platformio.ini
+        echo "  https://github.com/blazoncek/arduinoFFT.git" >> platformio.ini
         pio run -e esp32dev || pio run -e esp32dev
         pio run -e nodemcuv2 || pio run -e nodemcuv2
+        pio run -e esp32dev_are || pio run -e esp32dev_are
       env:
         PLATFORMIO_CI_SRC: /tmp/WLED-main
     - name: Copy Files
