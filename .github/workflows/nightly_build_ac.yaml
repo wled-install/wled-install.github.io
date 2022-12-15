@@ -45,9 +45,9 @@ jobs:
         echo 'lib_deps =' >> platformio.ini
         echo '  ${env:esp32dev.lib_deps}' >> platformio.ini
         echo '  https://github.com/blazoncek/arduinoFFT.git' >> platformio.ini
-        true || pio run -e esp32dev || pio run -e esp32dev || true
-        true || pio run -e nodemcuv2 || pio run -e nodemcuv2 || true
-        true || pio run -e esp32dev_are || pio run -e esp32dev_are || true
+        pio run -e esp32dev || pio run -e esp32dev || true
+        pio run -e nodemcuv2 || pio run -e nodemcuv2 || true
+        pio run -e esp32dev_are || pio run -e esp32dev_are || true
         cat platformio.ini
       env:
         PLATFORMIO_CI_SRC: /tmp/WLED-main
