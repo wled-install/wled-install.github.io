@@ -41,6 +41,7 @@ jobs:
         echo " " >> platformio.ini
         echo '[env:esp32dev_are]' >> platformio.ini
         echo 'extends = env:esp32dev' >> platformio.ini
+        echo 'build_unflags = -D WLED_RELEASE_NAME' >> platformio.ini
         echo 'build_flags = ${env:esp32dev.build_flags} -D USERMOD_AUDIOREACTIVE -D WLED_RELEASE_NAME=ESP32_ARE' >> platformio.ini
         echo 'lib_deps =' >> platformio.ini
         echo '  ${env:esp32dev.lib_deps}' >> platformio.ini
