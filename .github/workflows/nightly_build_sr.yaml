@@ -52,7 +52,7 @@ jobs:
         git rm -r $GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build/*.bin || true
         cp $(find /tmp/WLED-dev/build_output/release -name *max.bin) $GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build/
         date -I | tr -d '\n' >$GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build/lastupdate.txt
-        echo -n " , version: " >>$GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build/lastupdate.txt
+        echo -n ", version: " >>$GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build/lastupdate.txt
         versionvalue=($(jq -r '.version' /tmp/WLED-dev/package.json))
         echo -n "$versionvalue" >>$GITHUB_WORKSPACE/bin_dir/2_Sound_reactive_version/Nightly_build/lastupdate.txt
     - name: Commit Files
