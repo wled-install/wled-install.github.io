@@ -1,0 +1,16 @@
+{
+  "name": "WLED (ESP32, 4MB Flash, mods included: audio reactive, games, weather, custom effects, mpu6050 + other improvements)",
+  "version": "MoonMod version: Nightly build",
+  "new_install_skip_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        { "path": "/suppl_dir/bootloader_qio_80m.bin", "offset": 4096 },
+        { "path": "/suppl_dir/partitions.bin", "offset": 32768 },
+        { "path": "/suppl_dir/boot_app0.bin", "offset": 57344 },
+        { "path": "/bin_dir/3_MoonMod_version/Nightly_build/WLEDMM_0.14.0-b2.19_esp32_4MB_M.bin", "offset": 65536 }
+      ]
+    }
+  ]
+}
