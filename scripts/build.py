@@ -94,6 +94,8 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfo=AddInfo+", some additional mods included";
             if ("_DIGIN" in bin_file):
                 AddInfo=AddInfo+", digital line-in support";
+            if ("_HSDIGIN" in bin_file):
+                AddInfo=AddInfo+", high sense digital line-in support";
             dict["ADDINFO"]=AddInfo;
             dict["VERSION"]=dir_text;    
             dict["BINFILE"]=dir_path_forhtml+"/"+bin_file; 
