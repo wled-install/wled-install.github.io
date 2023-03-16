@@ -44,6 +44,8 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
         if bin_file[-4:]==".bin":
             # create manifest file
             manifest_filename="manifest_"+''.join(e for e in dir_text.replace(" ","_").replace(".","_") if (e.isalnum() or e=="_"))+"_"+bin_file[:-4].replace(".","_")+".json"
+            manifest_filename = manifest_filename.replace("MoonMod_version_Nightly_build","MMVNB")
+            
             manifest_path_forhtml="/"+manifest_dir+"/"+manifest_filename
             download_path_forhtml=dir_path_forhtml+"/"+bin_file
             manifest_path=os.path.join(output_manifest_dir,manifest_filename)
