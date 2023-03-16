@@ -43,9 +43,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
     for bin_file in filelist:
         if bin_file[-4:]==".bin":
             # create manifest file
-            manifest_filename="manifest_"+''.join(e for e in dir_text.replace(" ","_").replace(".","_") if (e.isalnum() or e=="_"))+"_"+bin_file[:-4].replace(".","_")+".json"
-            manifest_filename = manifest_filename.replace("MoonMod_version_Nightly_build","MMVNB")
-            
+            manifest_filename="manifest_"+''.join(e for e in dir_text.replace(" ","_").replace(".","_") if (e.isalnum() or e=="_"))+"_"+bin_file[:-4]+".json"           
             manifest_path_forhtml="/"+manifest_dir+"/"+manifest_filename
             download_path_forhtml=dir_path_forhtml+"/"+bin_file
             manifest_path=os.path.join(output_manifest_dir,manifest_filename)
@@ -87,11 +85,11 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             if ("_MQTT" in bin_file):
                 AddInfo=AddInfo+", MQTT enabled";
             if ("_MDEVMAX" in bin_file) or (("WLEDMM_" in bin_file) and (("_max" in bin_file) or  ("_M.bin" in bin_file))):
-                AddInfo=AddInfo+", \"M\": mods included: audio reactive, games, weather, custom effects, mpu6050 + other improvements";
+                AddInfo=AddInfo+", M: mods included: audio reactive, games, weather, custom effects, mpu6050 + other improvements";
             if ("WLEDMM_" in bin_file) and ("_S.bin" in bin_file):
-                AddInfo=AddInfo+", \"S\": mods included: audio reactive";
+                AddInfo=AddInfo+", S: mods included: audio reactive";
             if ("WLEDMM_" in bin_file) and ("_XL.bin" in bin_file):
-                AddInfo=AddInfo+", \"XL\": almost all mods included";
+                AddInfo=AddInfo+", XL: almost all mods included";
             if (("WLEDSR_" in bin_file) and ("_max" in bin_file)):
                 AddInfo=AddInfo+", some additional mods included";
             if ("_DIGIN" in bin_file):
