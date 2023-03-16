@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP32, 4MB Flash, "XL": almost all mods included)",
+  "name": "WLED (ESP32, 4MB Flash, XL: almost all mods included)",
   "version": "MoonMod version: Nightly build",
   "new_install_skip_erase": false,
   "builds": [
