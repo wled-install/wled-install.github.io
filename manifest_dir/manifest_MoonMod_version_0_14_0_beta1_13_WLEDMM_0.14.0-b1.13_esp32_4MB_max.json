@@ -6,9 +6,9 @@
     {
       "chipFamily": "ESP32",
       "parts": [
-        { "path": "/suppl_dir/bootloader_qio_80m.bin", "offset": 4096 },
-        { "path": "/suppl_dir/partitions.bin", "offset": 32768 },
-        { "path": "/suppl_dir/boot_app0.bin", "offset": 57344 },
+        { "path": "/suppl_dir/bootloader_dout_40m_v2022.bin", "offset": 4096 },
+        { "path": "/suppl_dir/partitions_v2022.bin", "offset": 32768 },
+        { "path": "/suppl_dir/boot_app0_v2022.bin", "offset": 57344 },
         { "path": "/bin_dir/3_MoonMod_version/0.14.0_beta1.13/WLEDMM_0.14.0-b1.13_esp32_4MB_max.bin", "offset": 65536 }
       ]
     }
