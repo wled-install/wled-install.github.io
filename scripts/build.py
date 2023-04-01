@@ -98,6 +98,8 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfo=AddInfo+", S: no additional mods";
             if ("_debug" in bin_file):
                 AddInfo=AddInfo+", DEBUG enabled"
+            if ("_micdebug" in bin_file):
+                AddInfo=AddInfo+", Microphone debug enabled"
             if ("_DIGIN" in bin_file):
                 AddInfo=AddInfo+", digital line-in support";
             if ("_HSDIGIN" in bin_file):
