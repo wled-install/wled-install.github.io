@@ -92,6 +92,12 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfo=AddInfo+", XL: almost all mods included";
             if (("WLEDSR_" in bin_file) and ("_max" in bin_file)):
                 AddInfo=AddInfo+", some additional mods included";
+            if (("WLEDSR_" in bin_file) and ("_M" in bin_file)):
+                AddInfo=AddInfo+", M: some additional mods included: temp Sensor, 4-L Display, rotary encoder, auto Save";
+            if (("WLEDSR_" in bin_file) and ("_S" in bin_file)):
+                AddInfo=AddInfo+", S: no additional mods";
+            if ("_debug" in bin_file):
+                AddInfo=AddInfo+", DEBUG enabled"
             if ("_DIGIN" in bin_file):
                 AddInfo=AddInfo+", digital line-in support";
             if ("_HSDIGIN" in bin_file):
