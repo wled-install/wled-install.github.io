@@ -1,4 +1,4 @@
-# (c) Wladislaw Waag, 2022
+# (c) Wladislaw Waag, 2022-2023
 import os, shutil, string
 
 output_dir="_build"
