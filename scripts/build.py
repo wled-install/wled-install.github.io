@@ -84,7 +84,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfo=AddInfo+", Alexa/Hue/Infrared disabled";
             if ("_MQTT" in bin_file):
                 AddInfo=AddInfo+", MQTT enabled";
-            if ("_MDEVMAX" in bin_file) or (("WLEDMM_" in bin_file) and (("_max" in bin_file) or  ("_M.bin" in bin_file))):
+            if ("_MDEVMAX" in bin_file) or (("WLEDMM_" in bin_file) and (("_max" in bin_file) or  ("_M.bin" in bin_file) or  ("_M_" in bin_file))):
                 AddInfo=AddInfo+", M: mods included: audio reactive, games, weather, custom effects, mpu6050 + other improvements";
             if ("WLEDMM_" in bin_file) and ("_S.bin" in bin_file):
                 AddInfo=AddInfo+", S: mods included: audio reactive";
