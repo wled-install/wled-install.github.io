@@ -45,9 +45,18 @@ jobs:
         echo 'lib_deps =' >> platformio.ini
         echo '  ${env:esp32dev.lib_deps}' >> platformio.ini
         echo '  https://github.com/blazoncek/arduinoFFT.git' >> platformio.ini
+        echo " " >> platformio.ini
+        echo '[env:esp32_are_eth]' >> platformio.ini
+        echo 'extends = env:esp32_eth' >> platformio.ini
+        echo 'build_flags = -D WLED_RELEASE_NAME=ESP32_ARE_Ethernet ${env:esp32_eth.build_flags} -D USERMOD_AUDIOREACTIVE' >> platformio.ini
+        echo 'lib_deps =' >> platformio.ini
+        echo '  ${env:esp32_eth.lib_deps}' >> platformio.ini
+        echo '  https://github.com/blazoncek/arduinoFFT.git' >> platformio.ini
         pio run -e esp32dev || pio run -e esp32dev || true
         pio run -e nodemcuv2 || pio run -e nodemcuv2 || true
+        pio run -e esp32_eth || pio run -e esp32_eth || true
         pio run -e esp32dev_are || pio run -e esp32dev_are || true
+        pio run -e esp32_are_eth || pio run -e esp32_are_eth || true
         cat platformio.ini
       env:
         PLATFORMIO_CI_SRC: /tmp/WLED-main
