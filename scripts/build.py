@@ -51,60 +51,85 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             template_filename=""
             dict={}
             AddInfo=", 4MB Flash";
+            AddInfoShort=", 4MB";
             ESPtype=""
             if isbinfile_esp32(bin_file):
                 ESPtype="ESP32"
                 template_filename="./scripts/manifest_esp32_template.json"
                 if ("_ETH" in bin_file) or ("_Ethernet" in bin_file):
                     AddInfo=AddInfo+", Ethernet";
+                    AddInfoShort= AddInfoShort+", Ethernet";
             else:
                 ESPtype="ESP8266"
                 template_filename="./scripts/manifest_esp8266_template.json"
                 AddInfo=", 4MB Flash: D1 mini etc.";
+                AddInfoShort=", 4MB";
                 if ("_1MB" in bin_file) or ("_ESP01" in bin_file):
                     AddInfo=", 1MB Flash";
+                    AddInfoShort=", 1MB";
                 if ("_2MB" in bin_file) or ("_ESP02" in bin_file):
                     AddInfo=", 2MB Flash";
+                    AddInfoShort=", 1MB";
                 
             if ("_AE" in bin_file) or ("_withAlexa" in bin_file):
                 AddInfo=AddInfo+", Alexa enabled";
+                AddInfoShort=AddInfoShort+", Alexa";
             if ("_ARE" in bin_file) :
                 AddInfo=AddInfo+", with Audio reactive Usermod";
+                AddInfoShort=AddInfoShort+", Audio reactive";
             if ("_AHI" in bin_file):
                 AddInfo=AddInfo+", APA102 2MHz + Alexa/Hue/Infrared enabled";
+                AddInfoShort=AddInfoShort+", Alexa/Hue/Infrared";
             if ("_ABHI" in bin_file):
                 AddInfo=AddInfo+", APA102 2MHz + Alexa/Blink/Hue/Infrared enabled";
+                AddInfoShort=AddInfoShort+", Alexa/Blink/Hue/Infrared";
             if ("_APA102FIX2MHZ" in bin_file):
                 AddInfo=AddInfo+", APA102 2MHz";
+                AddInfoShort=AddInfoShort+", APA102 2MHz";
             if ("_v41" in bin_file):
                 AddInfo=AddInfo+", LEDPIN=16, DigMic = Generic I2S";
+                AddInfoShort=AddInfoShort+", LEDPIN16, DigMic I2S";
             if ("_OB" in bin_file):
                 AddInfo=AddInfo+", original Build";
+                AddInfoShort=AddInfoShort+", original Build";
             if ("_OB" in bin_file) and ("SR_" in bin_file):
                 AddInfo=AddInfo+", Alexa/Hue/Infrared disabled";
+                AddInfoShort=AddInfoShort+"";
             if ("_MQTT" in bin_file):
                 AddInfo=AddInfo+", MQTT enabled";
+                AddInfoShort=AddInfoShort+", MQTT";
             if ("_MDEVMAX" in bin_file) or (("WLEDMM_" in bin_file) and (("_max" in bin_file) or  ("_M.bin" in bin_file) or  ("_M_" in bin_file))):
                 AddInfo=AddInfo+", M: mods included: audio reactive, games, weather, custom effects, mpu6050 + other improvements";
+                AddInfoShort=AddInfoShort+", M: many mods included";
             if ("WLEDMM_" in bin_file) and ("_S.bin" in bin_file):
                 AddInfo=AddInfo+", S: mods included: audio reactive";
+                AddInfoShort=AddInfoShort+", S: some mods included";
             if ("WLEDMM_" in bin_file) and ("_XL.bin" in bin_file):
                 AddInfo=AddInfo+", XL: almost all mods included";
+                AddInfoShort=AddInfoShort+", XL: almost all mods";
             if (("WLEDSR_" in bin_file) and ("_max" in bin_file)):
                 AddInfo=AddInfo+", some additional mods included";
+                AddInfoShort=AddInfoShort+", some additional mods";
             if (("WLEDSR_" in bin_file) and ("_M" in bin_file)):
                 AddInfo=AddInfo+", M: some additional mods included: temp Sensor, 4-L Display, rotary encoder, auto Save";
+                AddInfoShort=AddInfoShort+", M: some additional mods";
             if (("WLEDSR_" in bin_file) and ("_S" in bin_file)):
                 AddInfo=AddInfo+", S: no additional mods";
+                AddInfoShort=AddInfoShort+", S: no additional mods";
             if ("_debug" in bin_file):
                 AddInfo=AddInfo+", DEBUG enabled"
+                AddInfoShort=AddInfoShort+", DEBUG enabled";
             if ("_micdebug" in bin_file):
-                AddInfo=AddInfo+", Microphone debug enabled"
+                AddInfo=AddInfo+", Microphone debug enabled";
+                AddInfoShort=AddInfoShort+", Microphone debug";
             if ("_DIGIN" in bin_file):
                 AddInfo=AddInfo+", digital line-in support";
+                AddInfoShort=AddInfoShort+", dig. line-in";
             if ("_HSDIGIN" in bin_file):
                 AddInfo=AddInfo+", high sense digital line-in support";
-            dict["ADDINFO"]=AddInfo;
+                AddInfoShort=AddInfoShort+", highsense dig. line-in";
+            AddInfo
+            dict["ADDINFO"]=AddInfoShort;
             dict["VERSION"]=dir_text;    
             dict["BINFILE"]=dir_path_forhtml+"/"+bin_file; 
             f_template=open(template_filename, "r")
