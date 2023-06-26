@@ -88,7 +88,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfoShort=AddInfoShort+", APA102 2MHz";
             if ("_v41" in bin_file):
                 AddInfo=AddInfo+", LEDPIN=16, DigMic = Generic I2S";
-                AddInfoShort=AddInfoShort+", PIN16, I2S Mic";
+                AddInfoShort=AddInfoShort+", I2S Mic";
             if ("_OB" in bin_file):
                 AddInfo=AddInfo+", original Build";
                 AddInfoShort=AddInfoShort+", original Build";
@@ -124,10 +124,10 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfoShort=AddInfoShort+", Microphone debug";
             if ("_DIGIN" in bin_file):
                 AddInfo=AddInfo+", digital line-in support";
-                AddInfoShort=AddInfoShort+", dig. line-in";
+                AddInfoShort=AddInfoShort+", line-in";
             if ("_HSDIGIN" in bin_file):
                 AddInfo=AddInfo+", high sense digital line-in support";
-                AddInfoShort=AddInfoShort+", highsense dig. line-in";
+                AddInfoShort=AddInfoShort+", highsense line-in";
             AddInfo
             dict["ADDINFO"]=AddInfoShort;
             dict["VERSION"]=dir_text;    
