@@ -88,7 +88,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfoShort=AddInfoShort+", APA102 2MHz";
             if ("_v41" in bin_file):
                 AddInfo=AddInfo+", LEDPIN=16, DigMic = Generic I2S";
-                AddInfoShort=AddInfoShort+", LEDPIN16, DigMic I2S";
+                AddInfoShort=AddInfoShort+", PIN16, I2S Mic";
             if ("_OB" in bin_file):
                 AddInfo=AddInfo+", original Build";
                 AddInfoShort=AddInfoShort+", original Build";
