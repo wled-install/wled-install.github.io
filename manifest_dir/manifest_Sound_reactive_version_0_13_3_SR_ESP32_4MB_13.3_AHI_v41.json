@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP32, 4MB, Alexa+Hue+IR, PIN16, I2S Mic)",
+  "name": "WLED (ESP32, 4MB, Alexa+Hue+IR, I2S Mic)",
   "version": "Sound reactive version: 0.13.3",
   "new_install_skip_erase": false,
   "builds": [
