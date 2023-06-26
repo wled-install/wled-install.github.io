@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP32, 4MB Flash, APA102 2MHz + Alexa/Hue/Infrared enabled, LEDPIN=16, DigMic = Generic I2S, digital line-in support)",
+  "name": "WLED (ESP32, 4MB, Alexa/Hue/Infrared, LEDPIN16, DigMic I2S, dig. line-in)",
   "version": "Sound reactive version: 0.13.3",
   "new_install_skip_erase": false,
   "builds": [

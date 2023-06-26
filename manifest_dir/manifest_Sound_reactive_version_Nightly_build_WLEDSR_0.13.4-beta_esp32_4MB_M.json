@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP32, 4MB Flash, M: some additional mods included: temp Sensor, 4-L Display, rotary encoder, auto Save)",
+  "name": "WLED (ESP32, 4MB, M: some additional mods)",
   "version": "Sound reactive version: Nightly build",
   "new_install_skip_erase": false,
   "builds": [

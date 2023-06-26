@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP32, 4MB Flash, Ethernet, with Audio reactive Usermod)",
+  "name": "WLED (ESP32, 4MB, Ethernet, Audio reactive)",
   "version": "Standard version: 0.14.0 beta 3",
   "new_install_skip_erase": false,
   "builds": [

@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP32, 4MB Flash, S: mods included: audio reactive)",
+  "name": "WLED (ESP32, 4MB, S: some mods included)",
   "version": "MoonMod version: Nightly build",
   "new_install_skip_erase": false,
   "builds": [

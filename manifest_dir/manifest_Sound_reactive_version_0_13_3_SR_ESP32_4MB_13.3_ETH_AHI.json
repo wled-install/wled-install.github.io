@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP32, 4MB Flash, Ethernet, APA102 2MHz + Alexa/Hue/Infrared enabled)",
+  "name": "WLED (ESP32, 4MB, Ethernet, Alexa/Hue/Infrared)",
   "version": "Sound reactive version: 0.13.3",
   "new_install_skip_erase": false,
   "builds": [

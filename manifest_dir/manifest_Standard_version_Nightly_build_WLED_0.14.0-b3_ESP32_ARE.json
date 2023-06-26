@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP32, 4MB Flash, with Audio reactive Usermod)",
+  "name": "WLED (ESP32, 4MB, Audio reactive)",
   "version": "Standard version: Nightly build",
   "new_install_skip_erase": false,
   "builds": [

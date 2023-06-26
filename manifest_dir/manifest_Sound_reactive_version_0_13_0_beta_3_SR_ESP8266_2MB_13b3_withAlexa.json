@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP8266, 2MB Flash, Alexa enabled)",
+  "name": "WLED (ESP8266, 1MB, Alexa)",
   "version": "Sound reactive version: 0.13.0 beta 3",
   "new_install_skip_erase": false,
   "builds": [
