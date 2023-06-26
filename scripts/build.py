@@ -79,10 +79,10 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfoShort=AddInfoShort+", Audio reactive";
             if ("_AHI" in bin_file):
                 AddInfo=AddInfo+", APA102 2MHz + Alexa/Hue/Infrared enabled";
-                AddInfoShort=AddInfoShort+", Alexa/Hue/Infrared";
+                AddInfoShort=AddInfoShort+", Alexa+Hue+IR";
             if ("_ABHI" in bin_file):
                 AddInfo=AddInfo+", APA102 2MHz + Alexa/Blink/Hue/Infrared enabled";
-                AddInfoShort=AddInfoShort+", Alexa/Blink/Hue/Infrared";
+                AddInfoShort=AddInfoShort+", Alexa+Blink+Hue+IR";
             if ("_APA102FIX2MHZ" in bin_file):
                 AddInfo=AddInfo+", APA102 2MHz";
                 AddInfoShort=AddInfoShort+", APA102 2MHz";
@@ -93,7 +93,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfo=AddInfo+", original Build";
                 AddInfoShort=AddInfoShort+", original Build";
             if ("_OB" in bin_file) and ("SR_" in bin_file):
-                AddInfo=AddInfo+", Alexa/Hue/Infrared disabled";
+                AddInfo=AddInfo+", Alexa+Hue+IR disabled";
                 AddInfoShort=AddInfoShort+"";
             if ("_MQTT" in bin_file):
                 AddInfo=AddInfo+", MQTT enabled";
