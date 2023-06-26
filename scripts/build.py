@@ -127,7 +127,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfoShort=AddInfoShort+", line-in";
             if ("_HSDIGIN" in bin_file):
                 AddInfo=AddInfo+", high sense digital line-in support";
-                AddInfoShort=AddInfoShort+", highsense line-in";
+                AddInfoShort=AddInfoShort+", line-in";
             AddInfo
             dict["ADDINFO"]=AddInfoShort;
             dict["VERSION"]=dir_text;    
