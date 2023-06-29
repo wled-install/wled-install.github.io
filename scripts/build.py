@@ -19,6 +19,12 @@ def keyfunc(description):
     value=0
     if "ESP32" in description:
         value=value+100000
+    if "ESP32C3" in description:
+        value=value+200000
+    if "ESP32S2" in description:
+        value=value+300000
+    if "ESP32S3" in description:
+        value=value+400000
     if "1MB" in description:
         value=value+4000
     if "2MB" in description:
