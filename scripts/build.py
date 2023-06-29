@@ -15,6 +15,24 @@ def isbinfile_esp32(filename):
     else:
         return False
 
+def isbinfile_esp32c3(filename):
+    if ("ESP32C3" in filename) or ("esp32c3" in filename):
+        return True
+    else:
+        return False
+
+def isbinfile_esp32s2(filename):
+    if ("ESP32S2" in filename) or ("esp32s2" in filename):
+        return True
+    else:
+        return False
+
+def isbinfile_esp32s3(filename):
+    if ("ESP32S3" in filename) or ("esp32s3" in filename):
+        return True
+    else:
+        return False
+
 def keyfunc(description):
     value=0
     if "ESP32" in description:
@@ -60,11 +78,15 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             AddInfoShort=", 4MB";
             ESPtype=""
             if isbinfile_esp32(bin_file):
-                ESPtype="ESP32"
-                template_filename="./scripts/manifest_esp32_template.json"
-                if ("_ETH" in bin_file) or ("_Ethernet" in bin_file):
-                    AddInfo=AddInfo+", Ethernet";
-                    AddInfoShort= AddInfoShort+", Ethernet";
+                if isbinfile_esp32c3(bin_file):
+                    ESPtype="ESP32C3"
+                    template_filename="./scripts/manifest_esp32c3_template.json"
+                else:
+                    ESPtype="ESP32"
+                    template_filename="./scripts/manifest_esp32_template.json"
+                    if ("_ETH" in bin_file) or ("_Ethernet" in bin_file):
+                        AddInfo=AddInfo+", Ethernet";
+                        AddInfoShort= AddInfoShort+", Ethernet";
             else:
                 ESPtype="ESP8266"
                 template_filename="./scripts/manifest_esp8266_template.json"
