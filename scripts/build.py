@@ -100,7 +100,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                         AddInfo=AddInfo+", Ethernet";
                         AddInfoShort= AddInfoShort+", Ethernet";
             else:
-                ="ESP8266"
+                ESPtype="ESP8266"
                 template_filename="./scripts/manifest_esp8266_template.json"
                 AddInfo=", 4MB Flash: D1 mini etc.";
                 AddInfoShort=", 4MB";
@@ -176,8 +176,8 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             template=string.Template(f_template.read())
             f_manifest.write(template.substitute(dict));
             f_manifest.close()
-            #html_list=html_list+(bin_file+" "+manifest_path_forhtml+ " "+ +" ("+AddInfo[2:]+")" + "\n")
-            html_list_array.append("<option data-manifest_file=\""+manifest_path_forhtml+ "\" data-download_file=\"" +download_path_forhtml+ "\">"+ +" ("+AddInfo[2:]+")" + "</option>")
+            #html_list=html_list+(bin_file+" "+manifest_path_forhtml+ " "+ ESPtype +" ("+AddInfo[2:]+")" + "\n")
+            html_list_array.append("<option data-manifest_file=\""+manifest_path_forhtml+ "\" data-download_file=\"" +download_path_forhtml+ "\">"+ ESPtype +" ("+AddInfo[2:]+")" + "</option>")
     html_list_array_sorted=sorted(html_list_array, key=keyfunc)
     for item in html_list_array_sorted:
         html_list=html_list+item+"\n"
