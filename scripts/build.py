@@ -94,7 +94,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                         AddInfo=", 8MB Flash";
                         AddInfoShort=", 8MB";
                 else:
-                    ="ESP32"
+                    ESPtype="ESP32"
                     template_filename="./scripts/manifest_esp32_template.json"
                     if ("_ETH" in bin_file) or ("_Ethernet" in bin_file):
                         AddInfo=AddInfo+", Ethernet";
