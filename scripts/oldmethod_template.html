@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="copyright" content="&copy; 2022 Wladislaw Waag" />
+  <title>WLED installation</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-gH2yIJqKdNHPEq0n4Mqa/HGKIhSkIHeL5AyhkYV8i59U5AR6csBvApHHNl/vI1Bx" crossorigin="anonymous">
+  <style>
+  a { color: #0000EE; cursor: pointer; text-decoration: underline;}
+  </style>
+  <script
+    type="module"
+    src="https://unpkg.com/esp-web-tools@8.0.6/dist/web/install-button.js?module"
+  ></script>
+</head>
+<body>
+<div class="container m-2 p-0">
+  <h3><b><span style="color:red">W</span><span style="color:orange">L</span><span style="color:darkblue">E</span><span style="color:lightpink">D</span><span style="color:blue"> S</span><span style="color:violett">o</span><span style="color:orchid">f</span><span style="color:hotpink">t</span><span style="color:deeppink">w</span><span style="color:lightcoral">a</span><span style="color:darkmagemnta">r</span><span style="color:mediumblue">e</span><span style="color:orange"> I</span><span style="color:red">n</span><span style="color:dodgerblue">s</span><span style="color:mediumpurple">t</span><span style="color:darkolivengreen">a</span><span style="color:orangered">l</span><span style="color:brown">l</span><span style="color:darkgreen">a</span><span style="color:seagreen">t</span><span style="color:crimson">i</span><span style="color:magenta">o</span><span style="color:darksalmon">n</span></b></h3>
+  <h5 id="L17">(inoffizieller Installer mit einem erweiterten Funktionsumfang)</h5>
+  <div class="form-floating mb-1">
+  <select id="lang" onchange="LangChanged();" class="form-select" aria-label="" style="min-width: 200px; width:auto;">
+        <option value="0">Deutsch</option>
+        <option value="1">English</option>
+  </select>
+  <label for="lang">Language/Sprache:</label>
+  </div>
+  <small><div id="L21">Diese Software ist open source und wird kostenfrei zur Verfügung gestellt. Es werden keine bestimmten Eigenschaften der Software zugesichert. Der Inhaber dieser Webseite haftet nur für Vorsatz und grobe Fahrlässigkeit. Gewährleistungspflichten treffen ihn nur, wenn er Mängel der Software arglistig verschwiegen hat. Bitte beachten Sie, dass als „beta“ gekennzeichnete Versionen der Software besonders wahrscheinlich noch Fehler beinhalten. Wenn ein anderes Recht als Deutsches angewendet wird, es gelten die Bestimmungen der englischen Version (bitte oben englische Sprache wählen). 
+</div></small>
+<br>
+  <div id="FullContainer1">
+		
+	<h5 id="L23">Vorgehensweise:</h5>
+      <ol>
+          <li><span id="L01">Schliessen Sie Ihr ESP8266 / ESP32 Board an USB an.</span></li>
+          <div></div>
+          <li><span id="L02">Wählen Sie den Board-Typ/Software Version aus</span></li>
+          <div></div>
+          <li><span id="L03">Klicken Sie auf "Installieren" und wählen dann den korrekten COM-Port aus. </span><u><a onclick="NoComPortHelp()" class="btn btn-secondary btn-sm"><span id="L04">Kein Board wurde gefunden?</span></a></u></li>
+          <div id="comporthelp"></div>
+          <li><span id="L05">Klicken Sie auf "Install WLED". Die Installation beginnt. Sollte nach einiger Zeit die Installation beim "Wrapping Up" stehen bleiben, können es es unterbrechen. Die SW ist dann trotzdem i.O. installiert.</span></li>
+      	  <li><span id="L27">Wichtige Hinweise zu neuen Controller-Typen: </span><u><a onclick="NewTypesHelp()" class="btn btn-secondary btn-sm"><span>ESP32-C3, ESP32-S2, ESP32-S3 etc.</span></a></u></li>
+          <div id="newtypeshelp"></div>
+      </ol>
+	</div>
+		  <div class="form-floating">
+			<select id="software_version" onchange="selectSoftware();" class="form-select" aria-label="" style="min-width: 20em; width:auto;">
+$HTMLLIST
+			</select>
+				<label for="software_version"><span id="L11">Board Typ / SW Version:</span></label>
+		  </div>
+	<div id="FullContainer4" class="container">
+		<br> <span id="L26" style="color:red">Achtung! Die ausgewählte Software wurde automatisch von einem Open Source Projekt kompiliert und durch den Betreiber dieser Webseite nicht auf die Funktionalität oder Inhalt geprüft. Es ist auch theoretisch möglich, dass diese Software schadhafte Anteile beinhaltet. Bitte installieren oder herunterladen Sie diese Software nur dann, wenn Sie der Quelle der Software vertrauen und die Risiken Ihnen bewusst sind. Die Quellen sind für Standard Versionen: https://github.com/Aircoookie/WLED, für Sound Reactive Versionen: https://github.com/atuline/WLED, für MonMod Versionen: https://github.com/MoonModules/WLED.</span>
+	      <a class="btn btn-primary" onclick="OnAgreeButton();"><span id="L25">Einverstanden!</span></a>
+    </div>	  
+	<div id="FullContainer2">
+		<br>
+	  <div class="container inst-button">
+          <esp-web-install-button id="install_btn" manifest="/cangw/manifest.json" >
+            <button class="btn btn-primary" slot="activate"><span id="L09">Installieren<span></button>
+          </esp-web-install-button>
+      </div>
+    </div>
+	<div id="FullContainer3">
+		<br>
+		<div class="container download-button">
+	      <a href="" class="btn btn-primary" id="download_btn"><span id="L24">Nur die .bin Datei herunterladen</span></a>
+	    </div>
+		<br>
+    </div>
+  <hr>
+        <div>
+        <h5 id="L15">Nützliche Informationen:</h5>
+        <ul>
+          <li><span id="L20">Link zu verwendeten .bin Dateien: <a href="https://github.com/wled-install/wled-install.github.io/tree/main/bin_dir">auf Github</a></span></li>
+          <li><span id="L12">WLED Wiki: <a href="https://kno.wled.ge">https://kno.wled.ge</a></span></li>
+          <li><span id="L14">DIY WLED boards: </span><a href="https://github.com/wladwnt/wled">Github</a></li>
+          <li><span id="L13">Professionelle WLED Boards: <a href="https://shop.myhome-control.de">MyHome-Control Shop</a></span></li>
+          <li><span id="L16">WLED power calculator: <a href="https://wled-calculator.github.io">https://wled-calculator.github.io</a></span></li>
+		  <li><span id="L22">Source of MoonMod version: github.com/moonmodules/wled/tree/mdev</span></li>
+        </ul>
+      </div>
+   <div class="accordion accordion-flush" id="accordionBottom">
+		<div class="accordion-item">
+			<h4 class="accordion-header" id="headingImprint">
+			  <button class="accordion-button collapsed" style="padding-left:0;" type="button" data-bs-toggle="collapse" data-bs-target="#collapseImprint" aria-expanded="true" aria-controls="collapseOne">
+				<span id="L18" style="color:blue;text-decoration: underline;">Impressum</span>
+			  </button>
+			</h4>
+			<div id="collapseImprint" class="accordion-collapse collapse" aria-labelledby="headingImprint" data-bs-parent="#accordionBottom">
+			  <div class="accordion-body">
+				<small><div id="imprint"></div></small>
+			  </div>
+			</div>
+		</div>
+		
+		<div class="accordion-item">
+			<h4 class="accordion-header" id="headingPrivacy">
+			  <button class="accordion-button collapsed" style="padding-left:0;" type="button" data-bs-toggle="collapse" data-bs-target="#collapsePrivacy" aria-expanded="true" aria-controls="collapseOne">
+				<span id="L19" style="color:blue;text-decoration: underline;">Datenschutzerklärung</span>
+			  </button>
+			</h4>
+			<div id="collapsePrivacy" class="accordion-collapse collapse" aria-labelledby="headingPrivacy" data-bs-parent="#accordionBottom">
+			  <div class="accordion-body">
+				<small><div id="dataprivacy"></div></small>
+			  </div>
+			</div>
+		</div>
+	  </div>
+</div>
+<script>
+function LangChanged() {
+    if(document.getElementById('lang').selectedIndex==0) {
+        if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Leider wird Ihr Browser aktuell für die Installation via USB nicht unterstützt! Sie können nur die .bin Dateien herunterladen. <br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.<br><br>Verfügbare software Versionen:";
+        if(document.getElementById('L01')) document.getElementById('L01').innerHTML = "Schliessen Sie Ihr ESP8266 / ESP32 Board an USB an.";
+        if(document.getElementById('L02')) document.getElementById('L02').innerHTML = "Wählen Sie den Board-Typ / SW Version aus.";
+        if(document.getElementById('L03')) document.getElementById('L03').innerHTML = "Klicken Sie auf \"Installieren\" und wählen dann den korrekten COM-Port aus. ";
+        if(document.getElementById('L04')) document.getElementById('L04').innerHTML = "Kein Board wurde gefunden?";
+        if(document.getElementById('L05')) document.getElementById('L05').innerHTML = "Klicken Sie auf \"Install WLED\". Die Installation beginnt. Sollte nach einiger Zeit die Installation beim \"Wrapping Up\" stehen bleiben, können sie es unterbrechen. Die SW ist dann trotzdem i.O. installiert.";
+        if(document.getElementById('L09')) document.getElementById('L09').innerHTML = "Installieren";
+        if(document.getElementById('L11')) document.getElementById('L11').innerHTML = "Board Typ / SW Version: ";
+        if(document.getElementById('L13')) document.getElementById('L13').innerHTML = 'Professionelle WLED Boards: <a href="https://shop.myhome-control.de">MyHome-Control Shop</a>';
+        if(document.getElementById('L15')) document.getElementById('L15').innerHTML = "Nützliche Informationen:";
+        if(document.getElementById('L16')) document.getElementById('L16').innerHTML = 'WLED Leistung Rechner: <a href="https://wled-calculator.github.io">https://wled-calculator.github.io</a>';
+        if(document.getElementById('L17')) document.getElementById('L17').innerHTML = '(inoffizieller Installer mit einem erweiterten Funktionsumfang)';
+        if(document.getElementById('L18')) document.getElementById('L18').innerHTML = 'Impressum';
+        if(document.getElementById('L19')) document.getElementById('L19').innerHTML = 'Datenschutzerklärung';
+        if(document.getElementById('L20')) document.getElementById('L20').innerHTML = 'Link zu verwendeten .bin Dateien: <a href="https://github.com/wled-install/wled-install.github.io/tree/main/bin_dir">auf Github</a>';
+		if(document.getElementById('L21')) document.getElementById('L21').innerHTML = 'Diese Software ist open source und wird kostenfrei zur Verfügung gestellt. Es werden keine bestimmten Eigenschaften der Software zugesichert. Der Inhaber dieser Webseite haftet nur für Vorsatz und grobe Fahrlässigkeit. Gewährleistungspflichten treffen ihn nur, wenn er Mängel der Software arglistig verschwiegen hat. Bitte beachten Sie, dass als „beta“ oder "Nightly build" gekennzeichnete Versionen der Software besonders wahrscheinlich noch Fehler beinhalten. Wenn ein anderes Recht als Deutsches angewendet wird, es gelten die Bestimmungen der englischen Version (bitte oben englische Sprache wählen). <a href="https://wled-install.github.io/WLED_Software_Lizenzen.pdf">WLED Lizenzen</a>';
+		if(document.getElementById('L22')) document.getElementById('L22').innerHTML = 'Quelle von MoonMod Version: github.com/moonmodules/wled/tree/mdev';
+		if(document.getElementById('L23')) document.getElementById('L23').innerHTML = 'Vorgehensweise:';
+		if(document.getElementById('L24')) document.getElementById('L24').innerHTML = 'Nur die .bin Datei herunterladen';
+		if(document.getElementById('L25')) document.getElementById('L25').innerHTML = 'Einverstanden!';
+		if(document.getElementById('L26')) document.getElementById('L26').innerHTML = 'Achtung! Die ausgewählte Software wurde automatisch von einem Open Source Projekt kompiliert und durch den Betreiber dieser Webseite nicht auf die Funktionalität oder Inhalt geprüft. Es ist auch theoretisch möglich, dass diese Software schadhafte Anteile beinhaltet. Bitte installieren oder herunterladen Sie diese Software nur dann, wenn Sie der Quelle der Software vertrauen und die Risiken Ihnen bewusst sind. Die Quellen sind für Standard Versionen: https://github.com/Aircoookie/WLED, für Sound Reactive Versionen: https://github.com/atuline/WLED, für MoonMod Versionen: https://github.com/MoonModules/WLED.';
+       if(document.getElementById('L27')) document.getElementById('L27').innerHTML = 'Wichtige Hinweise zu neuen Controller-Typen: ';
+    } else {
+        if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Unfortunately your browser is not yet supported for installation via USB! You can only download .bin files. <br>Please try on Chrome (for Desktop) or Microsoft Edge.<br><br>Available software versions:";
+        if(document.getElementById('L01')) document.getElementById('L01').innerHTML = "Connect your ESP8266 / ESP32 board via USB port.";
+        if(document.getElementById('L02')) document.getElementById('L02').innerHTML = "Select type of your board / software version required.";
+        if(document.getElementById('L03')) document.getElementById('L03').innerHTML = "Click on \"Install\" and select the correct COM port. ";
+        if(document.getElementById('L04')) document.getElementById('L04').innerHTML = "No board found?";
+        if(document.getElementById('L05')) document.getElementById('L05').innerHTML = "Click on \"Install WLED\". If after some time the installation stops at \"wrapping up\", you can interrupt it. The SW is then already installed correctly.";
+        if(document.getElementById('L09')) document.getElementById('L09').innerHTML = "Install";
+        if(document.getElementById('L11')) document.getElementById('L11').innerHTML = "Board type / software version: ";
+        if(document.getElementById('L13')) document.getElementById('L13').innerHTML = 'Professional WLED boards: <a href="https://wled.shop">WLED Shop</a>';
+        if(document.getElementById('L15')) document.getElementById('L15').innerHTML = "Useful web pages:";
+        if(document.getElementById('L16')) document.getElementById('L16').innerHTML = 'WLED power calculator: <a href="https://wled-calculator.github.io">https://wled-calculator.github.io</a>';
+        if(document.getElementById('L17')) document.getElementById('L17').innerHTML = '(unofficial installer with an extended functionality)';
+        if(document.getElementById('L18')) document.getElementById('L18').innerHTML = 'Legal notice';
+        if(document.getElementById('L19')) document.getElementById('L19').innerHTML = 'Data privacy';
+        if(document.getElementById('L20')) document.getElementById('L20').innerHTML = 'Link to .bin files used: <a href="https://github.com/wled-install/wled-install.github.io/tree/main/bin_dir">on Github</a>';
+		if(document.getElementById('L21')) document.getElementById('L21').innerHTML = 'This is open source software and is provided for free. It is provided "as is", without warranty of any kind, express or implied, including but not limited to the warranties of merchantability, fitness for a particular purpose and noninfringement. In no event shall the owner of this web page be liable for any claim, damages or other liability, whether in an action of contract, tort or otherwise, arising from, out of or in connection with the software or the use or other dealings in the software. In case German law should be applied, the German version of this disclaimer must be used (please select German language above). <a href="https://wled-install.github.io/WLED_Software_Lizenzen.pdf">WLED licenses</a>';
+		if(document.getElementById('L22')) document.getElementById('L22').innerHTML = 'Source of MoonMod version: github.com/moonmodules/wled/tree/mdev';
+		if(document.getElementById('L23')) document.getElementById('L23').innerHTML = 'Steps:';
+		if(document.getElementById('L24')) document.getElementById('L24').innerHTML = 'Only download .bin file';
+		if(document.getElementById('L25')) document.getElementById('L25').innerHTML = 'I agree!';
+		if(document.getElementById('L26')) document.getElementById('L26').innerHTML = 'Attention! The selected software was automatically compiled from an open source project and was not checked for functionality or content by the operator of this website. It is also theoretically possible that this software contains defective parts. Please only install or download this software if you trust the source of the software and you understand the risks. The sources are for Standard Versions: https://github.com/Aircoookie/WLED, for Sound Reactive Versions: https://github.com/atuline/WLED, for MoonMod Versions: https://github.com/MoonModules/WLED.';
+    	if(document.getElementById('L27')) document.getElementById('L27').innerHTML = 'Important notes for new controller types: ';
+    }
+	ShowImprint();
+	ShowDataPrivacy();
+}
+
+function selectSoftware() {
+    var selected = document.getElementById('software_version');
+    var manifest_file = selected.options[selected.selectedIndex].dataset.manifest_file;
+	
+	if(document.getElementById('install_btn')) document.getElementById('install_btn').setAttribute('manifest',manifest_file);
+	
+	var download_file = selected.options[selected.selectedIndex].dataset.download_file;
+	document.getElementById('download_btn').setAttribute('href',download_file);
+	
+	if(download_file.includes("nightly") || download_file.includes("Nightly")) {
+	  document.getElementById('FullContainer4').style.display="block";
+	  document.getElementById('FullContainer3').style.display="none";
+	  document.getElementById('FullContainer2').style.display="none";
+	} else {
+	  document.getElementById('FullContainer4').style.display="none";
+	  document.getElementById('FullContainer3').style.display="block";
+	  document.getElementById('FullContainer2').style.display="block";
+	}
+}
+  
+function ShowImprint() {
+    if(document.getElementById('lang').selectedIndex==0) {
+        document.getElementById('imprint').innerHTML = "<br><h3>Impressum</h3>Angaben gemäß § 5 TMG:<br>Verantwortlicher: Wladislaw Waag<br>Adresse: Wasserburger Landstr. 29, 81825 München, Deutschland<br>Kontakt: +49 (0) 176 47 11 5206, info@myhome-control.de<br><br>EU-Streitschlichtung: Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit: <a href='https://ec.europa.eu/consumers/odr/' target='_blank'>https://ec.europa.eu/consumers/odr/</a>.<br><br>Verbraucherstreitbeilegung/Universalschlichtungsstelle: Wir sind nicht bereit oder verpflichtet, an Streitbeilegungsverfahren vor einer Verbraucherschlichtungsstelle teilzunehmen.";
+    } else {
+        document.getElementById('imprint').innerHTML = "<br><h3>Legal notice</h3>Information according to § 5 TMG:<br>Responsible: Wladislaw Waag<br>Address: Wasserburger Landstr. 29, 81825 Munich, Germany<br>Contact: +49 176 47 11 5206, info@myhome-control.de<br><br>EU dispute settlement: The European Commission provides a platform for online dispute resolution (ODR): <a href='https://ec.europa.eu/consumers/odr/' target='_blank'>https://ec.europa.eu/consumers/odr/</a>.<br><br>Consumer dispute settlement / universal arbitration board: We are neither willing nor obliged to participate in dispute settlement proceedings before a consumer arbitration board.";
+    }
+}
+  
+function ShowDataPrivacy() {
+    if(document.getElementById('lang').selectedIndex==0) {
+        document.getElementById('dataprivacy').innerHTML = "<br><h3>Datenschutzerklärung</h3>Der Betreiber dieser Webseite (https://wled-install.github.io) sammelt und verarbeitet keinerlei personenbezogenen Daten der Nutzer dierser Webseite. Diese Seite wird jedoch im Rahmen von 'Github Pages' gehostet und betrieben. Es ist möglich und wahrscheinlich, dass Github die personenbezogenen Daten sammelt und verarbeitet. Das betrifft dann auch die Besucher der Webseite wled-installer.github.io. Ich habe aber keinerlei Einfluss darauf. Bitte lesen Sie dazu die Datenschutzerklärung von Github: <a href='https://docs.github.com/en/github/site-policy/github-privacy-statement' target='_blank'>https://docs.github.com/en/github/site-policy/github-privacy-statement</a><br><br>Unsere Webseite enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen Einfluss haben. Für diese fremden Inhalte können wir keine Gewähr und keine Haftung übernehmen. Für die Inhalte der verlinkten Seiten ist immer der jeweilige Anbieter oder Betreiber der Seiten verantwortlich. Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche Rechtsverstöße überprüft. Rechtswidrige Inhalte waren dabei nicht erkennbar. Sollten uns Rechtsverletzungen bekannt werden, werden wir die entsprechende Verlinkung umgehend entfernen.";
+    } else {
+        document.getElementById('dataprivacy').innerHTML = "<br><h3>Data privacy</h3>The operator of this website (https://wled-install.github.io) does not collect and process any personal data of the users of this website. However, this page is hosted and operated as part of 'Github Pages'. It is possible and probable that Github collects and processes personal data, which then also affects visitors of the wled-installer.github.io web page. But I have no influence on it. Please read the Github privacy statement: <a href='https://docs.github.com/en/github/site-policy/github-privacy-statement' target='_blank'>https://docs.github.com/en/github/site-policy/github-privacy-statement</a><br><br>Our website contains links to external websites over which we have no control. We cannot accept any liability for this third-party content. The respective provider or operator of the pages is always responsible for the content of the linked pages. The linked pages were checked for possible legal violations at the time of linking. Illegal content was not recognizable at that time. If we become aware of any legal violations, we will remove the relevant link immediately.";
+    }
+}
+
+function NoComPortHelp() {
+    document.getElementById('L04').innerHTML = "";
+    if(document.getElementById('lang').selectedIndex==0) {
+        document.getElementById('comporthelp').innerHTML = "Ist Dein USB Kabel geeignet für Datentransfer ?<br>Vielelicht fehlt der USB Treiber für Dein Board. Die meisten Boards verwenden einen von diesen:<br>- <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers?tab=downloads\" target=\"_blank\">CP210x (quadratischer Chip)</a><br>-  <a href=\"http://www.wch-ic.com/downloads/CH341SER_EXE.html\" target=\"_blank\">CH34x (Rechteck Chip) oder CH9102x (quadratischer Chip)</a><br>";
+    } else {
+        document.getElementById('comporthelp').innerHTML = "Check if your USB cable supports data transfer.<br>Eventually you have to install the drivers for your board.<br>Here are drivers commonly used in ESP32 boards:<br>- <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" target=\"_blank\">CP210x (small square chip)</a><br>- <a href=\"http://www.wch-ic.com/downloads/CH341SER_EXE.html\" target=\"_blank\">CH34x (rectangular chip) or CH9102x (small square chip)</a><br>";
+    }
+}
+
+function NewTypesHelp() {
+    if(document.getElementById('lang').selectedIndex==0) {
+        document.getElementById('newtypeshelp').innerHTML = "- Die Unterstützung für diese neue Typen ist noch hoch experimentell<br>- Zum Flashen immer erst den zweiten Taster (nicht den Reset!) auf dem Bord drücken und halten, erst dann ins USB einstecken. Dann den Taster loslassen<br>- Nach der Istallation manuell resetten<br>- Es sind einige ESP32-C3 V1.0.0 Boards auf dem Markt, die grundsätzlich nicht funktioneiren<br>- Getestet vor allem mit Lolin ESP32-C3 mini, ESP32-S2 mini, ESP32-S3 mini";
+    } else {
+        document.getElementById('newtypeshelp').innerHTML = "- The support for these new types is still highly experimental<br>- For flashing, first press and hold the second button (not the reset!) on the board before plugging it into the USB. Then release the button<br>- After installation do reset manually<br>- There are some ESP32-C3 V1.0.0 boards on the market that basically dont work<br>- Tested mainly with Lolin ESP32-C3 mini, ESP32-S2 mini, ESP32-S3 mini";
+    }
+}
+function OnAgreeButton() {
+	document.getElementById('FullContainer3').style.display="block";
+	document.getElementById('FullContainer2').style.display="block";
+	document.getElementById('FullContainer4').style.display="none";
+}
+
+window.onload = function () {
+    if (document.getElementById('install_btn').hasAttribute('install-unsupported')) {
+        if(document.getElementById('lang').selectedIndex==0) {
+            document.getElementById('FullContainer1').innerHTML = "<span id=\"L10\">Leider wird Ihr Browser für die Installation über USB aktuell nicht unterstützt!<br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.<br><br>Verfügbare software Versionen:</span><br>";
+        } else {
+            document.getElementById('FullContainer1').innerHTML = "<span id=\"L10\">Unfortunately your browser is not yet supported for installation via USB!<br>Please try on Chrome (for Desktop) or Microsoft Edge.<br><br>Available software versions:</span><br>";
+        }
+		document.getElementById('FullContainer2').innerHTML = "";
+    }
+	selectSoftware();
+	LangChanged();
+};
+</script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0/dist/js/bootstrap.bundle.min.js" integrity="sha384-A3rJD856KowSb7dwlZdYEkO39Gagi7vIsF0jrRAoQmDKKtQBHUuLZ9AsSv4jD4Xa" crossorigin="anonymous"></script>
+</body>
+</html>
