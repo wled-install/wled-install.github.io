@@ -79,16 +79,28 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             ESPtype=""
             if isbinfile_esp32(bin_file):
                 if isbinfile_esp32c3(bin_file):
-                    ESPtype="ESP32C3"
+                    ESPtype="ESP32-C3"
                     template_filename="./scripts/manifest_esp32c3_template.json"
+                elif isbinfile_esp32s2(bin_file):
+                    ESPtype="ESP32-S2"
+                    template_filename="./scripts/manifest_esp32s2_template.json"
+                    if ("_8MB" in bin_file):
+                        AddInfo=", 8MB Flash";
+                        AddInfoShort=", 8MB";
+                elif isbinfile_esp32s3(bin_file):
+                    ESPtype="ESP32-S3"
+                    template_filename="./scripts/manifest_esp32s3_template.json"
+                    if ("_8MB" in bin_file):
+                        AddInfo=", 8MB Flash";
+                        AddInfoShort=", 8MB";
                 else:
-                    ESPtype="ESP32"
+                    ="ESP32"
                     template_filename="./scripts/manifest_esp32_template.json"
                     if ("_ETH" in bin_file) or ("_Ethernet" in bin_file):
                         AddInfo=AddInfo+", Ethernet";
                         AddInfoShort= AddInfoShort+", Ethernet";
             else:
-                ESPtype="ESP8266"
+                ="ESP8266"
                 template_filename="./scripts/manifest_esp8266_template.json"
                 AddInfo=", 4MB Flash: D1 mini etc.";
                 AddInfoShort=", 4MB";
@@ -164,8 +176,8 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             template=string.Template(f_template.read())
             f_manifest.write(template.substitute(dict));
             f_manifest.close()
-            #html_list=html_list+(bin_file+" "+manifest_path_forhtml+ " "+ ESPtype+" ("+AddInfo[2:]+")" + "\n")
-            html_list_array.append("<option data-manifest_file=\""+manifest_path_forhtml+ "\" data-download_file=\"" +download_path_forhtml+ "\">"+ ESPtype+" ("+AddInfo[2:]+")" + "</option>")
+            #html_list=html_list+(bin_file+" "+manifest_path_forhtml+ " "+ +" ("+AddInfo[2:]+")" + "\n")
+            html_list_array.append("<option data-manifest_file=\""+manifest_path_forhtml+ "\" data-download_file=\"" +download_path_forhtml+ "\">"+ +" ("+AddInfo[2:]+")" + "</option>")
     html_list_array_sorted=sorted(html_list_array, key=keyfunc)
     for item in html_list_array_sorted:
         html_list=html_list+item+"\n"
