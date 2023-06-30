@@ -109,6 +109,9 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     AddInfo=", 2MB Flash";
                     AddInfoShort=", 1MB";
                 
+            if ("_WIFIFIX" in bin_file):
+                AddInfo=AddInfo+", Lolin WiFiFix for some C3 mini V1.0.0";
+                AddInfoShort=AddInfoShort+", WIFIFIX";
             if ("_AE" in bin_file) or ("_withAlexa" in bin_file):
                 AddInfo=AddInfo+", Alexa enabled";
                 AddInfoShort=AddInfoShort+", Alexa";
