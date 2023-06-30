@@ -84,13 +84,11 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 elif isbinfile_esp32s2(bin_file):
                     ESPtype="ESP32-S2"
                     template_filename="./scripts/manifest_esp32s2_template.json"
-                    if ("_8MB" in bin_file):
-                        AddInfo=", 8MB Flash";
-                        AddInfoShort=", 8MB";
                 elif isbinfile_esp32s3(bin_file):
                     ESPtype="ESP32-S3"
                     template_filename="./scripts/manifest_esp32s3_template.json"
                     if ("_8MB" in bin_file):
+                        template_filename="./scripts/manifest_esp32s3_8MB_template.json"
                         AddInfo=", 8MB Flash";
                         AddInfoShort=", 8MB";
                 else:
