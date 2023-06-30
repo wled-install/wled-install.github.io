@@ -52,11 +52,29 @@ jobs:
         echo 'lib_deps =' >> platformio.ini
         echo '  ${env:esp32_eth.lib_deps}' >> platformio.ini
         echo '  https://github.com/blazoncek/arduinoFFT.git' >> platformio.ini
+        echo '[env:esp32c3dev_NB]'  >> platformio.ini
+        echo 'extends = env:esp32c3dev' >> platformio.ini
+        echo 'build_flags = -D WLED_RELEASE_NAME=ESP32C3_4MB ${env:esp32c3dev.build_flags} >> platformio.ini
+        echo '[env:lolin_s2_mini_NB]'  >> platformio.ini
+        echo 'extends = env:lolin_s2_mini' >> platformio.ini
+        echo 'build_flags = -D WLED_RELEASE_NAME=ESP32S2_4MB ${env:lolin_s2_mini.build_flags} >> platformio.ini
+        echo '[env:esp32s3dev_8MB_NB]'  >> platformio.ini
+        echo 'extends = env:esp32s3dev_8MB' >> platformio.ini
+        echo 'build_flags = -D WLED_RELEASE_NAME=ESP32S3_8MB ${env:esp32s3dev_8MB.build_flags} >> platformio.ini
+        echo '[env:esp32s3dev_4MB_NB]'  >> platformio.ini
+        echo 'extends = env:esp32s3dev_8MB' >> platformio.ini
+        echo 'board = adafruit_feather_esp32s3' >> platformio.ini
+        echo 'board_build.partitions = tools/WLED_ESP32_4MB_1MB_FS.csv' >> platformio.ini
+        echo 'build_flags = -D WLED_RELEASE_NAME=ESP32S3_4MB ${env:esp32s3dev_8MB.build_flags} >> platformio.ini
         pio run -e esp32dev || pio run -e esp32dev || true
         pio run -e nodemcuv2 || pio run -e nodemcuv2 || true
         pio run -e esp32_eth || pio run -e esp32_eth || true
         pio run -e esp32dev_are || pio run -e esp32dev_are || true
         pio run -e esp32_are_eth || pio run -e esp32_are_eth || true
+        pio run -e esp32c3dev_NB || pio run -e esp32c3dev_NB || true
+        pio run -e lolin_s2_mini_NB || pio run -e lolin_s2_mini_NB || true
+        pio run -e esp32s3dev_8MB_NB || pio run -e esp32s3dev_8MB_NB || true
+        pio run -e esp32s3dev_4MB_NB || pio run -e esp32s3dev_4MB_NB || true
         cat platformio.ini
       env:
         PLATFORMIO_CI_SRC: /tmp/WLED-main
