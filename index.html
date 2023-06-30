@@ -39,6 +39,8 @@
           <li><span id="L03">Klicken Sie auf "Installieren" und wählen dann den korrekten COM-Port aus. </span><u><a onclick="NoComPortHelp()" class="btn btn-secondary btn-sm"><span id="L04">Kein Board wurde gefunden?</span></a></u></li>
           <div id="comporthelp"></div>
           <li><span id="L05">Klicken Sie auf "Install WLED". Die Installation beginnt. Sollte nach einiger Zeit die Installation beim "Wrapping Up" stehen bleiben, können es es unterbrechen. Die SW ist dann trotzdem i.O. installiert.</span></li>
+      	  <li><span id="L27">Wichtige Hinweise zu neuen Controller-Typen: </span><u><a onclick="NewTypesHelp()" class="btn btn-secondary btn-sm"><span>ESP32-C3, ESP32-S2, ESP32-S3 etc.</span></a></u></li>
+          <div id="newtypeshelp"></div>
       </ol>
 	</div>
 		  <div class="form-floating">
@@ -183,7 +185,7 @@ function LangChanged() {
 		if(document.getElementById('L24')) document.getElementById('L24').innerHTML = 'Nur die .bin Datei herunterladen';
 		if(document.getElementById('L25')) document.getElementById('L25').innerHTML = 'Einverstanden!';
 		if(document.getElementById('L26')) document.getElementById('L26').innerHTML = 'Achtung! Die ausgewählte Software wurde automatisch von einem Open Source Projekt kompiliert und durch den Betreiber dieser Webseite nicht auf die Funktionalität oder Inhalt geprüft. Es ist auch theoretisch möglich, dass diese Software schadhafte Anteile beinhaltet. Bitte installieren oder herunterladen Sie diese Software nur dann, wenn Sie der Quelle der Software vertrauen und die Risiken Ihnen bewusst sind. Die Quellen sind für Standard Versionen: https://github.com/Aircoookie/WLED, für Sound Reactive Versionen: https://github.com/atuline/WLED, für MoonMod Versionen: https://github.com/MoonModules/WLED.';
-      
+       if(document.getElementById('L27')) document.getElementById('L27').innerHTML = 'Wichtige Hinweise zu neuen Controller-Typen: ';
     } else {
         if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Unfortunately your browser is not yet supported for installation via USB! You can only download .bin files. <br>Please try on Chrome (for Desktop) or Microsoft Edge.<br><br>Available software versions:";
         if(document.getElementById('L01')) document.getElementById('L01').innerHTML = "Connect your ESP8266 / ESP32 board via USB port.";
@@ -206,6 +208,7 @@ function LangChanged() {
 		if(document.getElementById('L24')) document.getElementById('L24').innerHTML = 'Only download .bin file';
 		if(document.getElementById('L25')) document.getElementById('L25').innerHTML = 'I agree!';
 		if(document.getElementById('L26')) document.getElementById('L26').innerHTML = 'Attention! The selected software was automatically compiled from an open source project and was not checked for functionality or content by the operator of this website. It is also theoretically possible that this software contains defective parts. Please only install or download this software if you trust the source of the software and you understand the risks. The sources are for Standard Versions: https://github.com/Aircoookie/WLED, for Sound Reactive Versions: https://github.com/atuline/WLED, for MoonMod Versions: https://github.com/MoonModules/WLED.';
+    	if(document.getElementById('L27')) document.getElementById('L27').innerHTML = 'Important notes for new controller types: ';
     }
 	ShowImprint();
 	ShowDataPrivacy();
@@ -255,6 +258,14 @@ function NoComPortHelp() {
         document.getElementById('comporthelp').innerHTML = "Check if your USB cable supports data transfer.<br>Eventually you have to install the drivers for your board.<br>Here are drivers commonly used in ESP32 boards:<br>- <a href=\"https://www.silabs.com/developers/usb-to-uart-bridge-vcp-drivers\" target=\"_blank\">CP210x (small square chip)</a><br>- <a href=\"http://www.wch-ic.com/downloads/CH341SER_EXE.html\" target=\"_blank\">CH34x (rectangular chip) or CH9102x (small square chip)</a><br>";
     }
 }
+
+function NewTypesHelp() {
+    if(document.getElementById('lang').selectedIndex==0) {
+        document.getElementById('newtypeshelp').innerHTML = "- Die Unterstützung für diese neue Typen ist noch hoch experimentell.<br>- Zum Flashen immer dan zweiten Taster (nicht den Reset!) auf dem Bord drücken und halten, erst dann ins USB einstecken. Dann den Taster loslassen<br>- Einige ESP32-C3 V1.0.0 Board auf dem Markt, die grundsätzlich nicht funktioneiren<br>- Getestet vor allem mit Lolin ESP32-C3 mini, ESP32-S2 mini, ESP32-S3 mini";
+}
+    } else {
+        document.getElementById('newtypeshelp').innerHTML = "- The support for these new types is still highly experimental.<br>- For flashing, always press and hold the second button (not the reset!) on the board before plugging it into the USB. Then release the button<br>- Some ESP32-C3 V1.0.0 boards on the market that basically dont work<br>- Tested mainly with Lolin ESP32-C3 mini, ESP32-S2 mini, ESP32-S3 mini";
+    }
 
 function OnAgreeButton() {
 	document.getElementById('FullContainer3').style.display="block";
