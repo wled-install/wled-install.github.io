@@ -209,8 +209,21 @@ for dir1 in dirs1:
                 
 f_template=open("./scripts/index_template.html", "r")
 template=string.Template(f_template.read())
+f_template.close()
 dict={}
 dict["HTMLLIST"]=html_list
+dict["WEBTOOLMODULE"]='https://unpkg.com/esp-web-tools@9.3.0/dist/web/install-button.js?module'
 f_index= open(os.path.join(output_dir,"index.html"),"w+")
 f_index.write(template.substitute(dict))
 f_index.close()
+
+f_template=open("./scripts/index_template.html", "r")
+template=string.Template(f_template.read())
+f_template.close()
+f_index= open(os.path.join(output_dir,"oldmethod.html"),"w+")
+dict["WEBTOOLMODULE"]='https://unpkg.com/esp-web-tools@8.0.6/dist/web/install-button.js?module'
+f_index.write(template.substitute(dict))
+f_index.close()
+
+
+
