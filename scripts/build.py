@@ -1,7 +1,7 @@
 # (c) Wladislaw Waag, 2022-2023 
 import os, shutil, string
 
-output_dir="_build" 
+output_dir="_build"
 bin_dir = "bin_dir"
 suppl_dir = "suppl_dir"
 manifest_dir = "manifest_dir"
