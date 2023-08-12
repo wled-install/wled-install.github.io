@@ -1,0 +1,16 @@
+{
+  "name": "WLED (ESP32-S3, 16MB)",
+  "version": "Standard version: 0.14.0 beta 4",
+  "new_install_skip_erase": false,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        { "path": "/suppl_dir/bootloader_esp32s3.bin", "offset": 0 },
+        { "path": "/suppl_dir/partitions_16MB.bin", "offset": 32768 },
+        { "path": "/suppl_dir/boot_app0_v2022.bin", "offset": 57344 },
+        { "path": "/bin_dir/1_Standard_version/0.14.0_beta_4/WLED_0.14.0-b4_ESP32S3_16MB.bin", "offset": 65536 }
+      ]
+    }
+  ]
+}
