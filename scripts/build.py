@@ -247,7 +247,7 @@ template=string.Template(f_template.read())
 f_template.close()
 dict={}
 dict["HTMLLIST"]=html_list
-dict["WEBTOOLMODULE"]='https://unpkg.com/esp-web-tools@9.3.0/dist/web/install-button.js?module'
+dict["WEBTOOLMODULE"]='https://unpkg.com/esp-web-tools@9.4.0/dist/web/install-button.js?module'
 f_index= open(os.path.join(output_dir,"index.html"),"w+")
 f_index.write(template.substitute(dict))
 f_index.close()
