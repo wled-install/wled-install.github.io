@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP32, 4MB, M: some additional mods)",
+  "name": "WLED (ESP32, 4MB, M: some usermods)",
   "version": "Sound reactive version: 0.13.4",
   "new_install_skip_erase": false,
   "builds": [

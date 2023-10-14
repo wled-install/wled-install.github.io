@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP32, 4MB, S: no additional mods, Microphone debug)",
+  "name": "WLED (ESP32, 4MB, S: Alexa/IR etc. disabled, Microphone debug)",
   "version": "Sound reactive version: Nightly build",
   "new_install_skip_erase": false,
   "builds": [
