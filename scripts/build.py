@@ -113,66 +113,93 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     AddInfo=", 2MB Flash";
                     AddInfoShort=", 1MB";
                 
-            if ("_WIFIFIX" in bin_file):
-                AddInfo=AddInfo+", Lolin WiFiFix for some C3 mini V1.0.0";
-                AddInfoShort=AddInfoShort+", WIFIFIX";
-            if ("_AE" in bin_file) or ("_withAlexa" in bin_file):
-                AddInfo=AddInfo+", Alexa enabled";
-                AddInfoShort=AddInfoShort+", Alexa";
-            if ("_ARE" in bin_file) :
-                AddInfo=AddInfo+", with Audio reactive Usermod";
-                AddInfoShort=AddInfoShort+", Audio reactive";
-            if ("_AHI" in bin_file):
-                AddInfo=AddInfo+", APA102 2MHz + Alexa/Hue/Infrared enabled";
-                AddInfoShort=AddInfoShort+", Alexa+Hue+IR";
-            if ("_ABHI" in bin_file):
-                AddInfo=AddInfo+", APA102 2MHz + Alexa/Blink/Hue/Infrared enabled";
-                AddInfoShort=AddInfoShort+", Alexa+Blink+Hue+IR";
-            if ("_APA102FIX2MHZ" in bin_file):
-                AddInfo=AddInfo+", APA102 2MHz";
-                AddInfoShort=AddInfoShort+", APA102 2MHz";
-            if ("_v41" in bin_file):
-                AddInfo=AddInfo+", LEDPIN=16, DigMic = Generic I2S";
-                AddInfoShort=AddInfoShort+", I2S Mic";
-            if ("_OB" in bin_file):
-                AddInfo=AddInfo+", original Build";
-                AddInfoShort=AddInfoShort+", original Build";
-            if ("_OB" in bin_file) and ("SR_" in bin_file):
-                AddInfo=AddInfo+", Alexa+Hue+IR disabled";
-                AddInfoShort=AddInfoShort+"";
-            if ("_MQTT" in bin_file):
-                AddInfo=AddInfo+", MQTT enabled";
-                AddInfoShort=AddInfoShort+", MQTT";
-            if ("_MDEVMAX" in bin_file) or (("WLEDMM_" in bin_file) and (("_max" in bin_file) or  ("_M.bin" in bin_file) or  ("_M_" in bin_file))):
-                AddInfo=AddInfo+", M: mods included: audio reactive, games, weather, custom effects, mpu6050 + other improvements";
-                AddInfoShort=AddInfoShort+", M: many mods included";
-            if ("WLEDMM_" in bin_file) and ("_S.bin" in bin_file):
-                AddInfo=AddInfo+", S: mods included: audio reactive";
-                AddInfoShort=AddInfoShort+", S: some mods included";
-            if ("WLEDMM_" in bin_file) and ("_XL.bin" in bin_file):
-                AddInfo=AddInfo+", XL: almost all mods included";
-                AddInfoShort=AddInfoShort+", XL: almost all mods";
-            if (("WLEDSR_" in bin_file) and ("_max" in bin_file)):
-                AddInfo=AddInfo+", some additional mods included";
-                AddInfoShort=AddInfoShort+", some additional mods";
-            if (("WLEDSR_" in bin_file) and ("_M" in bin_file)):
-                AddInfo=AddInfo+", M: some additional mods included: temp Sensor, 4-L Display, rotary encoder, auto Save";
-                AddInfoShort=AddInfoShort+", M: some additional mods";
-            if (("WLEDSR_" in bin_file) and ("_S" in bin_file)):
-                AddInfo=AddInfo+", S: no additional mods";
-                AddInfoShort=AddInfoShort+", S: no additional mods";
+            if ("WLEDSR_" in bin_file[0:7]):
+                if (("_S." in bin_file) or ("_S_" in bin_file)):
+                    AddInfo=AddInfo+", S: Alexa/Infrared/MQTT/Loxone disabled, no Usermods included";
+                    AddInfoShort=AddInfoShort+", S: Alexa/IR etc. disabled";
+                if (("_M." in bin_file) or ("_M_" in bin_file)):
+                    AddInfo=AddInfo+", M: Alexa/MQTT/Loxone disabled, IR enabled, Usermods incl: Temp, AutoSave, 4-L Display, Rotary encoder";
+                    AddInfoShort=AddInfoShort+", M: some usermods";
+                if (("_Sext." in bin_file) or ("_Sext_" in bin_file)):
+                    AddInfo=AddInfo+", S ext: Alexa/Infrared/MQTT/Loxone enabled, Ethernet";
+                    AddInfoShort=AddInfoShort+", S ext: Ethernet";
+                if (("_Mext." in bin_file) or ("_Mext_" in bin_file)):
+                    AddInfo=AddInfo+", M: Alexa/IR/MQTT/Loxone enabled, Ethernet, Usermods: Temp, AutoSave, 4-L Display, Rotary encoder";
+                    AddInfoShort=AddInfoShort+", M ext: Ethernet";
+                    
+            elif ("WLEDMM_" in bin_file[0:7]):
+                if (("_S." in bin_file) or ("_S_" in bin_file)):
+                    AddInfo=AddInfo+", S: Audioreactive, no other Usermods included";
+                    AddInfoShort=AddInfoShort+", S: Audioreactive";
+                if (("_M." in bin_file) or ("_M_" in bin_file)):
+                    AddInfo=AddInfo+", M: Audioreactive, Usermods incl: Temp, AutoSave, 4-L Display, Rotary encoder";
+                    AddInfoShort=AddInfoShort+", M: some usermods";
+                if (("_XL." in bin_file) or ("_XL_" in bin_file)):
+                    AddInfo=AddInfo+", XL: Audioreactive, Lots of usermods included";
+                    AddInfoShort=AddInfoShort+", XL: lots of usermods";
+            else:
+                if ("_WIFIFIX" in bin_file):
+                    AddInfo=AddInfo+", Lolin WiFiFix for some C3 mini V1.0.0";
+                    AddInfoShort=AddInfoShort+", WIFIFIX";
+                if ("_AE" in bin_file) or ("_withAlexa" in bin_file):
+                    AddInfo=AddInfo+", Alexa enabled";
+                    AddInfoShort=AddInfoShort+", Alexa";
+                if ("_ARE" in bin_file) :
+                    AddInfo=AddInfo+", with Audio reactive Usermod";
+                    AddInfoShort=AddInfoShort+", Audio reactive";
+                if ("_AHI" in bin_file):
+                    AddInfo=AddInfo+", APA102 2MHz + Alexa/Hue/Infrared enabled";
+                    AddInfoShort=AddInfoShort+", Alexa+Hue+IR";
+                if ("_ABHI" in bin_file):
+                    AddInfo=AddInfo+", APA102 2MHz + Alexa/Blink/Hue/Infrared enabled";
+                    AddInfoShort=AddInfoShort+", Alexa+Blink+Hue+IR";
+                if ("_APA102FIX2MHZ" in bin_file):
+                    AddInfo=AddInfo+", APA102 2MHz";
+                    AddInfoShort=AddInfoShort+", APA102 2MHz";
+                if ("_v41" in bin_file):
+                    AddInfo=AddInfo+", LEDPIN=16, DigMic = Generic I2S";
+                    AddInfoShort=AddInfoShort+", I2S Mic";
+                if ("_OB" in bin_file):
+                    AddInfo=AddInfo+", original Build";
+                    AddInfoShort=AddInfoShort+", original Build";
+                if ("_OB" in bin_file) and ("SR_" in bin_file):
+                    AddInfo=AddInfo+", Alexa+Hue+IR disabled";
+                    AddInfoShort=AddInfoShort+"";
+                if ("_MQTT" in bin_file):
+                    AddInfo=AddInfo+", MQTT enabled";
+                    AddInfoShort=AddInfoShort+", MQTT";
+                if ("_MDEVMAX" in bin_file) or (("WLEDMM_" in bin_file) and (("_max" in bin_file) or  ("_M.bin" in bin_file) or  ("_M_" in bin_file))):
+                    AddInfo=AddInfo+", M: mods included: audio reactive, games, weather, custom effects, mpu6050 + other improvements";
+                    AddInfoShort=AddInfoShort+", M: many mods included";
+                if ("WLEDMM_" in bin_file) and ("_S.bin" in bin_file):
+                    AddInfo=AddInfo+", S: mods included: audio reactive";
+                    AddInfoShort=AddInfoShort+", S: some mods included";
+                if ("WLEDMM_" in bin_file) and ("_XL.bin" in bin_file):
+                    AddInfo=AddInfo+", XL: almost all mods included";
+                    AddInfoShort=AddInfoShort+", XL: almost all mods";
+                if (("WLEDSR_" in bin_file) and ("_max" in bin_file)):
+                    AddInfo=AddInfo+", some additional mods included";
+                    AddInfoShort=AddInfoShort+", some additional mods";
+                if (("WLEDSR_" in bin_file) and ("_M" in bin_file)):
+                    AddInfo=AddInfo+", M: some additional mods included: temp Sensor, 4-L Display, rotary encoder, auto Save";
+                    AddInfoShort=AddInfoShort+", M: some additional mods";
+                if (("WLEDSR_" in bin_file) and ("_S" in bin_file)):
+                    AddInfo=AddInfo+", S: no additional mods";
+                    AddInfoShort=AddInfoShort+", S: no additional mods";
+                if ("_DIGIN" in bin_file):
+                    AddInfo=AddInfo+", digital line-in support";
+                    AddInfoShort=AddInfoShort+", line-in";
+                if ("_HSDIGIN" in bin_file):
+                    AddInfo=AddInfo+", high sense digital line-in support";
+                    AddInfoShort=AddInfoShort+", line-in";
+            # common
             if ("_debug" in bin_file):
                 AddInfo=AddInfo+", DEBUG enabled"
                 AddInfoShort=AddInfoShort+", DEBUG enabled";
             if ("_micdebug" in bin_file):
                 AddInfo=AddInfo+", Microphone debug enabled";
                 AddInfoShort=AddInfoShort+", Microphone debug";
-            if ("_DIGIN" in bin_file):
-                AddInfo=AddInfo+", digital line-in support";
-                AddInfoShort=AddInfoShort+", line-in";
-            if ("_HSDIGIN" in bin_file):
-                AddInfo=AddInfo+", high sense digital line-in support";
-                AddInfoShort=AddInfoShort+", line-in";
+            
             AddInfo
             dict["ADDINFO"]=AddInfoShort;
             dict["VERSION"]=dir_text;    
