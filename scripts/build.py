@@ -121,11 +121,11 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     AddInfo=AddInfo+", M: Alexa/MQTT/Loxone disabled, IR enabled, Usermods incl: Temp, AutoSave, 4-L Display, Rotary encoder";
                     AddInfoShort=AddInfoShort+", M: some usermods";
                 if (("_Sext." in bin_file) or ("_Sext_" in bin_file)):
-                    AddInfo=AddInfo+", S ext: Alexa/Infrared/MQTT/Loxone enabled, Ethernet";
-                    AddInfoShort=AddInfoShort+", S ext: Ethernet";
+                    AddInfo=AddInfo+", S++: Alexa/Infrared/MQTT/Loxone enabled, Ethernet";
+                    AddInfoShort=AddInfoShort+", S++: Ethernet";
                 if (("_Mext." in bin_file) or ("_Mext_" in bin_file)):
-                    AddInfo=AddInfo+", M: Alexa/IR/MQTT/Loxone enabled, Ethernet, Usermods: Temp, AutoSave, 4-L Display, Rotary encoder";
-                    AddInfoShort=AddInfoShort+", M ext: Ethernet";
+                    AddInfo=AddInfo+", M++: Alexa/IR/MQTT/Loxone enabled, Ethernet, Usermods: Temp, AutoSave, 4-L Display, Rotary encoder";
+                    AddInfoShort=AddInfoShort+", M++: Ethernet";
                     
             elif ("WLEDMM_" in bin_file[0:7]):
                 if (("_S." in bin_file) or ("_S_" in bin_file)):
