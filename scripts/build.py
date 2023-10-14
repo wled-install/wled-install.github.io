@@ -16,19 +16,19 @@ def isbinfile_esp32(filename):
         return False
 
 def isbinfile_esp32c3(filename):
-    if ("ESP32C3" in filename) or ("esp32c3" in filename):
+    if (("ESP32C3" in filename) or ("esp32c3" in filename) or ("ESP32-C3" in filename) or ("esp32-c3" in filename)):
         return True
     else:
         return False
 
 def isbinfile_esp32s2(filename):
-    if ("ESP32S2" in filename) or ("esp32s2" in filename):
+    if (("ESP32S2" in filename) or ("esp32s2" in filename) or ("ESP32-S2" in filename) or ("esp32-s2" in filename)):
         return True
     else:
         return False
 
 def isbinfile_esp32s3(filename):
-    if ("ESP32S3" in filename) or ("esp32s3" in filename):
+    if (("ESP32S3" in filename) or ("esp32s3" in filename) or ("ESP32-S3" in filename) or ("esp32-s3" in filename)):
         return True
     else:
         return False
@@ -112,7 +112,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if ("_2MB" in bin_file) or ("_ESP02" in bin_file):
                     AddInfo=", 2MB Flash";
                     AddInfoShort=", 1MB";
-                
+            
             if ("WLEDSR_" in bin_file[0:7]):
                 if (("_S." in bin_file) or ("_S_" in bin_file)):
                     AddInfo=AddInfo+", S: Alexa/Infrared/MQTT/Loxone disabled, no Usermods included";
@@ -121,10 +121,10 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     AddInfo=AddInfo+", M: Alexa/MQTT/Loxone disabled, IR enabled, Usermods incl: Temp, AutoSave, 4-L Display, Rotary encoder";
                     AddInfoShort=AddInfoShort+", M: some usermods";
                 if (("_Sext." in bin_file) or ("_Sext_" in bin_file)):
-                    AddInfo=AddInfo+", S++: Alexa/Infrared/MQTT/Loxone enabled, Ethernet";
+                    AddInfo=AddInfo+", S++: Ethernet, Alexa/Infrared/MQTT/Loxone enabled";
                     AddInfoShort=AddInfoShort+", S++: Ethernet";
                 if (("_Mext." in bin_file) or ("_Mext_" in bin_file)):
-                    AddInfo=AddInfo+", M++: Alexa/IR/MQTT/Loxone enabled, Ethernet, Usermods: Temp, AutoSave, 4-L Display, Rotary encoder";
+                    AddInfo=AddInfo+", M++: Ethernet, Alexa/Infrared/MQTT/Loxone enabled, Usermods: Temp, AutoSave, 4-L Display, Rotary encoder";
                     AddInfoShort=AddInfoShort+", M++: Ethernet";
                     
             elif ("WLEDMM_" in bin_file[0:7]):
@@ -137,6 +137,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if (("_XL." in bin_file) or ("_XL_" in bin_file)):
                     AddInfo=AddInfo+", XL: Audioreactive, Lots of usermods included";
                     AddInfoShort=AddInfoShort+", XL: lots of usermods";
+            
             else:
                 if ("_WIFIFIX" in bin_file):
                     AddInfo=AddInfo+", Lolin WiFiFix for some C3 mini V1.0.0";
@@ -144,7 +145,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if ("_AE" in bin_file) or ("_withAlexa" in bin_file):
                     AddInfo=AddInfo+", Alexa enabled";
                     AddInfoShort=AddInfoShort+", Alexa";
-                if ("_ARE" in bin_file) :
+                if ("_ARE" in bin_file) or "_audioreactive" in bin_file):
                     AddInfo=AddInfo+", with Audio reactive Usermod";
                     AddInfoShort=AddInfoShort+", Audio reactive";
                 if ("_AHI" in bin_file):
@@ -258,6 +259,3 @@ f_index= open(os.path.join(output_dir,"oldmethod.html"),"w+")
 dict["WEBTOOLMODULE"]='https://unpkg.com/esp-web-tools@8.0.6/dist/web/install-button.js?module'
 f_index.write(template.substitute(dict))
 f_index.close()
-
-
-
