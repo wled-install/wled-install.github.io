@@ -139,6 +139,9 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     AddInfoShort=AddInfoShort+", XL: lots of usermods";
             
             else:
+                if ("_Staircase" in bin_file):
+                    AddInfo=AddInfo+", Usermod Animated Staircase included";
+                    AddInfoShort=AddInfoShort+", Staircase";
                 if ("_WIFIFIX" in bin_file):
                     AddInfo=AddInfo+", Lolin WiFiFix for some C3 mini V1.0.0";
                     AddInfoShort=AddInfoShort+", WIFIFIX";
