@@ -37,7 +37,7 @@ jobs:
         unzip /tmp/mm.zip -d /tmp
     - name: Run PlatformIO
       run: |
-        cd /tmp/WLED-main
+        cd /tmp/WLED-0_14_1
         echo " " >> platformio.ini
         echo '[env:esp32dev_are]' >> platformio.ini
         echo 'extends = env:esp32dev' >> platformio.ini
@@ -83,15 +83,15 @@ jobs:
         pio run -e esp32s3dev_16MB_NB || pio run -e esp32s3dev_16MB_NB || true
         cat platformio.ini
       env:
-        PLATFORMIO_CI_SRC: /tmp/WLED-main
+        PLATFORMIO_CI_SRC: /tmp/WLED-0_14_1
     - name: Copy Files
       run: |
         cd $GITHUB_WORKSPACE
         git rm -r $GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build/*.bin || true
-        cp /tmp/WLED-main/build_output/release/*.bin $GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build/
+        cp /tmp/WLED-0_14_1/build_output/release/*.bin $GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build/
         date -I | tr -d '\n' >$GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build/lastupdate.txt
         echo -n ", version: " >>$GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build/lastupdate.txt
-        versionvalue=($(jq -r '.version' /tmp/WLED-main/package.json))
+        versionvalue=($(jq -r '.version' /tmp/WLED-0_14_1/package.json))
         echo -n "$versionvalue" >>$GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build/lastupdate.txt
     - name: Commit Files
       run: |
