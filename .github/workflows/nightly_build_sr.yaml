@@ -2,7 +2,7 @@ name: Nightly SR Build
 
 on:
   workflow_run:
-    workflows: ["Nightly AC Build"]
+    workflows: ["Nightly AC Build NextMajor"]
     types:
       - completed
   workflow_dispatch:
