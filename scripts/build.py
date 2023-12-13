@@ -137,6 +137,9 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if (("_XL." in bin_file) or ("_XL_" in bin_file)):
                     AddInfo=AddInfo+", XL: Audioreactive, Lots of usermods included";
                     AddInfoShort=AddInfoShort+", XL: lots of usermods";
+                if ("_V4_" in bin_file):
+                    AddInfo=AddInfo+", ESPIDF V4 based (fixes reboot issues)";
+                    AddInfoShort=AddInfoShort+", ESPIDF4";
             
             else:
                 if ("_Staircase" in bin_file):
