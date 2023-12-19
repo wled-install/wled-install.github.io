@@ -33,11 +33,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install --upgrade platformio
-        wget https://github.com/Aircoookie/WLED/archive/refs/heads/0_14_1.zip -O /tmp/mm.zip
+        wget https://github.com/Aircoookie/WLED/archive/refs/heads/0_14_2.zip -O /tmp/mm.zip
         unzip /tmp/mm.zip -d /tmp
     - name: Run PlatformIO
       run: |
-        cd /tmp/WLED-0_14_1
+        cd /tmp/WLED-0_14_2
         echo " " >> platformio.ini
         echo '[env:esp32dev_are]' >> platformio.ini
         echo 'extends = env:esp32dev' >> platformio.ini
@@ -83,15 +83,15 @@ jobs:
         pio run -e esp32s3dev_16MB_NB || pio run -e esp32s3dev_16MB_NB || true
         cat platformio.ini
       env:
-        PLATFORMIO_CI_SRC: /tmp/WLED-0_14_1
+        PLATFORMIO_CI_SRC: /tmp/WLED-0_14_2
     - name: Copy Files
       run: |
         cd $GITHUB_WORKSPACE
         git rm -r $GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build/*.bin || true
-        cp /tmp/WLED-0_14_1/build_output/release/*.bin $GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build/
+        cp /tmp/WLED-0_14_2/build_output/release/*.bin $GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build/
         date -I | tr -d '\n' >$GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build/lastupdate.txt
         echo -n ", version: " >>$GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build/lastupdate.txt
-        versionvalue=($(jq -r '.version' /tmp/WLED-0_14_1/package.json))
+        versionvalue=($(jq -r '.version' /tmp/WLED-0_14_2/package.json))
         echo -n "$versionvalue" >>$GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build/lastupdate.txt
     - name: Commit Files
       run: |
