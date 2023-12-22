@@ -9,6 +9,7 @@ on:
     workflows: ["Nightly MM Build"]
     types:
       - completed
+  workflow_dispatch:
 
 # This job installs dependencies, build the site, and pushes it to `gh-pages``
 jobs:
