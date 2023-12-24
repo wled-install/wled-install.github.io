@@ -2,13 +2,11 @@ name: deploy_pages
 
 # Only run this when the main branch changes
 on:
-  schedule:
-      - cron: '30 6 */2 * *'
   push:
     branches:
     - main
   workflow_run:
-    workflows: [nightly_build_mm]
+    workflows: [nightly_build_sr, nightly_build_mm]
     types:
       - completed
   workflow_dispatch:
