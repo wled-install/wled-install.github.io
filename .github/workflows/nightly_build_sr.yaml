@@ -1,8 +1,8 @@
-name: NightlySRBuild
+name: nightly_build_sr
 
 on:
   workflow_run:
-    workflows: [NightlyACBuildNextMajor]
+    workflows: [nightly_build_ac_next_major]
     types:
       - completed
   workflow_dispatch:
