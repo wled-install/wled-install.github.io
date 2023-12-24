@@ -6,7 +6,7 @@ on:
     branches:
     - main
   workflow_run:
-    workflows: ["NightlyMMBuild"]
+    workflows: [nightly_build_mm]
     types:
       - completed
   workflow_dispatch:
