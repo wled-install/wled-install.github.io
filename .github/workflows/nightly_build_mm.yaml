@@ -2,7 +2,7 @@ name: NightlyMMBuild
 
 on:
   workflow_run:
-    workflows: ["NightlySRBuild"]
+    workflows: [NightlySRBuild]
     types:
       - completed
   workflow_dispatch:
