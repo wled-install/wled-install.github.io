@@ -1,4 +1,4 @@
-name: NightlyACBuild
+name: nightly_build_ac
 
 on:
     schedule:
