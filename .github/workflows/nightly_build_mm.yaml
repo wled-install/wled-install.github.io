@@ -1,10 +1,8 @@
 name: nightly_build_mm
 
 on:
-  workflow_run:
-    workflows: [nightly_build_sr]
-    types:
-      - completed
+  schedule:
+      - cron: '15 5 */2 * *'
   workflow_dispatch:
 
 jobs:
