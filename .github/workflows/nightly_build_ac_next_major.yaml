@@ -1,8 +1,8 @@
-name: Nightly AC Build NextMajor
+name: NightlyACBuildNextMajor
 
 on:
   workflow_run:
-    workflows: ["Nightly AC Build"]
+    workflows: [NightlyACBuild]
     types:
       - completed
   workflow_dispatch:
