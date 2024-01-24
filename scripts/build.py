@@ -16,19 +16,19 @@ def isbinfile_esp32(filename):
         return False
 
 def isbinfile_esp32c3(filename):
-    if (("ESP32C3" in filename) or ("esp32c3" in filename) or ("ESP32-C3" in filename) or ("esp32-c3" in filename)):
+    if (("ESP32C3" in filename) or ("esp32c3" in filename) or ("esp32C3" in filename) or ("ESP32c3" in filename) or ("ESP32-C3" in filename) or ("esp32-c3" in filename)):
         return True
     else:
         return False
 
 def isbinfile_esp32s2(filename):
-    if (("ESP32S2" in filename) or ("esp32s2" in filename) or ("ESP32-S2" in filename) or ("esp32-s2" in filename)):
+    if (("ESP32S2" in filename) or ("esp32s2" in filename) or ("esp32S2" in filename) or ("ESP32s2" in filename) or ("ESP32-S2" in filename) or ("esp32-s2" in filename)):
         return True
     else:
         return False
 
 def isbinfile_esp32s3(filename):
-    if (("ESP32S3" in filename) or ("esp32s3" in filename) or ("ESP32-S3" in filename) or ("esp32-s3" in filename)):
+    if (("ESP32S3" in filename) or ("esp32s3" in filename) or ("esp32S3" in filename) or ("ESP32s3" in filename) or ("ESP32-S3" in filename) or ("esp32-s3" in filename)):
         return True
     else:
         return False
