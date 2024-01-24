@@ -44,6 +44,9 @@ jobs:
         pio run -e esp32_4MB_M_debug || pio run -e esp32_4MB_M_debug || true
         pio run -e esp32_4MB_V4_S || pio run -e esp32_4MB_V4_S || true
         pio run -e esp32_4MB_V4_M || pio run -e esp32_4MB_V4_M || true
+        pio run esp32c3dev_4MB_M || pio run esp32c3dev_4MB_M || true
+        pio run esp32S3_8MB_M || pio run esp32S3_8MB_M || true
+        pio run esp32s2_PSRAM_M || pio run esp32s2_PSRAM_M || true
       env:
         PLATFORMIO_CI_SRC: /tmp/WLED-mdev
     - name: Copy Files
