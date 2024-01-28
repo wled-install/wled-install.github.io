@@ -1,0 +1,14 @@
+{
+  "name": "WLED (ESP8266, 4MB)",
+  "version": "Recommended for ABC WLED Controllers: Standart 0.13.3",
+  "new_install_prompt_erase": false,
+  "new_install_improv_wait_time": 0,
+  "builds": [
+    {
+      "chipFamily": "ESP8266",
+      "parts": [
+        { "path": "/bin_dir/0_Recommended_for_ABC_WLED_Controllers/Standart_0.13.3/WLED_0.13.3_ESP8266_ABCV31.bin", "offset": 0 }
+      ]
+    }
+  ]
+}
