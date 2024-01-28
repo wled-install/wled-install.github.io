@@ -3,4 +3,4 @@ WLED Installation service
 
 main branch: manifest and index.html generator
 
-gh-pages branch: published web page
+gh-pages branch: this is published web page
