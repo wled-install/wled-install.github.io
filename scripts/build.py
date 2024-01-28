@@ -86,7 +86,19 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             AddInfoShort=", 4MB";
             ESPtype=""
             if isbinfile_esp32(bin_file):
-                if isbinfile_esp32c3(bin_file):
+                if ("ABCV41" in bin_file):
+                    ESPtype="WLED Controller V41, ESP32, 5V, Audio Reactive (Mic. or Line-In)"
+                    template_filename="./scripts/manifest_esp32_template.json"
+                elif ("ABCV43" in bin_file):
+                    ESPtype="WLED Controller V43, ESP32, 5-24V, Ethernet, Audio Reactive (Mic. or Line-In)"
+                    template_filename="./scripts/manifest_esp32_template.json"
+                elif ("ABCV70" in bin_file):
+                    ESPtype="WLED Controller mini V70, ESP32, 5-12V, Audio Reactive (Mic. or Line-In)"
+                    template_filename="./scripts/manifest_esp32_template.json"
+                elif ("ABCV63" in bin_file):
+                    ESPtype="WLED Shield V63, used with ESP32, 5-12V, Audio Reactive (Mic. or Line-In)"
+                    template_filename="./scripts/manifest_esp32_template.json"
+                elif isbinfile_esp32c3(bin_file):
                     ESPtype="ESP32-C3"
                     template_filename="./scripts/manifest_esp32c3_template.json"
                 elif isbinfile_esp32s2(bin_file):
@@ -110,16 +122,23 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                         AddInfo=AddInfo+", Ethernet";
                         AddInfoShort= AddInfoShort+", Ethernet";
             else:
-                ESPtype="ESP8266"
-                template_filename="./scripts/manifest_esp8266_template.json"
-                AddInfo=", 4MB Flash: D1 mini etc.";
-                AddInfoShort=", 4MB";
-                if ("_1MB" in bin_file) or ("_ESP01" in bin_file):
-                    AddInfo=", 1MB Flash";
-                    AddInfoShort=", 1MB";
-                if ("_2MB" in bin_file) or ("_ESP02" in bin_file):
-                    AddInfo=", 2MB Flash";
-                    AddInfoShort=", 1MB";
+                if ("ABCV31" in bin_file):
+                    ESPtype="WLED Controller V31, ESP8266, 5V"
+                    template_filename="./scripts/manifest_esp8266_template.json"
+                elif ("ABCV63" in bin_file):
+                    ESPtype="WLED Shield V63, used with ESP8266, 5-12V"
+                    template_filename="./scripts/manifest_esp8266_template.json"
+                else:
+                    ESPtype="ESP8266"
+                    template_filename="./scripts/manifest_esp8266_template.json"
+                    AddInfo=", 4MB Flash: D1 mini etc.";
+                    AddInfoShort=", 4MB";
+                    if ("_1MB" in bin_file) or ("_ESP01" in bin_file):
+                        AddInfo=", 1MB Flash";
+                        AddInfoShort=", 1MB";
+                    if ("_2MB" in bin_file) or ("_ESP02" in bin_file):
+                        AddInfo=", 2MB Flash";
+                        AddInfoShort=", 1MB";
             
             if ("WLEDSR_" in bin_file[0:7]):
                 if (("_S." in bin_file) or ("_S_" in bin_file)):
@@ -215,8 +234,12 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 AddInfo=AddInfo+", Microphone debug enabled";
                 AddInfoShort=AddInfoShort+", Microphone debug";
             
-            AddInfo
-            dict["ADDINFO"]=AddInfoShort;
+            if ("ABCV" in bin_file):
+                dict["ADDINFO"]="";
+                AddInfo="";
+            else:
+                dict["ADDINFO"]=AddInfoShort;
+                AddInfo=" ("+AddInfo[2:]+")";
             dict["VERSION"]=dir_text;    
             dict["BINFILE"]=dir_path_forhtml+"/"+bin_file; 
             dict["IMPROVWAITTIME"] = "10";
@@ -230,7 +253,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             f_manifest_noimprov.close()
             
             #html_list=html_list+(bin_file+" "+manifest_path_forhtml+ " "+ ESPtype +" ("+AddInfo[2:]+")" + "\n")
-            html_list_array.append("<option data-manifest_file=\""+manifest_path_forhtml+ "\" data-manifest_file_noimprov=\"" +manifest_path_forhtml_noimprov + "\" data-download_file=\"" +download_path_forhtml+ "\">"+ ESPtype +" ("+AddInfo[2:]+")" + "</option>")
+            html_list_array.append("<option data-manifest_file=\""+manifest_path_forhtml+ "\" data-manifest_file_noimprov=\"" +manifest_path_forhtml_noimprov + "\" data-download_file=\"" +download_path_forhtml+ "\">"+ ESPtype +AddInfo+ "</option>")
     html_list_array_sorted=sorted(html_list_array, key=keyfunc)
     for item in html_list_array_sorted:
         html_list=html_list+item+"\n"
@@ -259,7 +282,7 @@ for dir1 in dirs1:
         for dir2 in dirs2:
             dir2_path=os.path.join(dir1_path,dir2)
             if os.path.isdir(dir2_path):
-                dir2_text=dir1_text + ": " + dir2.replace("_"," ")
+                dir2_text=dir1_text.replace("for ABC WLED Controllers","for ABC! WLED controllers (shop.myhome-control.de, wled.shop)") + ": " + dir2.replace("_"," ")
                 html_list = html_list + proceed_dir(dir2_path, dir2_text, "/"+bin_dir+"/"+dir1+"/"+dir2)
                 
 f_template=open("./scripts/index_template.html", "r")
