@@ -57,9 +57,15 @@ $HTMLLIST
 		<br>
 	  <div class="container inst-button">
           <esp-web-install-button id="install_btn" manifest="/cangw/manifest.json" >
-            <button class="btn btn-primary" slot="activate"><span id="L09">Installieren<span></button>
+            <button class="btn btn-primary" slot="activate"><span id="L09">Installieren</span></button>
           </esp-web-install-button>
       </div>
+	  <div class="form-check">
+		  <input class="form-check-input" type="checkbox" value="" id="disable_improv_wifi" onchange="selectSoftware(1);">
+		  <label class="form-check-label" for="disable_improv_wifi">
+			<span id="L30">Auswahl WiFi nach Installation deaktivieren</span>
+		  </label>
+		</div>
     </div>
 	<div id="FullContainer3">
 		<br>
@@ -137,7 +143,9 @@ function LangChanged() {
 		if(document.getElementById('L26')) document.getElementById('L26').innerHTML = 'Achtung! Die ausgewählte Software wurde automatisch von einem Open Source Projekt kompiliert und durch den Betreiber dieser Webseite nicht auf die Funktionalität oder Inhalt geprüft. Es ist auch theoretisch möglich, dass diese Software schadhafte Anteile beinhaltet. Bitte installieren oder herunterladen Sie diese Software nur dann, wenn Sie der Quelle der Software vertrauen und die Risiken Ihnen bewusst sind. Die Quellen sind für Standard Versionen: https://github.com/Aircoookie/WLED, für Sound Reactive Versionen: https://github.com/atuline/WLED, für MoonMod Versionen: https://github.com/MoonModules/WLED.';
        if(document.getElementById('L27')) document.getElementById('L27').innerHTML = 'Wichtige Hinweise zu neuen Controller-Typen: ';
        if(document.getElementById('L28')) document.getElementById('L28').innerHTML = 'WLED FAQ: <a href="https://wled-faq.github.io">https://wled-faq.github.io</a>';
-	if(document.getElementById('L29')) document.getElementById('L29').innerHTML = 'WLED SW selbst kompilieren';
+	   if(document.getElementById('L29')) document.getElementById('L29').innerHTML = 'WLED SW selbst kompilieren';
+	   if(document.getElementById('L30')) document.getElementById('L30').innerHTML = 'Auswahl WiFi nach der Installation überspringen';
+	
     } else {
         if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Unfortunately your browser is not yet supported for installation via USB! You can only download .bin files. <br>Please try on Chrome (for Desktop) or Microsoft Edge.<br><br>Available software versions:";
         if(document.getElementById('L01')) document.getElementById('L01').innerHTML = "Connect your ESP8266 / ESP32 board via USB port.";
@@ -161,23 +169,29 @@ function LangChanged() {
 		if(document.getElementById('L25')) document.getElementById('L25').innerHTML = 'I agree!';
 		if(document.getElementById('L26')) document.getElementById('L26').innerHTML = 'Attention! The selected software was automatically compiled from an open source project and was not checked for functionality or content by the operator of this website. It is also theoretically possible that this software contains defective parts. Please only install or download this software if you trust the source of the software and you understand the risks. The sources are for Standard Versions: https://github.com/Aircoookie/WLED, for Sound Reactive Versions: https://github.com/atuline/WLED, for MoonMod Versions: https://github.com/MoonModules/WLED.';
     	if(document.getElementById('L27')) document.getElementById('L27').innerHTML = 'Important notes for new controller types: ';
-	if(document.getElementById('L28')) document.getElementById('L28').innerHTML = 'WLED FAQ: <a href="https://wled-faq.github.io/en.html">https://wled-faq.github.io</a>';
-	if(document.getElementById('L29')) document.getElementById('L29').innerHTML = 'Compile your own WLED software';
+		if(document.getElementById('L28')) document.getElementById('L28').innerHTML = 'WLED FAQ: <a href="https://wled-faq.github.io/en.html">https://wled-faq.github.io</a>';
+		if(document.getElementById('L29')) document.getElementById('L29').innerHTML = 'Compile your own WLED software';
+		if(document.getElementById('L30')) document.getElementById('L30').innerHTML = 'Disable WiFi selection after install'
     }
 	ShowImprint();
 	ShowDataPrivacy();
 }
 
-function selectSoftware() {
+function selectSoftware(triggeredbycheck=0) {
     var selected = document.getElementById('software_version');
     var manifest_file = selected.options[selected.selectedIndex].dataset.manifest_file;
 	
+	if(document.getElementById('disable_improv_wifi')) {
+		if(document.getElementById('disable_improv_wifi').checked) {
+			manifest_file = selected.options[selected.selectedIndex].dataset.manifest_file_noimprov;
+		}
+	}
 	if(document.getElementById('install_btn')) document.getElementById('install_btn').setAttribute('manifest',manifest_file);
 	
 	var download_file = selected.options[selected.selectedIndex].dataset.download_file;
 	document.getElementById('download_btn').setAttribute('href',download_file);
 	
-	if(download_file.includes("nightly") || download_file.includes("Nightly")) {
+	if((download_file.includes("nightly") || download_file.includes("Nightly")) && triggeredbycheck==0) {
 	  document.getElementById('FullContainer4').style.display="block";
 	  document.getElementById('FullContainer3').style.display="none";
 	  document.getElementById('FullContainer2').style.display="none";

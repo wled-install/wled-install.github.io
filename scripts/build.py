@@ -67,11 +67,19 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
     for bin_file in filelist:
         if bin_file[-4:]==".bin":
             # create manifest file
-            manifest_filename="manifest_"+''.join(e for e in dir_text.replace(" ","_").replace(".","_") if (e.isalnum() or e=="_"))+"_"+bin_file[:-4]+".json"           
-            manifest_path_forhtml="/"+manifest_dir+"/"+manifest_filename
+            manifest_filename_prefix="manifest_"+''.join(e for e in dir_text.replace(" ","_").replace(".","_") if (e.isalnum() or e=="_"))+"_"+bin_file[:-4];
             download_path_forhtml=dir_path_forhtml+"/"+bin_file
+            
+            manifest_filename=manifest_filename_prefix+".json"
+            manifest_path_forhtml="/"+manifest_dir+"/"+manifest_filename
             manifest_path=os.path.join(output_manifest_dir,manifest_filename)
             f_manifest=open(manifest_path,"w+")
+            
+            manifest_filename_noimprov = manifest_filename_prefix+"_noimprov.json"       
+            manifest_path_forhtml_noimprov="/"+manifest_dir+"/"+manifest_filename_noimprov
+            manifest_path_noimprov=os.path.join(output_manifest_dir,manifest_filename_noimprov)
+            f_manifest_noimprov=open(manifest_path_noimprov,"w+")
+            
             template_filename=""
             dict={}
             AddInfo=", 4MB Flash";
@@ -211,12 +219,18 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             dict["ADDINFO"]=AddInfoShort;
             dict["VERSION"]=dir_text;    
             dict["BINFILE"]=dir_path_forhtml+"/"+bin_file; 
+            dict["IMPROVWAITTIME"] = "10";
             f_template=open(template_filename, "r")
             template=string.Template(f_template.read())
             f_manifest.write(template.substitute(dict));
             f_manifest.close()
+            
+            dict["IMPROVWAITTIME"] = "0";
+            f_manifest_noimprov.write(template.substitute(dict));
+            f_manifest_noimprov.close()
+            
             #html_list=html_list+(bin_file+" "+manifest_path_forhtml+ " "+ ESPtype +" ("+AddInfo[2:]+")" + "\n")
-            html_list_array.append("<option data-manifest_file=\""+manifest_path_forhtml+ "\" data-download_file=\"" +download_path_forhtml+ "\">"+ ESPtype +" ("+AddInfo[2:]+")" + "</option>")
+            html_list_array.append("<option data-manifest_file=\""+manifest_path_forhtml+ "\" data-manifest_file_noimprov=\"" +manifest_path_forhtml_noimprov + "\" data-download_file=\"" +download_path_forhtml+ "\">"+ ESPtype +" ("+AddInfo[2:]+")" + "</option>")
     html_list_array_sorted=sorted(html_list_array, key=keyfunc)
     for item in html_list_array_sorted:
         html_list=html_list+item+"\n"
