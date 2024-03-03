@@ -169,6 +169,12 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     AddInfoShort=AddInfoShort+", ESPIDF4";
             
             else:
+                if ("_PIR" in bin_file):
+                    AddInfo=AddInfo+", PIR Usermod incl.";
+                    AddInfoShort=AddInfoShort+", PIR";
+                if ("_MULTIRELAY" in bin_file):
+                    AddInfo=AddInfo+", Multirelay Usermod incl.";
+                    AddInfoShort=AddInfoShort+", Multirelay";
                 if ("_Staircase" in bin_file):
                     AddInfo=AddInfo+", Usermod Animated Staircase included";
                     AddInfoShort=AddInfoShort+", Staircase";
