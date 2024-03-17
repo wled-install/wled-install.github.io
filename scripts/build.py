@@ -95,6 +95,9 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 elif ("ABCV70" in bin_file):
                     ESPtype="WLED Controller mini V70, ESP32, 5-12V, Audio Reactive (Mic. or Line-In)"
                     template_filename="./scripts/manifest_esp32_template.json"
+                elif ("ABCV73" in bin_file):
+                    ESPtype="WLED Controller mini V73, ESP32, 5-24V, Audio Reactive (Mic. or Line-In)"
+                    template_filename="./scripts/manifest_esp32_template.json"
                 elif ("ABCV63" in bin_file):
                     ESPtype="WLED Shield V63, used with ESP32, 5-12V, Audio Reactive (Mic. or Line-In)"
                     template_filename="./scripts/manifest_esp32_template.json"
