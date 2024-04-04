@@ -187,7 +187,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if ("_AE" in bin_file) or ("_withAlexa" in bin_file):
                     AddInfo=AddInfo+", Alexa enabled";
                     AddInfoShort=AddInfoShort+", Alexa";
-                if ("_ARE" in bin_file) or ("_audioreactive" in bin_file):
+                if ("_ARE" in bin_file) or ("_AR." in bin_file) or ("_AR_" in bin_file) or ("_audioreactive" in bin_file):
                     AddInfo=AddInfo+", with Audio reactive Usermod";
                     AddInfoShort=AddInfoShort+", Audio reactive";
                 if ("_AHI" in bin_file):
