@@ -88,6 +88,7 @@ jobs:
         pio run -e lolin_s2_mini_NB || pio run -e lolin_s2_mini_NB || true
         pio run -e esp32s3dev_8MB_NB || pio run -e esp32s3dev_8MB_NB || true
         pio run -e esp32s3dev_4MB_NB || pio run -e esp32s3dev_4MB_NB || true
+        pio run -e esp32s3dev_4MB_NB_NOPSRAM || pio run -e esp32s3dev_4MB_NB_NOPSRAM || true
         pio run -e esp32s3dev_16MB_NB || pio run -e esp32s3dev_16MB_NB || true
         cat platformio.ini
       env:
