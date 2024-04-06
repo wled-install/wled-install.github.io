@@ -68,7 +68,11 @@ jobs:
         echo 'extends = env:esp32s3dev_8MB' >> platformio.ini
         echo 'board = adafruit_feather_esp32s3' >> platformio.ini
         echo 'board_build.partitions = tools/WLED_ESP32_4MB_1MB_FS.csv' >> platformio.ini
-        echo 'build_flags = -D WLED_RELEASE_NAME=ESP32S3_4MB ${env:esp32s3dev_8MB.build_flags}' >> platformio.ini
+        echo '[env:esp32s3dev_4MB_NB_NOPSRAM]'  >> platformio.ini
+        echo 'extends = env:esp32s3dev_8MB' >> platformio.ini
+        echo 'board = adafruit_feather_esp32s3_nopsram' >> platformio.ini
+        echo 'board_build.partitions = tools/WLED_ESP32_4MB_1MB_FS.csv' >> platformio.ini
+        echo 'build_flags = -D WLED_RELEASE_NAME=ESP32S3_4MB_NOPSRAM ${env:esp32s3dev_8MB.build_flags}' >> platformio.ini
         echo '[env:esp32s3dev_16MB_NB]'  >> platformio.ini
         echo 'extends = env:esp32s3dev_8MB' >> platformio.ini
         echo 'board = adafruit_feather_esp32s3' >> platformio.ini
