@@ -118,6 +118,9 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                         template_filename="./scripts/manifest_esp32s3_16MB_template.json"
                         AddInfo=", 16MB Flash";
                         AddInfoShort=", 16MB";
+                    if ("_NOPSRAM" in bin_file):
+                        AddInfo=AddInfo+", no PSRAM";
+                        AddInfoShort=AddInfoShort;
                 else:
                     ESPtype="ESP32"
                     template_filename="./scripts/manifest_esp32_template.json"
