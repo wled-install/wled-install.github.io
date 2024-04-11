@@ -1,0 +1,17 @@
+{
+  "name": "WLED (ESP32, 4MB, M: some usermods)",
+  "version": "MoonMod version: Nightly build",
+  "new_install_prompt_erase": false,
+  "new_install_improv_wait_time": 0,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        { "path": "/suppl_dir/bootloader_dout_40m_v2022.bin", "offset": 4096 },
+        { "path": "/suppl_dir/partitions_v2022.bin", "offset": 32768 },
+        { "path": "/suppl_dir/boot_app0_v2022.bin", "offset": 57344 },
+        { "path": "/bin_dir/3_MoonMod_version/Nightly_build/WLEDMM_0.14.1-b30.37_esp32_4MB_M.bin", "offset": 65536 }
+      ]
+    }
+  ]
+}
