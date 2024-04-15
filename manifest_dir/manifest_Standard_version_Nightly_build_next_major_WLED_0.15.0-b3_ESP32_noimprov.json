@@ -1,0 +1,17 @@
+{
+  "name": "WLED (ESP32, 4MB)",
+  "version": "Standard version: Nightly build next major",
+  "new_install_prompt_erase": false,
+  "new_install_improv_wait_time": 0,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        { "path": "/suppl_dir/bootloader_dout_40m_v2022.bin", "offset": 4096 },
+        { "path": "/suppl_dir/partitions_v2022.bin", "offset": 32768 },
+        { "path": "/suppl_dir/boot_app0_v2022.bin", "offset": 57344 },
+        { "path": "/bin_dir/1_Standard_version/Nightly_build_next_major/WLED_0.15.0-b3_ESP32.bin", "offset": 65536 }
+      ]
+    }
+  ]
+}
