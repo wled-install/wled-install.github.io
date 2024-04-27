@@ -109,13 +109,22 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     template_filename="./scripts/manifest_esp32s2_template.json"
                 elif isbinfile_esp32s3(bin_file):
                     ESPtype="ESP32-S3"
-                    template_filename="./scripts/manifest_esp32s3_template.json"
+                    if(("_OPI" in bin_file) or ("_opi" in bin_file)):
+                        template_filename="./scripts/manifest_esp32s3_opi_template.json"
+                    else:
+                        template_filename="./scripts/manifest_esp32s3_template.json"
                     if ("_8MB" in bin_file):
-                        template_filename="./scripts/manifest_esp32s3_8MB_template.json"
+                        if(("_OPI" in bin_file) or ("_opi" in bin_file)):
+                            template_filename="./scripts/manifest_esp32s3_8MB_opi_template.json"
+                        else:
+                            template_filename="./scripts/manifest_esp32s3_8MB_template.json"
                         AddInfo=", 8MB Flash";
                         AddInfoShort=", 8MB";
                     if ("_16MB" in bin_file):
-                        template_filename="./scripts/manifest_esp32s3_16MB_template.json"
+                        if(("_OPI" in bin_file) or ("_opi" in bin_file)):
+                            template_filename="./scripts/manifest_esp32s3_16MB_opi_template.json"
+                        else:
+                            template_filename="./scripts/manifest_esp32s3_16MB_template.json"
                         AddInfo=", 16MB Flash";
                         AddInfoShort=", 16MB";
                     if ("_NOPSRAM" in bin_file):
@@ -175,6 +184,8 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     AddInfoShort=AddInfoShort+", ESPIDF4";
             
             else:
+                if(("_OPI" in bin_file) or ("_opi" in bin_file)):
+                    AddInfo=AddInfo+", OPI FLASH";
                 if ("_PIR" in bin_file):
                     AddInfo=AddInfo+", PIR Usermod incl.";
                     AddInfoShort=AddInfoShort+", PIR";
