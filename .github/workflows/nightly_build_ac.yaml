@@ -41,17 +41,17 @@ jobs:
         echo " " >> platformio.ini
         echo '[env:esp32dev_are]' >> platformio.ini
         echo 'extends = env:esp32dev' >> platformio.ini
-        echo 'build_flags = -D WLED_RELEASE_NAME=ESP32_ARE ${env:esp32dev.build_flags} -D USERMOD_AUDIOREACTIVE' >> platformio.ini
+        echo 'build_flags = -D WLED_RELEASE_NAME=ESP32_ARE ${env:esp32dev.build_flags} ${esp32.AR_build_flags}' >> platformio.ini
         echo 'lib_deps =' >> platformio.ini
         echo '  ${env:esp32dev.lib_deps}' >> platformio.ini
-        echo '  https://github.com/blazoncek/arduinoFFT.git' >> platformio.ini
+        echo '  ${esp32.AR_lib_deps}' >> platformio.ini
         echo " " >> platformio.ini
         echo '[env:esp32_are_eth]' >> platformio.ini
         echo 'extends = env:esp32_eth' >> platformio.ini
-        echo 'build_flags = -D WLED_RELEASE_NAME=ESP32_ARE_Ethernet ${env:esp32_eth.build_flags} -D USERMOD_AUDIOREACTIVE' >> platformio.ini
+        echo 'build_flags = -D WLED_RELEASE_NAME=ESP32_ARE_Ethernet ${env:esp32_eth.build_flags} ${esp32.AR_build_flags}' >> platformio.ini
         echo 'lib_deps =' >> platformio.ini
         echo '  ${env:esp32_eth.lib_deps}' >> platformio.ini
-        echo '  https://github.com/blazoncek/arduinoFFT.git' >> platformio.ini
+        echo '  ${esp32.AR_lib_deps}' >> platformio.ini
         echo '[env:esp32c3dev_NB]'  >> platformio.ini
         echo 'extends = env:esp32c3dev' >> platformio.ini
         echo 'build_flags = -D WLED_RELEASE_NAME=ESP32C3_4MB ${env:esp32c3dev.build_flags}' >> platformio.ini
