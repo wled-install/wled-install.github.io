@@ -69,6 +69,10 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             # create manifest file
             manifest_filename_prefix="manifest_"+''.join(e for e in dir_text.replace(" ","_").replace(".","_") if (e.isalnum() or e=="_"))+"_"+bin_file[:-4];
             download_path_forhtml=dir_path_forhtml+"/"+bin_file
+
+            partitions_filename=bin_file.replace(".bin","_partitions.bin")
+            if not os.path.isfile(os.path.join(dir2_path,partitions_filename)):
+                partitions_filename="partitions_v2022.bin"
             
             manifest_filename=manifest_filename_prefix+".json"
             manifest_path_forhtml="/"+manifest_dir+"/"+manifest_filename
@@ -266,6 +270,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             dict["VERSION"]=dir_text;    
             dict["BINFILE"]=dir_path_forhtml+"/"+bin_file; 
             dict["IMPROVWAITTIME"] = "10";
+            dict["PARTITIONSFILENAME"] = dir_path_forhtml+"/"+partitions_filename;
             f_template=open(template_filename, "r")
             template=string.Template(f_template.read())
             f_manifest.write(template.substitute(dict));
