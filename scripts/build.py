@@ -272,7 +272,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             dict["VERSION"]=dir_text;    
             dict["BINFILE"]=dir_path_forhtml+"/"+bin_file; 
             dict["IMPROVWAITTIME"] = "10";
-            dict["PARTITIONSFILENAME"] = dir_path_forhtml+"/"+partitions_filename;
+            dict["PARTITIONSFILENAME"] = partitions_filename;
             f_template=open(template_filename, "r")
             template=string.Template(f_template.read())
             f_manifest.write(template.substitute(dict));
