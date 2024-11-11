@@ -72,7 +72,9 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
 
             partitions_filename=bin_file.replace(".bin","_partitions.bin")
             if not os.path.isfile(os.path.join(dir2_path,partitions_filename)):
-                partitions_filename="partitions_v2022.bin"
+                partitions_filename="/suppl_dir/partitions_v2022.bin"
+            else:
+                partitions_filename=dir_path_forhtml+"/"+partitions_filename
             
             manifest_filename=manifest_filename_prefix+".json"
             manifest_path_forhtml="/"+manifest_dir+"/"+manifest_filename
