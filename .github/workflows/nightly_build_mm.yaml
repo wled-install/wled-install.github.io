@@ -38,6 +38,8 @@ jobs:
     - name: Run PlatformIO
       run: |
         cd /tmp/WLED-mdev
+        sed -i -e 's/shutil\.copy(str(target\[0]), release_file)/shutil\.copy(str(target\[0]), release_file);partition_file = "{}release{}WLEDMM_{}_{}_partitions\.bin".format(OUTPUT_DIR, os\.path\.sep, version, release_name);shutil\.copy(os\.path\.join(builddir,"partitions\.bin"), partition_file)/g' ./pio-scripts/output_bins.py
+        cat ./pio-scripts/output_bins.py
         pio run -e esp32_4MB_M || pio run -e esp32_4MB_M || true
         pio run -e esp32_4MB_S || pio run -e esp32_4MB_S || true
         pio run -e esp32_4MB_XL || pio run -e esp32_4MB_XL || true
