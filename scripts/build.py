@@ -65,7 +65,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
     html_list_array=[]
     filelist=sorted(os.listdir(dir2_path))
     for bin_file in filelist:
-        if bin_file[-4:]==".bin" && "_partitions.bin" not in bin_file:
+        if bin_file[-4:]==".bin" and "_partitions.bin" not in bin_file:
             # create manifest file
             manifest_filename_prefix="manifest_"+''.join(e for e in dir_text.replace(" ","_").replace(".","_") if (e.isalnum() or e=="_"))+"_"+bin_file[:-4];
             download_path_forhtml=dir_path_forhtml+"/"+bin_file
