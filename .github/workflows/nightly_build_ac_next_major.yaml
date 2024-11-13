@@ -69,13 +69,13 @@ jobs:
         # cat ./pio-scripts/output_bins.py
         pio run -e esp32dev || pio run -e esp32dev || true
         pio run -e esp32_eth || pio run -e esp32_eth || true
-        # pio run -e esp32dev_are || pio run -e esp32dev_are || true
-        # pio run -e esp32_are_eth || pio run -e esp32_are_eth || true
-        # pio run -e esp32c3dev_NB || pio run -e esp32c3dev_NB || true
-        # pio run -e lolin_s2_mini_NB || pio run -e lolin_s2_mini_NB || true
-        # pio run -e esp32s3dev_8MB_opi || pio run -e esp32s3dev_8MB_opi || true
-        # pio run -e esp32s3_4M_qspi || pio run -e esp32s3_4M_qspi || true
-        # pio run -e esp32s3dev_16MB_opi || pio run -e esp32s3dev_16MB_opi || true
+        pio run -e esp32dev_are || pio run -e esp32dev_are || true
+        pio run -e esp32_are_eth || pio run -e esp32_are_eth || true
+        pio run -e esp32c3dev_NB || pio run -e esp32c3dev_NB || true
+        pio run -e lolin_s2_mini_NB || pio run -e lolin_s2_mini_NB || true
+        pio run -e esp32s3dev_8MB_opi || pio run -e esp32s3dev_8MB_opi || true
+        pio run -e esp32s3_4M_qspi || pio run -e esp32s3_4M_qspi || true
+        pio run -e esp32s3dev_16MB_opi || pio run -e esp32s3dev_16MB_opi || true
         # cat platformio.ini
       env:
         PLATFORMIO_CI_SRC: /tmp/WLED-0_15
