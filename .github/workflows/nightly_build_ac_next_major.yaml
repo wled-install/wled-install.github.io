@@ -41,10 +41,6 @@ jobs:
     - name: Run PlatformIO
       run: |
         cd /tmp/WLED-0_15
-        sed -i -e 's/def create_release(source)/def create_release(source,builddir)/g' ./pio-scripts/output_bins.py
-        sed -i -e 's/create_release(str(target\[0]))/create_release(str(target\[0]),builddir)/g' ./pio-scripts/output_bins.py
-        sed -i -e 's/shutil\.copy(source, release_file)/shutil\.copy(source, release_file);partition_file = release_file\.replace("\.bin","_partitions\.bin");shutil\.copy(os\.path\.join(builddir,"partitions\.bin"), partition_file)/g' ./pio-scripts/output_bins.py
-        cat ./pio-scripts/output_bins.py
         echo " " >> platformio.ini
         echo '[env:esp32dev_are]' >> platformio.ini
         echo 'extends = env:esp32dev' >> platformio.ini
@@ -66,8 +62,12 @@ jobs:
         echo 'extends = env:lolin_s2_mini' >> platformio.ini
         echo 'build_flags = -D WLED_RELEASE_NAME=ESP32S2_4MB ${env:lolin_s2_mini.build_flags}' >> platformio.ini
         npm install
-        pio run -e esp32dev || pio run -e esp32dev || true
         pio run -e nodemcuv2 || pio run -e nodemcuv2 || true
+        sed -i -e 's/def create_release(source)/def create_release(source,builddir)/g' ./pio-scripts/output_bins.py
+        sed -i -e 's/create_release(str(target\[0]))/create_release(str(target\[0]),builddir)/g' ./pio-scripts/output_bins.py
+        sed -i -e 's/shutil\.copy(source, release_file)/shutil\.copy(source, release_file);partition_file = release_file\.replace("\.bin","_partitions\.bin");shutil\.copy(os\.path\.join(builddir,"partitions\.bin"), partition_file)/g' ./pio-scripts/output_bins.py
+        # cat ./pio-scripts/output_bins.py
+        pio run -e esp32dev || pio run -e esp32dev || true
         pio run -e esp32_eth || pio run -e esp32_eth || true
         # pio run -e esp32dev_are || pio run -e esp32dev_are || true
         # pio run -e esp32_are_eth || pio run -e esp32_are_eth || true
