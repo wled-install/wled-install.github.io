@@ -8,7 +8,7 @@
       "chipFamily": "ESP32",
       "parts": [
         { "path": "/suppl_dir/bootloader_dout_40m_v2022.bin", "offset": 4096 },
-        { "path": "/suppl_dir/partitions_v2022.bin", "offset": 32768 },
+        { "path": "/bin_dir/1_Standard_version/Nightly_build_next_major/WLED_0.15.0-b7_ESP32_partitions.bin", "offset": 32768 },
         { "path": "/suppl_dir/boot_app0_v2022.bin", "offset": 57344 },
         { "path": "/bin_dir/1_Standard_version/Nightly_build_next_major/WLED_0.15.0-b7_ESP32.bin", "offset": 65536 }
       ]
