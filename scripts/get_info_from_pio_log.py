@@ -143,7 +143,7 @@ for line in file_lines:
             if(B0A!=""):    
                 print("        { \"path\": \""+addpath+"boot_app0.bin\", \"offset\": "+str(int(B0A,16))+" },");
             if(FA!=""):    
-                print("        { \"path\": \""+addpath+"wled.bin\", \"offset\": "+str(int(FA,16))+" },");   
+                print("        { \"path\": \""+addpath+"wled.bin\", \"offset\": "+str(int(FA,16))+" }");   
             print("      ]");
             print("    }");
             print("  ]");
