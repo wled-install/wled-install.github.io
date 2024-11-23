@@ -85,7 +85,7 @@ rettype  = sys.argv[2]
 f=open(filename)
 file_lines=f.readlines();
 for line in file_lines:
-    if("--chip" in line and "--port" in line and "NoPortXAYZ" in line):
+    if(("--chip" in line) and ("--port" in line) and (("NoPortXAYZ" in line) or ("/dev/null" in line))):
         #print("##"+line+"##")
         if(rettype=="CT"):
             print(GetChipType(line))
