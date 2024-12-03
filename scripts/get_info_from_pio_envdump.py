@@ -89,6 +89,10 @@ if(expr):
         expr2=re.search(r'(?<=\'ESP32_APP_OFFSET\')[^,]*(?=,)',file_lines.replace("\n","").replace("\r",""))
         if(expr2):
             line2=expr2[0].replace(":","").replace("'","").replace(" ","");
+            if(line2==None):
+                line2="0x10000"
+            if(line2=="None"):
+                line2="0x10000"
     else:
         line2="0x0"
     if(rettype=="CT"):
