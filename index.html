@@ -172,17 +172,62 @@
 	    <br>
     </div>
   <hr>
-        <div>
-        <h5 id="L15">Nützliche Informationen:</h5>
-        <ul>
-          <li><span id="L20">Link zu verwendeten .bin Dateien: <a href="https://github.com/wled-install/wled-install.github.io/tree/main/bin_dir">auf Github</a></span></li>
-          <li><span id="L12">WLED Wiki (Englisch): <a href="https://kno.wled.ge">https://kno.wled.ge</a></span></li>
-	  <li><span id="L28">WLED FAQ: <a href="https://wled-faq.github.io">https://wled-faq.github.io</a></span></li>
-          <li><span id="L14">DIY WLED boards: </span><a href="https://github.com/wladwnt/wled">Github</a></li>
-          <li><span id="L13">Professionelle WLED Boards: <a href="https://shop.myhome-control.de">MyHome-Control Shop</a></span></li>
-          <li><span id="L16">WLED power calculator: <a href="https://wled-calculator.github.io">https://wled-calculator.github.io</a></span></li>
-		  <li><span id="L22">Source of MoonMod version: github.com/moonmodules/wled/tree/mdev</span></li>
-        </ul>
+     <div class="container">
+	<div class="row">
+		<div class="col-md">
+		        <h5 id="L15">Nützliche Informationen:</h5>
+		        <ul>
+		          <li><span id="L20">Link zu verwendeten .bin Dateien: <a href="https://github.com/wled-install/wled-install.github.io/tree/main/bin_dir">auf Github</a></span></li>
+		          <li><span id="L12">WLED Wiki (Englisch): <a href="https://kno.wled.ge">https://kno.wled.ge</a></span></li>
+			  <li><span id="L28">WLED FAQ: <a href="https://wled-faq.github.io">https://wled-faq.github.io</a></span></li>
+		          <li><span id="L13">Professionelle WLED Boards: <a href="https://shop.myhome-control.de">MyHome-Control Shop</a></span></li>
+		          <li><span id="L16">WLED power calculator: <a href="https://wled-calculator.github.io">https://wled-calculator.github.io</a></span></li>
+				  <li><span id="L22">Source of MoonMod version: github.com/moonmodules/wled/tree/mdev</span></li>
+		        </ul>
+		</div>
+		<div class="col-md">
+	   
+			<div id="carousel1" class="carousel carousel-dark slide img-fluid" data-bs-ride="carousel" data-bs-interval="3000">
+			  <div class="carousel-indicators">
+				<button type="button" data-bs-target="#carousel1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+				<button type="button" data-bs-target="#carousel1" data-bs-slide-to="1" aria-label="Slide 2"></button>
+				<button type="button" data-bs-target="#carousel1" data-bs-slide-to="2" aria-label="Slide 3"></button>
+				<button type="button" data-bs-target="#carousel1" data-bs-slide-to="3" aria-label="Slide 4"></button>
+			  </div>
+			  <div class="carousel-inner">
+				<div class="carousel-item active">
+				 <a target="_blank" href="https://shop.myhome-control.de">
+				  <img src="https://wled-compile.github.io/pictures/werbung1.jpg" class="d-block w-100" alt="WLED Controller Board V43">
+				 </a> 
+				</div>
+				<div class="carousel-item">
+				  <a target="_blank" href="https://shop.myhome-control.de">
+				  <img src="https://wled-compile.github.io/pictures/werbung2.jpg" class="d-block w-100" alt="WLED Controller Board mini V73">
+				 </a> 
+				</div>
+				<div class="carousel-item">
+				  <a target="_blank" href="https://shop.myhome-control.de">
+				  <img src="https://wled-compile.github.io/pictures/werbung3.jpg" class="d-block w-100" alt="WLED LineIn-to-I2S Adapter">
+				 </a> 
+				</div>
+				<div class="carousel-item">
+				  <a target="_blank" href="https://shop.myhome-control.de">
+				  <img src="https://wled-compile.github.io/pictures/werbung4.jpg" class="d-block w-100" alt="WLED Ethernet Adapter for WLED Controller V43">
+				 </a> 
+				</div>
+			  </div>
+			  <button class="carousel-control-prev" type="button" data-bs-target="#carousel1" data-bs-slide="prev">
+				<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Previous</span>
+			  </button>
+			  <button class="carousel-control-next" type="button" data-bs-target="#carousel1" data-bs-slide="next">
+				<span class="carousel-control-next-icon" aria-hidden="true"></span>
+				<span class="visually-hidden">Next</span>
+			  </button>
+			</div>
+	   
+	   </div>
+	</div>
       </div>
    <div class="accordion accordion-flush" id="accordionBottom">
 		<div class="accordion-item">
@@ -215,6 +260,7 @@
 <script>
 function LangChanged() {
     if(document.getElementById('lang').selectedIndex==0) {
+	document.getElementById("carousel1").style.display = "block";
         if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Leider wird Ihr Browser aktuell für die Installation via USB nicht unterstützt! Sie können nur die .bin Dateien herunterladen. <br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.<br><br>Verfügbare software Versionen:";
         if(document.getElementById('L01')) document.getElementById('L01').innerHTML = "Schliessen Sie Ihr ESP8266 / ESP32 Board an USB an.";
         if(document.getElementById('L02')) document.getElementById('L02').innerHTML = "Wählen Sie den Board-Typ / SW Version aus.";
@@ -242,6 +288,7 @@ function LangChanged() {
 	   if(document.getElementById('L30')) document.getElementById('L30').innerHTML = 'Auswahl WiFi nach der Installation überspringen';
 	
     } else {
+	document.getElementById("carousel1").style.display = "none";
         if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Unfortunately your browser is not yet supported for installation via USB! You can only download .bin files. <br>Please try on Chrome (for Desktop) or Microsoft Edge.<br><br>Available software versions:";
         if(document.getElementById('L01')) document.getElementById('L01').innerHTML = "Connect your ESP8266 / ESP32 board via USB port.";
         if(document.getElementById('L02')) document.getElementById('L02').innerHTML = "Select type of your board / software version required.";
