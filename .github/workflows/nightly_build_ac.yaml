@@ -58,21 +58,11 @@ jobs:
         echo '[env:lolin_s2_mini_NB]'  >> platformio.ini
         echo 'extends = env:lolin_s2_mini' >> platformio.ini
         echo 'build_flags = -D WLED_RELEASE_NAME=ESP32S2_4MB ${env:lolin_s2_mini.build_flags}' >> platformio.ini
-        echo '[env:esp32s3dev_8MB_NB]'  >> platformio.ini
-        echo 'extends = env:esp32s3dev_8MB' >> platformio.ini
-        echo 'build_flags = -D WLED_RELEASE_NAME=ESP32S3_8MB ${env:esp32s3dev_8MB.build_flags}' >> platformio.ini
-        echo '[env:esp32s3dev_4MB_NB]'  >> platformio.ini
-        echo 'extends = env:esp32s3dev_8MB' >> platformio.ini
-        echo 'board = adafruit_feather_esp32s3' >> platformio.ini
-        echo 'board_build.partitions = tools/WLED_ESP32_4MB_1MB_FS.csv' >> platformio.ini
-        echo 'build_flags = -D WLED_RELEASE_NAME=ESP32S3_4MB ${env:esp32s3dev_8MB.build_flags}' >> platformio.ini
-        echo '[env:esp32s3dev_16MB_NB]'  >> platformio.ini
-        echo 'extends = env:esp32s3dev_8MB' >> platformio.ini
-        echo 'board = adafruit_feather_esp32s3' >> platformio.ini
-        echo 'board_build.partitions = tools/WLED_ESP32_16MB.csv' >> platformio.ini
-        echo 'build_flags = -D WLED_RELEASE_NAME=ESP32S3_16MB ${env:esp32s3dev_8MB.build_flags}' >> platformio.ini
+        npm install
         pio run -e nodemcuv2 || pio run -e nodemcuv2 || true
-        sed -i -e 's/shutil\.copy(str(target\[0]), release_file)/shutil\.copy(str(target\[0]), release_file);partition_file = release_file\.replace("\.bin","_partitions\.bin");shutil\.copy(os\.path\.join(builddir,"partitions\.bin"), partition_file)/g' ./pio-scripts/output_bins.py
+        sed -i -e 's/def create_release(source)/def create_release(source,builddir)/g' ./pio-scripts/output_bins.py
+        sed -i -e 's/create_release(str(target\[0]))/create_release(str(target\[0]),builddir)/g' ./pio-scripts/output_bins.py
+        sed -i -e 's/shutil\.copy(source, release_file)/shutil\.copy(source, release_file);partition_file = release_file\.replace("\.bin","_partitions\.bin");shutil\.copy(os\.path\.join(builddir,"partitions\.bin"), partition_file)/g' ./pio-scripts/output_bins.py
         # cat ./pio-scripts/output_bins.py
         pio run -e esp32dev || pio run -e esp32dev || true
         pio run -e esp32_eth || pio run -e esp32_eth || true
@@ -80,9 +70,9 @@ jobs:
         pio run -e esp32_are_eth || pio run -e esp32_are_eth || true
         pio run -e esp32c3dev_NB || pio run -e esp32c3dev_NB || true
         pio run -e lolin_s2_mini_NB || pio run -e lolin_s2_mini_NB || true
-        pio run -e esp32s3dev_8MB_NB || pio run -e esp32s3dev_8MB_NB || true
-        pio run -e esp32s3dev_4MB_NB || pio run -e esp32s3dev_4MB_NB || true
-        pio run -e esp32s3dev_16MB_NB || pio run -e esp32s3dev_16MB_NB || true
+        pio run -e esp32s3dev_8MB_opi || pio run -e esp32s3dev_8MB_opi || true
+        pio run -e esp32s3_4M_qspi || pio run -e esp32s3_4M_qspi || true
+        pio run -e esp32s3dev_16MB_opi || pio run -e esp32s3dev_16MB_opi || true
         # cat platformio.ini
       env:
         PLATFORMIO_CI_SRC: /tmp/WLED-main
