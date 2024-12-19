@@ -1,0 +1,17 @@
+{
+  "name": "WLED (ESP32-C3, 4MB, M: some usermods)",
+  "version": "MoonMod version: Nightly build",
+  "new_install_prompt_erase": false,
+  "new_install_improv_wait_time": 10,
+  "builds": [
+    {
+      "chipFamily": "ESP32-C3",
+      "parts": [
+        { "path": "/suppl_dir/bootloader_esp32c3.bin", "offset": 0 },
+        { "path": "/bin_dir/3_MoonMod_version/Nightly_build/WLEDMM_14.5.0-beta_esp32c3dev_4MB_M_partitions.bin", "offset": 32768 },
+        { "path": "/suppl_dir/boot_app0_v2022.bin", "offset": 57344 },
+        { "path": "/bin_dir/3_MoonMod_version/Nightly_build/WLEDMM_14.5.0-beta_esp32c3dev_4MB_M.bin", "offset": 65536 }
+      ]
+    }
+  ]
+}
