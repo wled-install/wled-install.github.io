@@ -1,0 +1,17 @@
+{
+  "name": "WLED (ESP32-S3, 8MB, M: some usermods)",
+  "version": "MoonMod version: Nightly build",
+  "new_install_prompt_erase": false,
+  "new_install_improv_wait_time": 10,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        { "path": "/suppl_dir/bootloader_esp32s3.bin", "offset": 0 },
+        { "path": "/suppl_dir/partitions_8MB.bin", "offset": 32768 },
+        { "path": "/suppl_dir/boot_app0_v2022.bin", "offset": 57344 },
+        { "path": "/bin_dir/3_MoonMod_version/Nightly_build/WLEDMM_14.5.1-dev_esp32S3_8MB_M.bin", "offset": 65536 }
+      ]
+    }
+  ]
+}
