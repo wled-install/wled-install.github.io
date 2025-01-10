@@ -210,7 +210,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if ((("_0.16" in bin_file) or ("_0.15" in bin_file)) and (("_NOARE") not in bin_file)):
                     AddInfo=AddInfo+", with Audio reactive Usermod";
                     AddInfoShort=AddInfoShort+", Audio reactive";
-                elif: ("_ARE" in bin_file) or ("_AR." in bin_file) or ("_AR_" in bin_file) or ("_audioreactive" in bin_file):
+                elif ("_ARE" in bin_file) or ("_AR." in bin_file) or ("_AR_" in bin_file) or ("_audioreactive" in bin_file):
                     AddInfo=AddInfo+", with Audio reactive Usermod";
                     AddInfoShort=AddInfoShort+", Audio reactive";
                 if ("_AHI" in bin_file):
