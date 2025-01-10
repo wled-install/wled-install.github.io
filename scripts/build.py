@@ -91,7 +91,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             AddInfo=", 4MB Flash";
             AddInfoShort=", 4MB";
             ESPtype=""
-            if isbinfile_esp32(bin_file):
+            if isbinfile_esp32(bin_file):                    
                 if ("ABCV41" in bin_file):
                     ESPtype="WLED Controller V41, ESP32, 5V, Audio Reactive (Mic. or Line-In)"
                     template_filename="./scripts/manifest_esp32_template.json"
@@ -113,7 +113,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 elif isbinfile_esp32s2(bin_file):
                     ESPtype="ESP32-S2"
                     template_filename="./scripts/manifest_esp32s2_template.json"
-                elif isbinfile_esp32s3(bin_file):
+                elif isbinfile_esp32s3(bin_file):                         
                     ESPtype="ESP32-S3"
                     if(("_OPI" in bin_file) or ("_opi" in bin_file)):
                         template_filename="./scripts/manifest_esp32s3_opi_template.json"
@@ -207,7 +207,10 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if ("_AE" in bin_file) or ("_withAlexa" in bin_file):
                     AddInfo=AddInfo+", Alexa enabled";
                     AddInfoShort=AddInfoShort+", Alexa";
-                if ("_ARE" in bin_file) or ("_AR." in bin_file) or ("_AR_" in bin_file) or ("_audioreactive" in bin_file):
+                if ((("_0.16" in bin_file) or ("_0.15" in bin_file)) and (("_NOARE") not in bin_file)):
+                    AddInfo=AddInfo+", with Audio reactive Usermod";
+                    AddInfoShort=AddInfoShort+", Audio reactive";
+                elif: ("_ARE" in bin_file) or ("_AR." in bin_file) or ("_AR_" in bin_file) or ("_audioreactive" in bin_file):
                     AddInfo=AddInfo+", with Audio reactive Usermod";
                     AddInfoShort=AddInfoShort+", Audio reactive";
                 if ("_AHI" in bin_file):
