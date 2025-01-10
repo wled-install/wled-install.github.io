@@ -207,7 +207,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if ("_AE" in bin_file) or ("_withAlexa" in bin_file):
                     AddInfo=AddInfo+", Alexa enabled";
                     AddInfoShort=AddInfoShort+", Alexa";
-                if ((("_0.16" in bin_file) or ("_0.15" in bin_file)) and (("_NOARE") not in bin_file)):
+                if ((("_0.16" in bin_file) or ("_0.15" in bin_file)) and (("_NOARE") not in bin_file)  and (("ESP8266") not in bin_file)):
                     AddInfo=AddInfo+", with Audio reactive Usermod";
                     AddInfoShort=AddInfoShort+", Audio reactive";
                 elif ("_ARE" in bin_file) or ("_AR." in bin_file) or ("_AR_" in bin_file) or ("_audioreactive" in bin_file):
@@ -258,6 +258,15 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if ("_HSDIGIN" in bin_file):
                     AddInfo=AddInfo+", high sense digital line-in support";
                     AddInfoShort=AddInfoShort+", line-in";
+                if ("_compat" in bin_file):
+                    AddInfo=AddInfo+", COMPAT: better for some ESP8266 boards";
+                    AddInfoShort=AddInfoShort+", compat.";
+                if ("_160" in bin_file):
+                    AddInfo=AddInfo+", overclock to 160 MHz";
+                    AddInfoShort=AddInfoShort+", overclocked";
+                if ("_WROVER" in bin_file):
+                    AddInfo=AddInfo+", for WROVER: ESP-IDF V4 based and with PSRAM";
+                    AddInfoShort=AddInfoShort+", wrover";
             # common
             if ("_debug" in bin_file):
                 AddInfo=AddInfo+", DEBUG enabled"
