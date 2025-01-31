@@ -33,11 +33,11 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install --upgrade platformio
-        wget https://github.com/MoonModules/WLED/archive/refs/heads/mdev.zip -O /tmp/mm.zip
+        wget https://github.com/MoonModules/WLED-MM/archive/refs/heads/mdev.zip -O /tmp/mm.zip
         unzip /tmp/mm.zip -d /tmp
     - name: Run PlatformIO
       run: |
-        cd /tmp/WLED-mdev
+        cd /tmp/WLED-MM-mdev
         sed -i -e 's/shutil\.copy(str(target\[0]), release_file)/shutil\.copy(str(target\[0]), release_file);partition_file = release_file\.replace("\.bin","_partitions\.bin");shutil\.copy(os\.path\.join(builddir,"partitions\.bin"), partition_file)/g' ./pio-scripts/output_bins.py
         cat ./pio-scripts/output_bins.py
         pio run -e esp32_4MB_M || pio run -e esp32_4MB_M || true
@@ -51,15 +51,15 @@ jobs:
         pio run -e esp32s2_PSRAM_M || pio run -e esp32s2_PSRAM_M || true
         pio run -e esp32s2_PSRAM_S || pio run -e esp32s2_PSRAM_S || true
       env:
-        PLATFORMIO_CI_SRC: /tmp/WLED-mdev
+        PLATFORMIO_CI_SRC: /tmp/WLED-MM-mdev
     - name: Copy Files
       run: |
         cd $GITHUB_WORKSPACE
         git rm -r $GITHUB_WORKSPACE/bin_dir/3_MoonMod_version/Nightly_build/*.bin || true
-        cp $(find /tmp/WLED-mdev/build_output/release -name *.bin) $GITHUB_WORKSPACE/bin_dir/3_MoonMod_version/Nightly_build/
+        cp $(find /tmp/WLED-MM-mdev/build_output/release -name *.bin) $GITHUB_WORKSPACE/bin_dir/3_MoonMod_version/Nightly_build/
         date -I | tr -d '\n' >$GITHUB_WORKSPACE/bin_dir/3_MoonMod_version/Nightly_build/lastupdate.txt
         echo -n ", version: " >>$GITHUB_WORKSPACE/bin_dir/3_MoonMod_version/Nightly_build/lastupdate.txt
-        versionvalue=($(jq -r '.version' /tmp/WLED-mdev/package.json))
+        versionvalue=($(jq -r '.version' /tmp/WLED-MM-mdev/package.json))
         echo -n "$versionvalue" >>$GITHUB_WORKSPACE/bin_dir/3_MoonMod_version/Nightly_build/lastupdate.txt
     - name: Commit Files
       run: |
