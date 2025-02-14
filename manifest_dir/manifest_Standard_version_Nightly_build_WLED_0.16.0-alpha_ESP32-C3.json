@@ -7,7 +7,7 @@
     {
       "chipFamily": "ESP32-C3",
       "parts": [
-        { "path": "/suppl_dir/bootloader_esp32c3.bin", "offset": 0 },
+        { "path": "/suppl_dir/bootloader_idf4_tasmota_esp32c3.bin", "offset": 0 },
         { "path": "/bin_dir/1_Standard_version/Nightly_build/WLED_0.16.0-alpha_ESP32-C3_partitions.bin", "offset": 32768 },
         { "path": "/suppl_dir/boot_app0_v2022.bin", "offset": 57344 },
         { "path": "/bin_dir/1_Standard_version/Nightly_build/WLED_0.16.0-alpha_ESP32-C3.bin", "offset": 65536 }

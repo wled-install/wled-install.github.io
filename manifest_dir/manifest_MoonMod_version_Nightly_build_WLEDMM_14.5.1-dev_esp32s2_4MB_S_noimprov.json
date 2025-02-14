@@ -7,7 +7,7 @@
     {
       "chipFamily": "ESP32-S2",
       "parts": [
-        { "path": "/suppl_dir/bootloader_esp32s2.bin", "offset": 4096 },
+        { "path": "/suppl_dir/bootloader_idf4_tasmota_esp32s2.bin", "offset": 4096 },
         { "path": "/bin_dir/3_MoonMod_version/Nightly_build/WLEDMM_14.5.1-dev_esp32s2_4MB_S_partitions.bin", "offset": 32768 },
         { "path": "/suppl_dir/boot_app0_v2022.bin", "offset": 57344 },
         { "path": "/bin_dir/3_MoonMod_version/Nightly_build/WLEDMM_14.5.1-dev_esp32s2_4MB_S.bin", "offset": 65536 }
