@@ -109,28 +109,52 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     template_filename="./scripts/manifest_esp32_template.json"
                 elif isbinfile_esp32c3(bin_file):
                     ESPtype="ESP32-C3"
-                    template_filename="./scripts/manifest_esp32c3_template.json"
+                    if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                        template_filename="./scripts/manifest_esp32c3_template_idf4tasmota.json"
+                    else:
+                        template_filename="./scripts/manifest_esp32c3_template.json"
                 elif isbinfile_esp32s2(bin_file):
                     ESPtype="ESP32-S2"
-                    template_filename="./scripts/manifest_esp32s2_template.json"
+                    if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                        template_filename="./scripts/manifest_esp32s2_template.json"
+                    else:
+                        template_filename="./scripts/manifest_esp32s2_template_idf4tasmota.json"
                 elif isbinfile_esp32s3(bin_file):                         
                     ESPtype="ESP32-S3"
                     if(("_OPI" in bin_file) or ("_opi" in bin_file)):
-                        template_filename="./scripts/manifest_esp32s3_opi_template.json"
+                        if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                            template_filename="./scripts/manifest_esp32s3_opi_template.json"
+                        else
+                            template_filename="./scripts/manifest_esp32s3_opi_template_idf4tasmota.json"
                     else:
-                        template_filename="./scripts/manifest_esp32s3_template.json"
+                        if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                            template_filename="./scripts/manifest_esp32s3_template_idf4tasmota.json"
+                        else:
+                            template_filename="./scripts/manifest_esp32s3_template.json"
                     if ("_8MB" in bin_file):
                         if(("_OPI" in bin_file) or ("_opi" in bin_file)):
-                            template_filename="./scripts/manifest_esp32s3_8MB_opi_template.json"
+                            if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                                template_filename="./scripts/manifest_esp32s3_8MB_opi_template_idf4tasmota.json"
+                            else:
+                                template_filename="./scripts/manifest_esp32s3_8MB_opi_template.json"
                         else:
-                            template_filename="./scripts/manifest_esp32s3_8MB_template.json"
+                            if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                                template_filename="./scripts/manifest_esp32s3_8MB_template_idf4tasmota.json"
+                            else:
+                                template_filename="./scripts/manifest_esp32s3_8MB_template.json"
                         AddInfo=", 8MB Flash";
                         AddInfoShort=", 8MB";
                     if ("_16MB" in bin_file):
                         if(("_OPI" in bin_file) or ("_opi" in bin_file)):
-                            template_filename="./scripts/manifest_esp32s3_16MB_opi_template.json"
+                            if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                                template_filename="./scripts/manifest_esp32s3_16MB_opi_template_idf4tasmota.json"
+                            else:
+                                template_filename="./scripts/manifest_esp32s3_16MB_opi_template.json"
                         else:
-                            template_filename="./scripts/manifest_esp32s3_16MB_template.json"
+                            if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                                template_filename="./scripts/manifest_esp32s3_16MB_template_idf4tasmota.json"
+                            else:
+                                template_filename="./scripts/manifest_esp32s3_16MB_template.json"
                         AddInfo=", 16MB Flash";
                         AddInfoShort=", 16MB";
                     if ("_NOPSRAM" in bin_file):
