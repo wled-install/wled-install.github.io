@@ -124,7 +124,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     if(("_OPI" in bin_file) or ("_opi" in bin_file)):
                         if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
                             template_filename="./scripts/manifest_esp32s3_opi_template.json"
-                        else
+                        else:
                             template_filename="./scripts/manifest_esp32s3_opi_template_idf4tasmota.json"
                     else:
                         if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
