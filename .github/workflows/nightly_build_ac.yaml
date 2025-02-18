@@ -39,6 +39,13 @@ jobs:
       run: |
         cd /tmp/WLED-main
         echo " " >> platformio.ini
+        echo '[env:esp32c3dev_ARE]'  >> platformio.ini
+        echo 'extends = env:esp32c3dev' >> platformio.ini
+        echo 'build_flags = -D WLED_RELEASE_NAME=ESP32C3_4MB_ARE ${common.build_flags} ${esp32c3.build_flags} ${esp32.AR_build_flags}' >> platformio.ini
+        echo 'lib_deps =' >> platformio.ini
+        echo '  ${env:esp32c3dev.lib_deps}' >> platformio.ini
+        echo '  ${esp32.AR_lib_deps}' >> platformio.ini
+        
         npm install
         
         pio run -e nodemcuv2 || pio run -e nodemcuv2 || true
@@ -58,6 +65,8 @@ jobs:
         pio run -e esp32s3dev_8MB_opi || pio run -e esp32s3dev_8MB_opi || true
         pio run -e esp32s3_4M_qspi || pio run -e esp32s3_4M_qspi || true
         pio run -e esp32s3dev_16MB_opi || pio run -e esp32s3dev_16MB_opi || true
+        pio run -e esp32c3dev_ARE || pio run -e esp32c3dev_ARE || true
+        
         # cat platformio.ini
       env:
         PLATFORMIO_CI_SRC: /tmp/WLED-main
