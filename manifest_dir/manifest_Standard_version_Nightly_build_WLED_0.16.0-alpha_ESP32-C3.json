@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP32-C3, 4MB, Audio reactive)",
+  "name": "WLED (ESP32-C3, 4MB)",
   "version": "Standard version: Nightly build",
   "new_install_prompt_erase": false,
   "new_install_improv_wait_time": 10,
