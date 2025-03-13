@@ -41,10 +41,8 @@ jobs:
         echo " " >> platformio.ini
         echo '[env:esp32c3dev_ARE]'  >> platformio.ini
         echo 'extends = env:esp32c3dev' >> platformio.ini
-        echo 'build_flags = -D WLED_RELEASE_NAME=\"ESP32C3_4MB_ARE\" ${common.build_flags} ${esp32c3.build_flags} ${esp32.AR_build_flags}' >> platformio.ini
-        echo 'lib_deps =' >> platformio.ini
-        echo '  ${env:esp32c3dev.lib_deps}' >> platformio.ini
-        echo '  ${esp32.AR_lib_deps}' >> platformio.ini
+        echo 'build_flags = -D WLED_RELEASE_NAME=\"ESP32C3_4MB_ARE\" ${common.build_flags} ${esp32c3.build_flags}' >> platformio.ini
+        echo 'custom_usermods = audioreactive' >> platformio.ini
         
         npm install
         
