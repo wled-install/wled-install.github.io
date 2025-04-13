@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP8266, 4MB, compat., compat)",
+  "name": "WLED (ESP8266, 4MB, compat.)",
   "version": "Standard version: 0.15.1-beta2",
   "new_install_prompt_erase": false,
   "new_install_improv_wait_time": 10,
