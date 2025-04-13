@@ -291,9 +291,6 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if ("_WROVER" in bin_file):
                     AddInfo=AddInfo+", for WROVER: ESP-IDF V4 based and with PSRAM";
                     AddInfoShort=AddInfoShort+", wrover";
-                if ("_compat" in bin_file):
-                    AddInfo=AddInfo+", compat version: better for some boards";
-                    AddInfoShort=AddInfoShort+", compat";
             # common
             if ("_debug" in bin_file):
                 AddInfo=AddInfo+", DEBUG enabled"
