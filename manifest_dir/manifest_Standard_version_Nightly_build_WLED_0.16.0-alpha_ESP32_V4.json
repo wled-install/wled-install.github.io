@@ -1,6 +1,6 @@
 {
   "name": "WLED (ESP32, 4MB, Audio reactive, IDF V4)",
-  "version": "Standard version: 0.14.4 V4 (ESP-IDF 4.4.3 based, EXPERIMENTAL, should solve reboot issue)",
+  "version": "Standard version: Nightly build",
   "new_install_prompt_erase": false,
   "new_install_improv_wait_time": 10,
   "builds": [
@@ -8,9 +8,9 @@
       "chipFamily": "ESP32",
       "parts": [
         { "path": "/suppl_dir/bootloader_dout_40m_v2022.bin", "offset": 4096 },
-        { "path": "/suppl_dir/partitions_v2022.bin", "offset": 32768 },
+        { "path": "/bin_dir/1_Standard_version/Nightly_build/WLED_0.16.0-alpha_ESP32_V4_partitions.bin", "offset": 32768 },
         { "path": "/suppl_dir/boot_app0_v2022.bin", "offset": 57344 },
-        { "path": "/bin_dir/1_Standard_version/0.14.4_V4_(ESP-IDF_4.4.3_based, EXPERIMENTAL, should solve reboot issue)/WLED_0.14.4_ESP32_audioreactive_V4.bin", "offset": 65536 }
+        { "path": "/bin_dir/1_Standard_version/Nightly_build/WLED_0.16.0-alpha_ESP32_V4.bin", "offset": 65536 }
       ]
     }
   ]

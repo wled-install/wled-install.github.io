@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP32, 4MB, Ethernet)",
+  "name": "WLED (ESP32, 4MB, Ethernet, IDF V4)",
   "version": "Standard version: 0.14.4 V4 (ESP-IDF 4.4.3 based, EXPERIMENTAL, should solve reboot issue)",
   "new_install_prompt_erase": false,
   "new_install_improv_wait_time": 0,
