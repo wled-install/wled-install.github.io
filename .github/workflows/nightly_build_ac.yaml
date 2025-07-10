@@ -33,7 +33,7 @@ jobs:
       run: |
         python -m pip install --upgrade pip
         pip install --upgrade platformio
-        wget https://github.com/wled-dev/WLED/archive/refs/heads/main.zip -O /tmp/mm.zip
+        wget https://github.com/wled/WLED/archive/refs/heads/main.zip -O /tmp/mm.zip
         unzip /tmp/mm.zip -d /tmp
     - name: Run PlatformIO
       run: |
@@ -64,6 +64,7 @@ jobs:
         pio run -e esp32s3_4M_qspi || pio run -e esp32s3_4M_qspi || true
         pio run -e esp32s3dev_16MB_opi || pio run -e esp32s3dev_16MB_opi || true
         pio run -e esp32c3dev_ARE || pio run -e esp32c3dev_ARE || true
+        pio run -e esp32dev_V4 || pio run -e esp32dev_V4 || true
         
         # cat platformio.ini
       env:
