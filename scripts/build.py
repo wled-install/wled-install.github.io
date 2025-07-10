@@ -291,6 +291,10 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if ("_WROVER" in bin_file):
                     AddInfo=AddInfo+", for WROVER: ESP-IDF V4 based and with PSRAM";
                     AddInfoShort=AddInfoShort+", wrover";
+                if ("_V4" in bin_file):
+                    AddInfo=AddInfo+", ESPIDF V4 based, DMX input";
+                    AddInfoShort=AddInfoShort+", IDF V4";
+            
             # common
             if ("_debug" in bin_file):
                 AddInfo=AddInfo+", DEBUG enabled"
