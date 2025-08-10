@@ -238,7 +238,7 @@
 	  </div>
 </div>
 <script>
-function LangChanged() {
+function () {
     if(document.getElementById('lang').selectedIndex==0) {
 	document.getElementById("carousel1").style.display = "block";
         if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Leider wird Ihr Browser aktuell für die Installation via USB nicht unterstützt! Sie können nur die .bin Dateien herunterladen. <br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.<br><br>Verfügbare software Versionen:";
@@ -361,8 +361,25 @@ function OnAgreeButton() {
 	document.getElementById('FullContainer2').style.display="block";
 	document.getElementById('FullContainer4').style.display="none";
 }
+function InitLang() {
+    const langSelectElement = document.getElementById('lang');
+    const urlParams = new URLSearchParams(window.location.search);
+    let requestedLang = urlParams.get('lang');
+	if (!requestedLang) {
+		requestedLang=navigator.language || navigator.userLanguage;
+		requestedLang = (requestedLang.includes("de")) ? "deutsch":"english";
+	}
+    const targetIndex = Array.from(langSelectElement.options).findIndex(
+        language => language.label.toLowerCase() === requestedLang.toLowerCase()
+    );
+
+    if (targetIndex !== -1) {
+        langSelectElement.selectedIndex = targetIndex;
+    }
+}
 
 window.onload = function () {
+	InitLang();
     if (document.getElementById('install_btn').hasAttribute('install-unsupported')) {
         if(document.getElementById('lang').selectedIndex==0) {
             document.getElementById('FullContainer1').innerHTML = "<span id=\"L10\">Leider wird Ihr Browser für die Installation über USB aktuell nicht unterstützt!<br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.<br><br>Verfügbare software Versionen:</span><br>";
