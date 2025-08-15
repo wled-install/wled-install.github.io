@@ -166,13 +166,14 @@
 		        </ul>
 		</div>
 		<div class="col-md">
-	   
-			<div id="carousel1" class="carousel carousel-dark slide img-fluid" data-bs-ride="carousel" data-bs-interval="3000">
+	        <div id="carousel1_title"><span style="color: blue;"><b>Would you like to become a distributor of our products?</b> <a href="mailto:info@myhome-control.de">Contact us!</a></span></div>
+			<div id="carousel1" class="carousel carousel-dark slide img-fluid" data-bs-ride="carousel" data-bs-interval="7000">
 			  <div class="carousel-indicators">
 				<button type="button" data-bs-target="#carousel1" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
 				<button type="button" data-bs-target="#carousel1" data-bs-slide-to="1" aria-label="Slide 2"></button>
 				<button type="button" data-bs-target="#carousel1" data-bs-slide-to="2" aria-label="Slide 3"></button>
 				<button type="button" data-bs-target="#carousel1" data-bs-slide-to="3" aria-label="Slide 4"></button>
+				<button type="button" data-bs-target="#carousel1" data-bs-slide-to="4" aria-label="Slide 5"></button>
 			  </div>
 			  <div class="carousel-inner">
 				<div class="carousel-item active">
@@ -193,6 +194,11 @@
 				<div class="carousel-item">
 				  <a target="_blank" href="https://shop.myhome-control.de">
 				  <img src="https://wled-compile.github.io/pictures/werbung4.jpg" class="d-block w-100" alt="WLED Ethernet Adapter for WLED Controller V43">
+				 </a> 
+				</div>
+				<div class="carousel-item">
+				  <a target="_blank" href="https://shop.myhome-control.de">
+				  <img src="https://wled-compile.github.io/pictures/werbung5.jpg" class="d-block w-100" alt="WLED Ethernet Adapter for WLED Controller V43">
 				 </a> 
 				</div>
 			  </div>
@@ -240,7 +246,7 @@
 <script>
 function LangChanged() {
     if(document.getElementById('lang').selectedIndex==0) {
-	document.getElementById("carousel1").style.display = "block";
+	document.getElementById("carousel1_title").style.display = "none";
         if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Leider wird Ihr Browser aktuell für die Installation via USB nicht unterstützt! Sie können nur die .bin Dateien herunterladen. <br>Bitte versuchen Sie mit Google Chrome (für Desktop) oder Microsoft Edge.<br><br>Verfügbare software Versionen:";
         if(document.getElementById('L01')) document.getElementById('L01').innerHTML = "Schliessen Sie Ihr ESP8266 / ESP32 Board an USB an.";
         if(document.getElementById('L02')) document.getElementById('L02').innerHTML = "Wählen Sie den Board-Typ / SW Version aus.";
@@ -268,7 +274,7 @@ function LangChanged() {
 	   if(document.getElementById('L30')) document.getElementById('L30').innerHTML = 'Auswahl WiFi nach der Installation überspringen';
 	
     } else {
-	document.getElementById("carousel1").style.display = "none";
+	document.getElementById("carousel1_title").style.display = "block";
         if(document.getElementById('L10')) document.getElementById('L10').innerHTML = "Unfortunately your browser is not yet supported for installation via USB! You can only download .bin files. <br>Please try on Chrome (for Desktop) or Microsoft Edge.<br><br>Available software versions:";
         if(document.getElementById('L01')) document.getElementById('L01').innerHTML = "Connect your ESP8266 / ESP32 board via USB port.";
         if(document.getElementById('L02')) document.getElementById('L02').innerHTML = "Select type of your board / software version required.";
