@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP32, 4MB, Audio reactive, IDF V4)",
+  "name": "WLED (ESP32, 4MB, Audio reactive)",
   "version": "Standard version: Nightly build",
   "new_install_prompt_erase": false,
   "new_install_improv_wait_time": 0,
