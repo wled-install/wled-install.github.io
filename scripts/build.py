@@ -292,10 +292,10 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     AddInfo=AddInfo+", overclock to 160 MHz";
                     AddInfoShort=AddInfoShort+", overclocked";
                 if ("_WROVER" in bin_file):
-                    AddInfo=AddInfo+", for WROVER: ESP-IDF V4 based and with PSRAM";
+                    AddInfo=AddInfo+", for WROVER: with PSRAM";
                     AddInfoShort=AddInfoShort+", wrover";
-                if ("_V4" in bin_file):
-                    AddInfo=AddInfo+", ESPIDF V4 based, DMX input";
+                if (("_V4" in bin_file) and (("0.14." in bin_file) or ("0.15." in bin_file))):
+                    AddInfo=AddInfo+", ESPIDF V4 based";
                     AddInfoShort=AddInfoShort+", IDF V4";
             
             # common
