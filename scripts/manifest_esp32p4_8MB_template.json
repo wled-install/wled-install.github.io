@@ -5,7 +5,7 @@
   "new_install_improv_wait_time": $IMPROVWAITTIME,
   "builds": [
     {
-      "chipFamily": "ESP32",
+      "chipFamily": "ESP32-P4",
       "parts": [
         { "path": "/suppl_dir/esp32p4_bootloader.bin", "offset": 8192 },
         { "path": "$PARTITIONSFILENAME", "offset": 32768 },
