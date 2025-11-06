@@ -5,7 +5,7 @@
   "new_install_improv_wait_time": 10,
   "builds": [
     {
-      "chipFamily": "ESP32-P4",
+      "chipFamily": "ESP32",
       "parts": [
         { "path": "/suppl_dir/esp32p4_bootloader.bin", "offset": 8192 },
         { "path": "/bin_dir/0_Recommended_for_ABC_WLED_Controllers/Troys_MM_Fork_14.5.1-dev/WLED_MM_esp32p4_8MB_ABCVP4-SHIELD-V1_partitions.bin", "offset": 32768 },
