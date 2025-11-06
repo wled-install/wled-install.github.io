@@ -1,0 +1,17 @@
+{
+  "name": "WLED (ESP32-P4$ADDINFO)",
+  "version": "$VERSION",
+  "new_install_prompt_erase": false,
+  "new_install_improv_wait_time": $IMPROVWAITTIME,
+  "builds": [
+    {
+      "chipFamily": "ESP32-P4",
+      "parts": [
+        { "path": "/suppl_dir/esp32p4_bootloader.bin", "offset": 8192 },
+        { "path": "/suppl_dir/esp32p4_partitions_8MB_1500FS.bin", "offset": 32768 },
+        { "path": "/suppl_dir/boot_app0_v2022.bin", "offset": 57344 },
+        { "path": "$BINFILE", "offset": 65536 }
+      ]
+    }
+  ]
+}
