@@ -33,6 +33,12 @@ def isbinfile_esp32s3(filename):
     else:
         return False
 
+def isbinfile_esp32p4(filename):
+    if (("ESP32P4" in filename) or ("esp32p4" in filename) or ("esp32P4" in filename) or ("ESP32p4" in filename) or ("ESP32-P4" in filename) or ("esp32-p4" in filename)):
+        return True
+    else:
+        return False
+
 def keyfunc(description):
     value=0
     if "ESP32" in description:
@@ -43,6 +49,8 @@ def keyfunc(description):
         value=value+300000
     if "ESP32S3" in description:
         value=value+400000
+    if "ESP32P4" in description:
+        value=value+500000
     if "1MB" in description:
         value=value+4000
     if "2MB" in description:
@@ -91,8 +99,11 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             AddInfo=", 4MB Flash";
             AddInfoShort=", 4MB";
             ESPtype=""
-            if isbinfile_esp32(bin_file):                    
-                if ("ABCV41" in bin_file):
+            if isbinfile_esp32(bin_file):
+                if ("ABCVP4-SHIELD-V1" in bin_file):
+                    ESPtype="WLED Shield ESP32-P4 V1, used with waveshare ESP32-P4-NANO"
+                    template_filename="./scripts/manifest_esp32p4_8MB_template.json"
+                elif ("ABCV41" in bin_file):
                     ESPtype="WLED Controller V41, ESP32, 5V, Audio Reactive (Mic. or Line-In)"
                     template_filename="./scripts/manifest_esp32_template.json"
                 elif (("ABCV43" in bin_file) and ("DMX" in bin_file)):
