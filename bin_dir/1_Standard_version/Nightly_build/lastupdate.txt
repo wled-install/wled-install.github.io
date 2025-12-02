@@ -1,1 +1,1 @@
-2025-12-01, version: 0.16.0-alpha
+2025-12-02, version: 0.16.0-alpha
