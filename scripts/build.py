@@ -118,7 +118,14 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     ESPtype="WLED Controller V47 incl. iMOSFET switch, ESP32, 5-24V, Ethernet, Audio Reactive (Mic. or Line-In)"
                     template_filename="./scripts/manifest_esp32_template.json"
                 elif ("ABCV57" in bin_file):
-                    ESPtype="WLED Controller V57 incl. iMOSFET switch, ESP32 + 2MB PSRAM, 5-24V, Ethernet, Audio Reactive (Mic. or Line-In)"
+                    if (("_PSRAM2MB" in bin_file) and ("_ETH" in bin_file)):
+                        ESPtype="WLED Controller V57 incl. iMOSFET switch, ESP32 + 2MB PSRAM, 5-24V, Ethernet, Audio Reactive (Mic. or Line-In)"
+                    elif ("_PSRAM2MB" in bin_file):
+                        ESPtype="WLED Controller V57 incl. iMOSFET switch, ESP32 + 2MB PSRAM, 5-24V, NO Ethernet, Audio Reactive (Mic. or Line-In)"
+                    elif ("_ETH" in bin_file):
+                        ESPtype="WLED Controller V57 incl. iMOSFET switch, ESP32, 5-24V, Ethernet, Audio Reactive (Mic. or Line-In)"
+                    else:
+                        ESPtype="WLED Controller V57 incl. iMOSFET switch, ESP32, 5-24V, NO Ethernet, Audio Reactive (Mic. or Line-In)"
                     template_filename="./scripts/manifest_esp32_template.json"
                 elif ("ABCV70" in bin_file):
                     ESPtype="WLED Controller mini V70, ESP32, 5-12V, Audio Reactive (Mic. or Line-In)"
