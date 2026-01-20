@@ -43,6 +43,36 @@ jobs:
         echo 'extends = env:esp32c3dev' >> platformio.ini
         echo 'build_flags = -D WLED_RELEASE_NAME=\"ESP32C3_4MB_ARE\" ${common.build_flags} ${esp32c3.build_flags}' >> platformio.ini
         echo 'custom_usermods = audioreactive' >> platformio.ini
+        echo '' >> platformio.ini
+        [env:esp32dev_ETH_ABCV57_PSRAM2MB_8MB_qio]
+        echo 'board = esp32-poe' >> platformio.ini
+        echo 'platform = ${esp32_idf_V4.platform}' >> platformio.ini
+        echo 'board_build.flash_mode = qio' >> platformio.ini
+        echo 'board_build.psram_type = qspi' >> platformio.ini
+        echo 'board_build.arduino.memory_type = qio_qspi' >> platformio.ini
+        echo 'board_build.f_flash = 80000000L' >> platformio.ini
+        echo 'board_upload.flash_size = 8MB' >> platformio.ini
+        echo 'board_build.partitions = ${esp32.large_partitions}' >> platformio.ini
+        echo 'upload_speed = 921600' >> platformio.ini
+        echo 'custom_usermods = audioreactive' >> platformio.ini
+        echo 'build_unflags = ${common.build_unflags}' >> platformio.ini
+        echo 'build_flags = ${common.build_flags} ${esp32.build_flags}' >> platformio.ini
+        echo '  -D WLED_RELEASE_NAME=\"ESP32_audioreactive_ABCV57_PSRAM2MB_8MB_qio\"' >> platformio.ini
+        echo '  -D BOARD_HAS_PSRAM' >> platformio.ini
+        echo '  -D WLED_USE_ETHERNET' >> platformio.ini
+        echo '  -D RLYPIN=4' >> platformio.ini
+        echo '  -D WLED_DISABLE_ESPNOW' >> platformio.ini
+        echo '  -D WLED_ETH_DEFAULT=9' >> platformio.ini
+        echo '  -D DMTYPE=1' >> platformio.ini
+        echo '  -D AUDIOPIN=-1' >> platformio.ini
+        echo '  -D UM_AUDIOREACTIVE_ENABLE' >> platformio.ini
+        echo '  -D UM_AUDIOREACTIVE_DYNAMICS_LIMITER_OFF' >> platformio.ini
+        echo '  -D BTNPIN=-1' >> platformio.ini
+        echo '  -D DATA_PINS=32' >> platformio.ini
+        echo '  -D I2S_SDPIN=35' >> platformio.ini
+        echo '  -D I2S_CKPIN=14' >> platformio.ini
+        echo '  -D I2S_WSPIN=15' >> platformio.ini
+        echo 'lib_deps = ${esp32.lib_deps}' >> platformio.ini
         
         npm install
         
@@ -55,15 +85,16 @@ jobs:
         sed -i -e 's/shutil\.copy(source, release_file)/shutil\.copy(source, release_file);partition_file = release_file\.replace("\.bin","_partitions\.bin");shutil\.copy(os\.path\.join(builddir,"partitions\.bin"), partition_file)/g' ./pio-scripts/output_bins.py
         # cat ./pio-scripts/output_bins.py
         
-        pio run -e esp32dev || pio run -e esp32dev || true
-        pio run -e esp32_eth || pio run -e esp32_eth || true
-        pio run -e esp32_wrover || pio run -e esp32_wrover || true
-        pio run -e esp32c3dev || pio run -e esp32c3dev || true
-        pio run -e lolin_s2_mini || pio run -e lolin_s2_mini || true
-        pio run -e esp32s3dev_8MB_opi || pio run -e esp32s3dev_8MB_opi || true
-        pio run -e esp32s3_4M_qspi || pio run -e esp32s3_4M_qspi || true
-        pio run -e esp32s3dev_16MB_opi || pio run -e esp32s3dev_16MB_opi || true
-        pio run -e esp32c3dev_ARE || pio run -e esp32c3dev_ARE || true        
+        #pio run -e esp32dev || pio run -e esp32dev || true
+        #pio run -e esp32_eth || pio run -e esp32_eth || true
+        #pio run -e esp32_wrover || pio run -e esp32_wrover || true
+        #pio run -e esp32c3dev || pio run -e esp32c3dev || true
+        #pio run -e lolin_s2_mini || pio run -e lolin_s2_mini || true
+        #pio run -e esp32s3dev_8MB_opi || pio run -e esp32s3dev_8MB_opi || true
+        #pio run -e esp32s3_4M_qspi || pio run -e esp32s3_4M_qspi || true
+        #pio run -e esp32s3dev_16MB_opi || pio run -e esp32s3dev_16MB_opi || true
+        #pio run -e esp32c3dev_ARE || pio run -e esp32c3dev_ARE || true
+        pio run -e esp32dev_ETH_ABCV57_PSRAM2MB_8MB_qio || pio run -e esp32dev_ETH_ABCV57_PSRAM2MB_8MB_qio || true
         # cat platformio.ini
       env:
         PLATFORMIO_CI_SRC: /tmp/WLED-main
