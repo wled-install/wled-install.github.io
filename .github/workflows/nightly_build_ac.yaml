@@ -85,15 +85,15 @@ jobs:
         sed -i -e 's/shutil\.copy(source, release_file)/shutil\.copy(source, release_file);partition_file = release_file\.replace("\.bin","_partitions\.bin");shutil\.copy(os\.path\.join(builddir,"partitions\.bin"), partition_file)/g' ./pio-scripts/output_bins.py
         # cat ./pio-scripts/output_bins.py
         
-        #pio run -e esp32dev || pio run -e esp32dev || true
-        #pio run -e esp32_eth || pio run -e esp32_eth || true
-        #pio run -e esp32_wrover || pio run -e esp32_wrover || true
-        #pio run -e esp32c3dev || pio run -e esp32c3dev || true
-        #pio run -e lolin_s2_mini || pio run -e lolin_s2_mini || true
-        #pio run -e esp32s3dev_8MB_opi || pio run -e esp32s3dev_8MB_opi || true
-        #pio run -e esp32s3_4M_qspi || pio run -e esp32s3_4M_qspi || true
-        #pio run -e esp32s3dev_16MB_opi || pio run -e esp32s3dev_16MB_opi || true
-        #pio run -e esp32c3dev_ARE || pio run -e esp32c3dev_ARE || true
+        pio run -e esp32dev || pio run -e esp32dev || true
+        pio run -e esp32_eth || pio run -e esp32_eth || true
+        pio run -e esp32_wrover || pio run -e esp32_wrover || true
+        pio run -e esp32c3dev || pio run -e esp32c3dev || true
+        pio run -e lolin_s2_mini || pio run -e lolin_s2_mini || true
+        pio run -e esp32s3dev_8MB_opi || pio run -e esp32s3dev_8MB_opi || true
+        pio run -e esp32s3_4M_qspi || pio run -e esp32s3_4M_qspi || true
+        pio run -e esp32s3dev_16MB_opi || pio run -e esp32s3dev_16MB_opi || true
+        pio run -e esp32c3dev_ARE || pio run -e esp32c3dev_ARE || true
         pio run -e esp32dev_ETH_ABCV57_PSRAM2MB_8MB_qio || pio run -e esp32dev_ETH_ABCV57_PSRAM2MB_8MB_qio || true
         # cat platformio.ini
       env:
