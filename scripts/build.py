@@ -81,6 +81,8 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
             partitions_filename=bin_file.replace(".bin","_partitions.bin")
             if not os.path.isfile(os.path.join(dir2_path,partitions_filename)):
                 partitions_filename="/suppl_dir/partitions_v2022.bin"
+                if ("_8MB" in bin_file):
+                    partitions_filename="/suppl_dir/partitions_8MB.bin"
             else:
                 partitions_filename=dir_path_forhtml+"/"+partitions_filename
             
@@ -114,6 +116,9 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     template_filename="./scripts/manifest_esp32_template.json"
                 elif ("ABCV47" in bin_file):
                     ESPtype="WLED Controller V47 incl. iMOSFET switch, ESP32, 5-24V, Ethernet, Audio Reactive (Mic. or Line-In)"
+                    template_filename="./scripts/manifest_esp32_template.json"
+                elif ("ABCV57" in bin_file):
+                    ESPtype="WLED Controller V57 incl. iMOSFET switch, ESP32 + 2MB PSRAM, 5-24V, Ethernet, Audio Reactive (Mic. or Line-In)"
                     template_filename="./scripts/manifest_esp32_template.json"
                 elif ("ABCV70" in bin_file):
                     ESPtype="WLED Controller mini V70, ESP32, 5-12V, Audio Reactive (Mic. or Line-In)"
