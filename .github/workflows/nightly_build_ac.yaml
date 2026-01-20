@@ -45,23 +45,23 @@ jobs:
         echo 'custom_usermods = audioreactive' >> platformio.ini
         echo '' >> platformio.ini
         echo '[env:esp32dev_ETH_ABCV57_PSRAM2MB_8MB_qio]' >> platformio.ini
-        echo 'board = esp32-poe' >> platformio.ini
-        echo 'platform = ${esp32_idf_V4.platform}' >> platformio.ini
+        echo 'extends = esp32_idf_V4' >> platformio.ini
+        echo 'board = ttgo-t7-v14-mini32' >> platformio.ini
+        echo 'board_build.f_flash = 80000000L' >> platformio.ini
         echo 'board_build.flash_mode = qio' >> platformio.ini
         echo 'board_build.psram_type = qspi' >> platformio.ini
         echo 'board_build.arduino.memory_type = qio_qspi' >> platformio.ini
-        echo 'board_build.f_flash = 80000000L' >> platformio.ini
         echo 'board_upload.flash_size = 8MB' >> platformio.ini
-        echo 'board_build.partitions = ${esp32.large_partitions}' >> platformio.ini
         echo 'upload_speed = 921600' >> platformio.ini
+        echo 'board_build.partitions = ${esp32.large_partitions}' >> platformio.ini
         echo 'custom_usermods = audioreactive' >> platformio.ini
         echo 'build_unflags = ${common.build_unflags}' >> platformio.ini
-        echo 'build_flags = ${common.build_flags} ${esp32.build_flags}' >> platformio.ini
-        echo '  -D WLED_RELEASE_NAME=\"ESP32_audioreactive_ABCV57_PSRAM2MB_8MB_qio\"' >> platformio.ini
-        echo '  -D BOARD_HAS_PSRAM' >> platformio.ini
-        echo '  -D WLED_USE_ETHERNET' >> platformio.ini
+        echo 'build_flags = ${common.build_flags} ${esp32_idf_V4.build_flags} -D WLED_RELEASE_NAME=\"ESP32_audioreactive_ABCV57_PSRAM2MB_8MB_qio\"' >> platformio.ini
+        echo '  -DARDUINO_USB_CDC_ON_BOOT=0' >> platformio.ini
+        echo '  -DBOARD_HAS_PSRAM -mfix-esp32-psram-cache-issue' >> platformio.ini
         echo '  -D RLYPIN=4' >> platformio.ini
         echo '  -D WLED_DISABLE_ESPNOW' >> platformio.ini
+        echo '  -D WLED_USE_ETHERNET' >> platformio.ini
         echo '  -D WLED_ETH_DEFAULT=9' >> platformio.ini
         echo '  -D DMTYPE=1' >> platformio.ini
         echo '  -D AUDIOPIN=-1' >> platformio.ini
@@ -72,7 +72,7 @@ jobs:
         echo '  -D I2S_SDPIN=35' >> platformio.ini
         echo '  -D I2S_CKPIN=14' >> platformio.ini
         echo '  -D I2S_WSPIN=15' >> platformio.ini
-        echo 'lib_deps = ${esp32.lib_deps}' >> platformio.ini
+        echo 'lib_deps = ${esp32_idf_V4.lib_deps}' >> platformio.ini
         
         npm install
         
