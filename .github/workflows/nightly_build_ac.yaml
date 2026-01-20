@@ -44,7 +44,7 @@ jobs:
         echo 'build_flags = -D WLED_RELEASE_NAME=\"ESP32C3_4MB_ARE\" ${common.build_flags} ${esp32c3.build_flags}' >> platformio.ini
         echo 'custom_usermods = audioreactive' >> platformio.ini
         echo '' >> platformio.ini
-        [env:esp32dev_ETH_ABCV57_PSRAM2MB_8MB_qio]
+        echo '[env:esp32dev_ETH_ABCV57_PSRAM2MB_8MB_qio]' >> platformio.ini
         echo 'board = esp32-poe' >> platformio.ini
         echo 'platform = ${esp32_idf_V4.platform}' >> platformio.ini
         echo 'board_build.flash_mode = qio' >> platformio.ini
