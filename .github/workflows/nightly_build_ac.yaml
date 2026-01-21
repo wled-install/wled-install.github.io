@@ -56,7 +56,7 @@ jobs:
         echo 'board_build.partitions = ${esp32.large_partitions}' >> platformio.ini
         echo 'custom_usermods = audioreactive' >> platformio.ini
         echo 'build_unflags = ${common.build_unflags}' >> platformio.ini
-        echo 'build_flags = ${common.build_flags} ${esp32_idf_V4.build_flags} -D WLED_RELEASE_NAME=\"ESP32_audioreactive_ABCV57_PSRAM2MB_8MB_qio\"' >> platformio.ini
+        echo 'build_flags = ${common.build_flags} ${esp32_idf_V4.build_flags} -D WLED_RELEASE_NAME=\"ESP32_ETH_audioreactive_ABCV57_PSRAM2MB_8MB_qio\"' >> platformio.ini
         echo '  -DARDUINO_USB_CDC_ON_BOOT=0' >> platformio.ini
         echo '  -DBOARD_HAS_PSRAM -mfix-esp32-psram-cache-issue' >> platformio.ini
         echo '  -D RLYPIN=4' >> platformio.ini
