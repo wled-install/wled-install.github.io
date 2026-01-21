@@ -94,7 +94,7 @@ jobs:
         pio run -e esp32s3_4M_qspi || pio run -e esp32s3_4M_qspi || true
         pio run -e esp32s3dev_16MB_opi || pio run -e esp32s3dev_16MB_opi || true
         pio run -e esp32c3dev_ARE || pio run -e esp32c3dev_ARE || true
-        sed -i -E 's/def if \(gpio == 16 \|\| gpio == 17\) return !psramFound\(\)/def if (gpio == 16) return !psramFound()/g' ./wled00/pin_manager.py
+        sed -i -E 's/def if \(gpio == 16 \|\| gpio == 17\) return !psramFound\(\)/def if (gpio == 16) return !psramFound()/g' ./wled00/pin_manager.cpp
         pio run -e esp32dev_ETH_ABCV57_PSRAM2MB_8MB_qio || pio run -e esp32dev_ETH_ABCV57_PSRAM2MB_8MB_qio || true
         # cat platformio.ini
       env:
