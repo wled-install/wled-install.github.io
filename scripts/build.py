@@ -141,7 +141,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
                         template_filename="./scripts/manifest_esp32_template_idf4tasmota.json"
                     else:
-                        template_filename="./scripts/manifest_esp32_template.json"
+                        template_filename="./scripts/manifest_esp32_template_qio_80m.json"
                 elif ("ABCV70" in bin_file):
                     ESPtype="WLED Controller mini V70, ESP32, 5-12V, Audio Reactive (Mic. or Line-In)"
                     if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
