@@ -1,0 +1,17 @@
+{
+  "name": "WLED (ESP32$ADDINFO)",
+  "version": "$VERSION",
+  "new_install_prompt_erase": false,
+  "new_install_improv_wait_time": $IMPROVWAITTIME,
+  "builds": [
+    {
+      "chipFamily": "ESP32",
+      "parts": [
+        { "path": "/suppl_dir/bootloader_qio_80m.bin", "offset": 4096 },
+        { "path": "$PARTITIONSFILENAME", "offset": 32768 },
+        { "path": "/suppl_dir/boot_app0_v2022.bin", "offset": 57344 },
+        { "path": "$BINFILE", "offset": 65536 }
+      ]
+    }
+  ]
+}
