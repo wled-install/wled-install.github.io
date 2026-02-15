@@ -1,13 +1,13 @@
 {
-  "name": "WLED (ESP32-P4)",
+  "name": "WLED (ESP32)",
   "version": "Recommended for ABC! WLED controllers (shop.myhome-control.de, wled.shop): Troys experimental fork MM 14.5.1",
   "new_install_prompt_erase": false,
   "new_install_improv_wait_time": 10,
   "builds": [
     {
-      "chipFamily": "ESP32-P4",
+      "chipFamily": "ESP32",
       "parts": [
-        { "path": "/suppl_dir/esp32p4_bootloader.bin", "offset": 8192 },
+        { "path": "/suppl_dir/bootloader_dout_40m_v2022.bin", "offset": 4096 },
         { "path": "/bin_dir/0_Recommended_for_ABC_WLED_Controllers/Troys_experimental_fork_MM_14.5.1/WLED_MM_esp32p4_8MB_ABCVP4-SHIELD-V1_partitions.bin", "offset": 32768 },
         { "path": "/suppl_dir/boot_app0_v2022.bin", "offset": 57344 },
         { "path": "/bin_dir/0_Recommended_for_ABC_WLED_Controllers/Troys_experimental_fork_MM_14.5.1/WLED_MM_esp32p4_8MB_ABCVP4-SHIELD-V1.bin", "offset": 65536 }
