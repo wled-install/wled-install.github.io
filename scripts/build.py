@@ -105,6 +105,9 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if ("ABCVP4-SHIELD-V1" in bin_file):
                     ESPtype="WLED Shield ESP32-P4 V1, used with waveshare ESP32-P4-NANO, HIGHLY EXPERIMENTAL"
                     template_filename="./scripts/manifest_esp32p4_8MB_template.json"
+                if ("ABCVP4-SHIELD-V2" in bin_file):
+                    ESPtype="WLED Shield ESP32-P4 V2, used with waveshare ESP32-P4-NANO, EXPERIMENTAL"
+                    template_filename="./scripts/manifest_esp32p4_8MB_template.json"
                 elif ("ABCV41" in bin_file):
                     ESPtype="WLED Controller V41, ESP32, 5V, Audio Reactive (Mic. or Line-In)"
                     if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
