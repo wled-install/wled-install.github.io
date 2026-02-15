@@ -1,0 +1,17 @@
+{
+  "name": "WLED (ESP32-S3, 8MB)",
+  "version": "Standard version: Nightly build",
+  "new_install_prompt_erase": false,
+  "new_install_improv_wait_time": 0,
+  "builds": [
+    {
+      "chipFamily": "ESP32-S3",
+      "parts": [
+        { "path": "/suppl_dir/bootloader_esp32s3_opi.bin", "offset": 0 },
+        { "path": "/suppl_dir/partitions_8MB.bin", "offset": 32768 },
+        { "path": "/suppl_dir/boot_app0_v2022.bin", "offset": 57344 },
+        { "path": "/bin_dir/1_Standard_version/Nightly_build/WLED_16.0-alpha_ESP32-S3_8MB_opi.bin", "offset": 65536 }
+      ]
+    }
+  ]
+}
