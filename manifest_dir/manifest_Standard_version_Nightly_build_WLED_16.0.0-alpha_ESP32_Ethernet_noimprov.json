@@ -1,5 +1,5 @@
 {
-  "name": "WLED (ESP32, 4MB, Ethernet)",
+  "name": "WLED (ESP32, 4MB, Ethernet, Audio reactive)",
   "version": "Standard version: Nightly build",
   "new_install_prompt_erase": false,
   "new_install_improv_wait_time": 0,
