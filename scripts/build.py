@@ -110,25 +110,25 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     template_filename="./scripts/manifest_esp32p4_8MB_template.json"
                 elif ("ABCV41" in bin_file):
                     ESPtype="WLED Controller V41, ESP32, 5V, Audio Reactive (Mic. or Line-In)"
-                    if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                    if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                         template_filename="./scripts/manifest_esp32_template_idf4tasmota.json"
                     else:
                         template_filename="./scripts/manifest_esp32_template.json"
                 elif (("ABCV43" in bin_file) and ("DMX" in bin_file)):
                     ESPtype="WLED Controller V43, ESP32, 5-24V, Ethernet, DMX out on pin 32)"
-                    if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                    if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                         template_filename="./scripts/manifest_esp32_template_idf4tasmota.json"
                     else:
                         template_filename="./scripts/manifest_esp32_template.json"
                 elif ("ABCV43" in bin_file):
                     ESPtype="WLED Controller V43, ESP32, 5-24V, Ethernet, Audio Reactive (Mic. or Line-In)"
-                    if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                    if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                         template_filename="./scripts/manifest_esp32_template_idf4tasmota.json"
                     else:
                         template_filename="./scripts/manifest_esp32_template.json"
                 elif ("ABCV47" in bin_file):
                     ESPtype="WLED Controller V47 incl. iMOSFET switch, ESP32, 5-24V, Ethernet, Audio Reactive (Mic. or Line-In)"
-                    if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                    if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                         template_filename="./scripts/manifest_esp32_template_idf4tasmota.json"
                     else:
                         template_filename="./scripts/manifest_esp32_template.json"
@@ -141,60 +141,60 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                         ESPtype="WLED Controller V57 incl. iMOSFET switch, ESP32, 5-24V, Ethernet, Audio Reactive (Mic. or Line-In)"
                     else:
                         ESPtype="WLED Controller V57 incl. iMOSFET switch, ESP32, 5-24V, NO Ethernet, Audio Reactive (Mic. or Line-In)"
-                    if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                    if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                         template_filename="./scripts/manifest_esp32_template_idf4tasmota.json"
                     else:
                         template_filename="./scripts/manifest_esp32_template_qio_80m.json"
                 elif ("ABCV70" in bin_file):
                     ESPtype="WLED Controller mini V70, ESP32, 5-12V, Audio Reactive (Mic. or Line-In)"
-                    if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                    if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                         template_filename="./scripts/manifest_esp32_template_idf4tasmota.json"
                     else:
                         template_filename="./scripts/manifest_esp32_template.json"
                 elif ("ABCV73" in bin_file):
                     ESPtype="WLED Controller mini V73, ESP32, 5-24V, Audio Reactive (Mic. or Line-In)"
-                    if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                    if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                         template_filename="./scripts/manifest_esp32_template_idf4tasmota.json"
                     else:
                         template_filename="./scripts/manifest_esp32_template.json"
                 elif ("ABCV63" in bin_file):
                     ESPtype="WLED Shield V63, used with ESP32, 5-12V, Audio Reactive (Mic. or Line-In)"
-                    if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                    if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                         template_filename="./scripts/manifest_esp32_template_idf4tasmota.json"
                     else:
                         template_filename="./scripts/manifest_esp32_template.json"
                 elif isbinfile_esp32c3(bin_file):
                     ESPtype="ESP32-C3"
-                    if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                    if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                         template_filename="./scripts/manifest_esp32c3_template_idf4tasmota.json"
                     else:
                         template_filename="./scripts/manifest_esp32c3_template.json"
                 elif isbinfile_esp32s2(bin_file):
                     ESPtype="ESP32-S2"
-                    if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                    if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                         template_filename="./scripts/manifest_esp32s2_template.json"
                     else:
                         template_filename="./scripts/manifest_esp32s2_template_idf4tasmota.json"
                 elif isbinfile_esp32s3(bin_file):                         
                     ESPtype="ESP32-S3"
                     if(("_OPI" in bin_file) or ("_opi" in bin_file)):
-                        if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                        if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                             template_filename="./scripts/manifest_esp32s3_opi_template.json"
                         else:
                             template_filename="./scripts/manifest_esp32s3_opi_template_idf4tasmota.json"
                     else:
-                        if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                        if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                             template_filename="./scripts/manifest_esp32s3_template_idf4tasmota.json"
                         else:
                             template_filename="./scripts/manifest_esp32s3_template.json"
                     if ("_8MB" in bin_file):
                         if(("_OPI" in bin_file) or ("_opi" in bin_file)):
-                            if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                            if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                                 template_filename="./scripts/manifest_esp32s3_8MB_opi_template_idf4tasmota.json"
                             else:
                                 template_filename="./scripts/manifest_esp32s3_8MB_opi_template.json"
                         else:
-                            if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                            if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                                 template_filename="./scripts/manifest_esp32s3_8MB_template_idf4tasmota.json"
                             else:
                                 template_filename="./scripts/manifest_esp32s3_8MB_template.json"
@@ -202,12 +202,12 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                         AddInfoShort=", 8MB";
                     if ("_16MB" in bin_file):
                         if(("_OPI" in bin_file) or ("_opi" in bin_file)):
-                            if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                            if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                                 template_filename="./scripts/manifest_esp32s3_16MB_opi_template_idf4tasmota.json"
                             else:
                                 template_filename="./scripts/manifest_esp32s3_16MB_opi_template.json"
                         else:
-                            if(("_0.16." in bin_file) or ("_0.17." in bin_file) or ("_0.18." in bin_file) or ("_0.19." in bin_file) or ("_0.20." in bin_file)):
+                            if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
                                 template_filename="./scripts/manifest_esp32s3_16MB_template_idf4tasmota.json"
                             else:
                                 template_filename="./scripts/manifest_esp32s3_16MB_template.json"
@@ -287,7 +287,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if ("_AE" in bin_file) or ("_withAlexa" in bin_file):
                     AddInfo=AddInfo+", Alexa enabled";
                     AddInfoShort=AddInfoShort+", Alexa";
-                if ((("_0.16" in bin_file) or ("_0.15" in bin_file)) and (("_NOARE") not in bin_file)  and (("ESP8266") not in bin_file) and (not isbinfile_esp32c3(bin_file))):
+                if ((("_16." in bin_file) or ("_0.16" in bin_file) or ("_0.15" in bin_file)) and (("_NOARE") not in bin_file)  and (("ESP8266") not in bin_file) and (not isbinfile_esp32c3(bin_file))):
                     AddInfo=AddInfo+", with Audio reactive Usermod";
                     AddInfoShort=AddInfoShort+", Audio reactive";
                 elif ("_ARE" in bin_file) or ("_AR." in bin_file) or ("_AR_" in bin_file) or ("_audioreactive" in bin_file):
