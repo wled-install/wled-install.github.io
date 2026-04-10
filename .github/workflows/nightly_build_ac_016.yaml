@@ -1,0 +1,119 @@
+name: nightly_build_ac_016
+
+on:
+    schedule:
+      - cron: '15 1 * * *'
+    workflow_dispatch:
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v3
+    - name: Cache pip
+      uses: actions/cache@v3
+      with:
+        path: ~/.cache/pip
+        key: ${{ runner.os }}-pip-${{ hashFiles('**/requirements.txt') }}
+        restore-keys: |
+          ${{ runner.os }}-pip-
+    - name: Cache PlatformIO
+      uses: actions/cache@v3
+      with:
+        path: ~/.platformio
+        key: ${{ runner.os }}-${{ hashFiles('**/lockfiles') }}
+
+    - name: Set up Python
+      uses: actions/setup-python@v4
+      with:
+        python-version: '3.10'
+
+    - name: Install PlatformIO
+      run: |
+        python -m pip install --upgrade pip
+        pip install --upgrade platformio
+        wget https://github.com/wled/WLED/archive/refs/heads/16_x.zip -O /tmp/mm.zip
+        unzip /tmp/mm.zip -d /tmp
+    - name: Run PlatformIO
+      run: |
+        cd /tmp/WLED-16_x
+        echo " " >> platformio.ini
+        echo '[env:esp32c3dev_ARE]'  >> platformio.ini
+        echo 'extends = env:esp32c3dev' >> platformio.ini
+        echo 'build_flags = -D WLED_RELEASE_NAME=\"ESP32C3_4MB_ARE\" ${common.build_flags} ${esp32c3.build_flags}' >> platformio.ini
+        echo 'custom_usermods = audioreactive' >> platformio.ini
+        echo '' >> platformio.ini
+        echo '[env:esp32dev_ETH_ABCV57_PSRAM2MB_8MB_qio]' >> platformio.ini
+        echo 'extends = esp32_idf_V4' >> platformio.ini
+        echo 'board = ttgo-t7-v14-mini32' >> platformio.ini
+        echo 'board_build.f_flash = 80000000L' >> platformio.ini
+        echo 'board_build.flash_mode = qio' >> platformio.ini
+        echo 'board_build.psram_type = qspi' >> platformio.ini
+        echo 'board_build.arduino.memory_type = qio_qspi' >> platformio.ini
+        echo 'board_upload.flash_size = 8MB' >> platformio.ini
+        echo 'upload_speed = 921600' >> platformio.ini
+        echo 'board_build.partitions = ${esp32.large_partitions}' >> platformio.ini
+        echo 'custom_usermods = audioreactive' >> platformio.ini
+        echo 'build_unflags = ${common.build_unflags}' >> platformio.ini
+        echo 'build_flags = ${common.build_flags} ${esp32_idf_V4.build_flags} -D WLED_RELEASE_NAME=\"ESP32_ETH_audioreactive_ABCV57_PSRAM2MB_8MB_qio\"' >> platformio.ini
+        echo '  -DARDUINO_USB_CDC_ON_BOOT=0' >> platformio.ini
+        echo '  -DBOARD_HAS_PSRAM -mfix-esp32-psram-cache-issue' >> platformio.ini
+        echo '  -D RLYPIN=4' >> platformio.ini
+        echo '  -D WLED_DISABLE_ESPNOW' >> platformio.ini
+        echo '  -D WLED_USE_ETHERNET' >> platformio.ini
+        echo '  -D WLED_ETH_DEFAULT=9' >> platformio.ini
+        echo '  -D DMTYPE=1' >> platformio.ini
+        echo '  -D AUDIOPIN=-1' >> platformio.ini
+        echo '  -D UM_AUDIOREACTIVE_ENABLE' >> platformio.ini
+        echo '  -D UM_AUDIOREACTIVE_DYNAMICS_LIMITER_OFF' >> platformio.ini
+        echo '  -D BTNPIN=-1' >> platformio.ini
+        echo '  -D DATA_PINS=32' >> platformio.ini
+        echo '  -D I2S_SDPIN=35' >> platformio.ini
+        echo '  -D I2S_CKPIN=14' >> platformio.ini
+        echo '  -D I2S_WSPIN=15' >> platformio.ini
+        echo 'lib_deps = ${esp32_idf_V4.lib_deps}' >> platformio.ini
+        
+        npm install
+        
+        pio run -e nodemcuv2 || pio run -e nodemcuv2 || true
+        pio run -e nodemcuv2_compat || pio run -e nodemcuv2_compat || true
+        pio run -e nodemcuv2_160 || pio run -e nodemcuv2_160 || true
+        
+        sed -i -e 's/def create_release(source)/def create_release(source,builddir)/g' ./pio-scripts/output_bins.py
+        sed -i -e 's/create_release(str(target\[0]))/create_release(str(target\[0]),builddir)/g' ./pio-scripts/output_bins.py
+        sed -i -e 's/shutil\.copy(source, release_file)/shutil\.copy(source, release_file);partition_file = release_file\.replace("\.bin","_partitions\.bin");shutil\.copy(os\.path\.join(builddir,"partitions\.bin"), partition_file)/g' ./pio-scripts/output_bins.py
+        # cat ./pio-scripts/output_bins.py
+        
+        pio run -e esp32dev || pio run -e esp32dev || true
+        pio run -e esp32_eth || pio run -e esp32_eth || true
+        pio run -e esp32_wrover || pio run -e esp32_wrover || true
+        pio run -e esp32c3dev || pio run -e esp32c3dev || true
+        pio run -e lolin_s2_mini || pio run -e lolin_s2_mini || true
+        pio run -e esp32s3dev_8MB_opi || pio run -e esp32s3dev_8MB_opi || true
+        pio run -e esp32s3_4M_qspi || pio run -e esp32s3_4M_qspi || true
+        pio run -e esp32s3dev_16MB_opi || pio run -e esp32s3dev_16MB_opi || true
+        pio run -e esp32c3dev_ARE || pio run -e esp32c3dev_ARE || true
+        sed -i -E 's/def if \(gpio == 16 \|\| gpio == 17\) return !psramFound\(\)/def if (gpio == 16) return !psramFound()/g' ./wled00/pin_manager.cpp
+        pio run -e esp32dev_ETH_ABCV57_PSRAM2MB_8MB_qio || pio run -e esp32dev_ETH_ABCV57_PSRAM2MB_8MB_qio || true
+        # cat platformio.ini
+      env:
+        PLATFORMIO_CI_SRC: /tmp/WLED-16_x
+    - name: Copy Files
+      run: |
+        cd $GITHUB_WORKSPACE
+        git rm -r $GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build_16x_branch/*.bin || true
+        cp /tmp/WLED-16_x/build_output/release/*.bin $GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build_16x_branch/
+        date -I | tr -d '\n' >$GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build_16x_branch/lastupdate.txt
+        echo -n ", version: " >>$GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build_16x_branch/lastupdate.txt
+        versionvalue=($(jq -r '.version' /tmp/WLED-16_x/package.json))
+        echo -n "$versionvalue" >>$GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build_16x_branch/lastupdate.txt
+    - name: Commit Files
+      run: |
+        cd $GITHUB_WORKSPACE
+        git config user.name "GitHub Actions Bot"
+        git config user.email "<>"
+        git add $GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build_16x_branch/*.bin
+        git add $GITHUB_WORKSPACE/bin_dir/1_Standard_version/Nightly_build_16x_branch/lastupdate.txt
+        git commit -m "Commit AC Nightly Build 16x brnch"
+        git push origin main
