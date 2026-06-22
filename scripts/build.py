@@ -145,6 +145,8 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                         template_filename="./scripts/manifest_esp32_template_idf4tasmota.json"
                     else:
                         template_filename="./scripts/manifest_esp32_template_qio_80m.json"
+                    if ("_MRU" in bin_file):
+                        ESPtype=ESPtype+", MultiRelay"
                 elif ("ABCV70" in bin_file):
                     ESPtype="WLED Controller mini V70, ESP32, 5-12V, Audio Reactive (Mic. or Line-In)"
                     if(("_16." in bin_file) or ("_0.16." in bin_file) or ("_17." in bin_file) or ("_18." in bin_file) or ("_19." in bin_file) or ("_20." in bin_file)):
