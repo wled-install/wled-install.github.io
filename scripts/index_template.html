@@ -180,6 +180,80 @@ $HTMLLIST
         keepalive: true
     }).catch(() => {});
 })();
+
+function isNorthAmericaVisitor() {
+  // Browser language (e.g. "en-US", "fr-CA", "es-MX")
+  const language = (navigator.language || "").toUpperCase();
+
+  if (
+    language.endsWith("-US") ||
+    language.endsWith("-CA") ||
+    language.endsWith("-MX")
+  ) {
+    return true;
+  }
+
+  // Time zone (e.g. "America/New_York")
+  const timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || "";
+
+  const northAmericanTimeZones = [
+    "America/New_York",
+    "America/Detroit",
+    "America/Kentucky/Louisville",
+    "America/Kentucky/Monticello",
+    "America/Indiana/Indianapolis",
+    "America/Indiana/Vincennes",
+    "America/Indiana/Winamac",
+    "America/Indiana/Marengo",
+    "America/Indiana/Petersburg",
+    "America/Indiana/Vevay",
+    "America/Chicago",
+    "America/Indiana/Tell_City",
+    "America/Indiana/Knox",
+    "America/Menominee",
+    "America/North_Dakota/Center",
+    "America/North_Dakota/New_Salem",
+    "America/North_Dakota/Beulah",
+    "America/Denver",
+    "America/Boise",
+    "America/Phoenix",
+    "America/Los_Angeles",
+    "America/Anchorage",
+    "America/Juneau",
+    "America/Sitka",
+    "America/Metlakatla",
+    "America/Yakutat",
+    "America/Nome",
+    "America/Adak",
+    "Pacific/Honolulu",
+
+    "America/Toronto",
+    "America/Vancouver",
+    "America/Edmonton",
+    "America/Winnipeg",
+    "America/Halifax",
+    "America/St_Johns",
+    "America/Regina",
+    "America/Whitehorse",
+    "America/Iqaluit",
+    "America/Moncton",
+
+    "America/Mexico_City",
+    "America/Cancun",
+    "America/Merida",
+    "America/Monterrey",
+    "America/Matamoros",
+    "America/Chihuahua",
+    "America/Mazatlan",
+    "America/Hermosillo",
+    "America/Tijuana",
+    "America/Bahia_Banderas",
+    "America/Ojinaga"
+  ];
+
+  return northAmericanTimeZones.includes(timeZone);
+}
+	
 function LangChanged() {
     if(document.getElementById('lang').selectedIndex==0) {
 	document.getElementById("carousel1_title").style.display = "none";
@@ -191,8 +265,8 @@ function LangChanged() {
         if(document.getElementById('L05')) document.getElementById('L05').innerHTML = "Klicken Sie auf \"Install WLED\". Die Installation beginnt. Sollte nach einiger Zeit die Installation beim \"Wrapping Up\" stehen bleiben, können sie es unterbrechen. Die SW ist dann trotzdem i.O. installiert.";
         if(document.getElementById('L09')) document.getElementById('L09').innerHTML = "Installieren";
         if(document.getElementById('L11')) document.getElementById('L11').innerHTML = "Board Typ / SW Version: ";
-        if(document.getElementById('L13')) document.getElementById('L13').innerHTML = 'Professionelle WLED Boards: <a href="https://shop.myhome-control.de">MyHome-Control Shop</a>';
-        if(document.getElementById('L15')) document.getElementById('L15').innerHTML = "Nützliche Informationen:";
+        if(document.getElementById('L13')) document.getElementById('L13').innerHTML = 'Professionelle WLED Boards: <a href="https://shop.myhome-control.de">MyHome-Control Shop</a>'; 
+		if(document.getElementById('L15')) document.getElementById('L15').innerHTML = "Nützliche Informationen:";
         if(document.getElementById('L16')) document.getElementById('L16').innerHTML = 'WLED Leistung Rechner: <a href="https://wled-calculator.github.io">https://wled-calculator.github.io</a>';
         if(document.getElementById('L17')) document.getElementById('L17').innerHTML = '(inoffizieller Installer mit einem erweiterten Funktionsumfang)';
         if(document.getElementById('L18')) document.getElementById('L18').innerHTML = 'Impressum';
@@ -219,7 +293,11 @@ function LangChanged() {
         if(document.getElementById('L05')) document.getElementById('L05').innerHTML = "Click on \"Install WLED\". If after some time the installation stops at \"wrapping up\", you can interrupt it. The SW is then already installed correctly.";
         if(document.getElementById('L09')) document.getElementById('L09').innerHTML = "Install";
         if(document.getElementById('L11')) document.getElementById('L11').innerHTML = "Board type / software version: ";
-        if(document.getElementById('L13')) document.getElementById('L13').innerHTML = 'Professional WLED boards: <a href="https://wled.shop">WLED Shop</a>';
+        if(isNorthAmericaVisitor()) {
+			if(document.getElementById('L13')) document.getElementById('L13').innerHTML = 'Professional WLED controllers: <a href="https://www.amazon.com/s?me=A2DSSUJJJHGC0W">Amazon Shop (US, Canada)</a> or <a href="https://shop.myhome-control.de">MyHome-Control Shop (Germany)</a>';
+		} else {
+			if(document.getElementById('L13')) document.getElementById('L13').innerHTML = 'Professional WLED controllers: <a href="https://wled.shop">WLED Shop (worldwide)</a> or <a href="https://shop.myhome-control.de">MyHome-Control Shop (Germany)</a>';
+		}
         if(document.getElementById('L15')) document.getElementById('L15').innerHTML = "Useful web pages:";
         if(document.getElementById('L16')) document.getElementById('L16').innerHTML = 'WLED power calculator: <a href="https://wled-calculator.github.io">https://wled-calculator.github.io</a>';
         if(document.getElementById('L17')) document.getElementById('L17').innerHTML = '(unofficial installer with an extended functionality)';
