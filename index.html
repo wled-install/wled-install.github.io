@@ -390,7 +390,7 @@ function LangChanged() {
         if(document.getElementById('L11')) document.getElementById('L11').innerHTML = "Board type / software version: ";
         if(isNorthAmericaVisitor()) {
 			if(document.getElementById('L13')) document.getElementById('L13').innerHTML = 'Professional WLED controllers: <a target="_blank" rel="noopener noreferrer" referrerpolicy="no-referrer" class="mhc-north-america-banner__link" href="https://www.amazon.com/s?me=A2DSSUJJJHGC0W">Amazon Shop (US, Canada)</a> or <a href="https://shop.myhome-control.de">MyHome-Control Shop (Germany)</a>';
-			const link = banner.querySelector('.mhc-north-america-banner__link');
+			const link = document.querySelector('.mhc-north-america-banner__link');
 			if (link) {
                     link.addEventListener('click', () => {
                         const key = 'visit_counted_na_amalink';
