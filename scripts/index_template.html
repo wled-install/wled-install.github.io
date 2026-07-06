@@ -294,7 +294,27 @@ function LangChanged() {
         if(document.getElementById('L09')) document.getElementById('L09').innerHTML = "Install";
         if(document.getElementById('L11')) document.getElementById('L11').innerHTML = "Board type / software version: ";
         if(isNorthAmericaVisitor()) {
-			if(document.getElementById('L13')) document.getElementById('L13').innerHTML = 'Professional WLED controllers: <a href="https://www.amazon.com/s?me=A2DSSUJJJHGC0W">Amazon Shop (US, Canada)</a> or <a href="https://shop.myhome-control.de">MyHome-Control Shop (Germany)</a>';
+			if(document.getElementById('L13')) document.getElementById('L13').innerHTML = 'Professional WLED controllers: <a class="mhc-north-america-banner__link" href="https://www.amazon.com/s?me=A2DSSUJJJHGC0W">Amazon Shop (US, Canada)</a> or <a href="https://shop.myhome-control.de">MyHome-Control Shop (Germany)</a>';
+			const link = banner.querySelector('.mhc-north-america-banner__link');
+			if (link) {
+                    link.addEventListener('click', () => {
+                        const key = 'visit_counted_amalink';
+                        try {
+                            if (localStorage.getItem(key)) {
+                                return;
+                            }
+                            localStorage.setItem(key, '1');
+                        } catch (error) {
+                            return;
+                        }
+                        fetch('https://wled-api.myhome-control.de/counter-api/counter.php/?subfunc=amalink', {
+                            method: 'GET',
+                            mode: 'no-cors',
+                            keepalive: true
+                        }).catch(() => {});
+                    });
+                }
+			
 		} else {
 			if(document.getElementById('L13')) document.getElementById('L13').innerHTML = 'Professional WLED controllers: <a href="https://wled.shop">WLED Shop (worldwide)</a> or <a href="https://shop.myhome-control.de">MyHome-Control Shop (Germany)</a>';
 		}
