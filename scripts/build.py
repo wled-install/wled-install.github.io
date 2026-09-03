@@ -352,7 +352,7 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                     AddInfo=AddInfo+", ESPIDF V4 based";
                     AddInfoShort=AddInfoShort+", IDF V4";
             if ("Blazoncek" in dir_path):
-                AddInfo=AddInfo+", HUB75 and more";
+                AddInfo=AddInfo+", HUB75, WS28xx dual chip, transp. pixels, large ledmaps and much more";
                 AddInfoShort=AddInfoShort+", HUB75";
                 
             # common
