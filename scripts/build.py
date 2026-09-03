@@ -270,6 +270,9 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if ("_V4_" in bin_file):
                     AddInfo=AddInfo+", ESPIDF V4 based (fixes reboot issues)";
                     AddInfoShort=AddInfoShort+", ESPIDF4";
+            elif ("BLZ_" in bin_file[0:4]):
+                AddInfo=AddInfo+", HUB75 and more";
+                AddInfoShort=AddInfoShort+", HUB75";
             
             else:
                 if(("_OPI" in bin_file) or ("_opi" in bin_file)):
