@@ -270,10 +270,6 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if ("_V4_" in bin_file):
                     AddInfo=AddInfo+", ESPIDF V4 based (fixes reboot issues)";
                     AddInfoShort=AddInfoShort+", ESPIDF4";
-            elif ("BLZ_" in bin_file[0:4]):
-                AddInfo=AddInfo+", HUB75 and more";
-                AddInfoShort=AddInfoShort+", HUB75";
-            
             else:
                 if(("_OPI" in bin_file) or ("_opi" in bin_file)):
                     AddInfo=AddInfo+", OPI FLASH";
@@ -355,7 +351,10 @@ def proceed_dir(dir_path, dir_text, dir_path_forhtml):
                 if (("_V4" in bin_file) and (("0.14." in bin_file) or ("0.15." in bin_file))):
                     AddInfo=AddInfo+", ESPIDF V4 based";
                     AddInfoShort=AddInfoShort+", IDF V4";
-            
+            if ("Blazoncek" in dir_path):
+                AddInfo=AddInfo+", HUB75 and more";
+                AddInfoShort=AddInfoShort+", HUB75";
+                
             # common
             if ("_debug" in bin_file):
                 AddInfo=AddInfo+", DEBUG enabled"
