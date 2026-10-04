@@ -49,6 +49,7 @@ jobs:
         pio run -e esp32s3dev_16MB_opi || pio run -e esp32s3dev_16MB_opi || true
         pio run -e esp32s3dev_8MB_opi || pio run -e esp32s3dev_8MB_opi || true
         pio run -e esp32s3_4M_qspi || pio run -e esp32s3_4M_qspi || true
+        pio run -e esp32_wrover || pio run -e esp32_wrover || true
 
         # cat platformio.ini
       env:
